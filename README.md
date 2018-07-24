@@ -1,2 +1,2 @@
 # Thesis
-Files associated with my thesis
+Files associated with my thesis. Mostly MATLAB. 
