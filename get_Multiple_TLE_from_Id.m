@@ -5,8 +5,8 @@
 
 load('UserPass.mat') % load in username and password
 %mkdir tle_text_files
-tleA = 1:500:6425;
-tleA=[tleA,6425];
+tleA = 1:500:decayEnd;
+tleA=[tleA,decayEnd];
 
 for j = 1:13
 
@@ -22,8 +22,9 @@ for j = 1:13
         fnName = ['tle_text_files/tle_',num2str(j),'_',num2str(tleA(j)),'_',num2str(tleA(j+1)-1),'.txt'];
     end
     fprintf('j = %d, tle %d to tle %d\n',j,tleA(j), tleA(j+1));
-    %fprintf('\n');
-    strTLE=[strTLE,'orderby/ORDINAL%20asc/limit/',num2str(numberTLE),'/format/tle/metadata/false'];  
+    fprintf(strTLE);
+    fprintf('\n');
+    strTLE=[strTLE,'orderby/ORDINAL%20asc/limit/',num2str(500),'/format/tle/metadata/false'];  
 
 
     URL='https://www.space-track.org/ajaxauth/login';

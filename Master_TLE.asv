@@ -4,21 +4,17 @@
 close all; clear all; clc; % clear workspace
 %% get data
 VarStore % run var store for stored variables, ugly but it works
-get_SATCAT % get SATCAT, comment if already run
-clear all; 
-launchYear=1990;
+%get_SATCAT % get SATCAT, comment out if already run
+%clear all; % clear those variables, comment of already run
+VarStore % run var store for stored variables, ugly but it works
+
 strNamMat = ['SATCAT_',num2str(launchYear),'.mat'];
-load(strNamMat);
-%decayEnd=6425; % Deal with later!
-relDeb=str2num(char(all_TLE(2:decayEnd,2)));
-relDeb=sort(relDeb);
+load(strNamMat); % load mat of SATCAT
 
-numberTLE = 5; % number of satilies TLEs to get
-get_TLE_from_Id % returns 'outStr' String of TLEs
+relDeb=str2num(char(all_TLE(2:decayEnd,2))); % get NORAD CAT ID
 
 
-
-fnName = ['tle_',num2str(numberTLE),'.txt'];
+%get_Multiple_TLE_from_Id % returns 'outStr' String of TLE
 
 save_TLE % Saves TLEs as txt file
 

@@ -14,7 +14,11 @@ load(strNamMat); % load mat of SATCAT
 relDeb=str2num(char(all_TLE(2:decayEnd,2))); % get NORAD CAT ID
 
 
-get_Multiple_TLE_from_Id % returns 'outStr' String of TLE
+%get_Multiple_TLE_from_Id % returns 'outStr' String of TLE
 
-save_TLE % Saves TLEs as txt file
+%save_TLE % Saves TLEs as txt file
+% this is probally un nesssisary, as I could just combind this to 
 
+lne = 2:decayEnd;
+figure(1)
+plot(lne,relDeb)
