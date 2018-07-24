@@ -16,12 +16,10 @@ for j = 1:13
     end
     if tleA(j+1)==decayEnd
         strTLE=[strTLE, num2str(relDeb(tleA(j+1)-1)),num2str(relDeb(tleA(j+1))),'/'];
-        fnName = ['tle_',num2str(j),'_',num2str(tleA(j)),'_',num2str(tleA(j+1)),'.txt'];
     else
         strTLE=[strTLE, num2str(relDeb(tleA(j+1)-1)),'/'];
-        fnName = ['tle_',num2str(j),'_',num2str(tleA(j)),'_',num2str(tleA(j+1)-1),'.txt'];
     end
-    fprintf(strTLE);
+    fprintf(
     strTLE=[strTLE,'orderby/ORDINAL%20asc/limit/',num2str(numberTLE),'/format/tle/metadata/false'];  
 
 
@@ -42,7 +40,7 @@ for j = 1:13
     %% Function to save TLE string as txt
 
     %fnName = ['tle_',num2str(numberTLE),'.txt'];
-    %fnName = ['tle_',num2str(tleA(j)),'_',num2str(tleA(j+1)-1),'.txt'];
+    fnName = ['tle_',num2str(tleA(j)),'_',num2str(tleA(j+1)),'.txt'];
     fid = fopen(fnName,'wt');
     fprintf(fid, '%s', outStr);
     fclose(fid); % prints to txt file
