@@ -1,0 +1,24 @@
+%% Master Program
+% By Philip Hoddinott
+%% Setup
+close all; clear all; clc; % clear workspace
+%% get data
+VarStore % run var store for stored variables, ugly but it works
+get_SATCAT % get SATCAT, comment if already run
+clear all; 
+launchYear=1990;
+strNamMat = ['SATCAT_',num2str(launchYear),'.mat'];
+load(strNamMat);
+%decayEnd=6425; % Deal with later!
+relDeb=str2num(char(all_TLE(2:decayEnd,2)));
+relDeb=sort(relDeb);
+
+numberTLE = 5; % number of satilies TLEs to get
+get_TLE_from_Id % returns 'outStr' String of TLEs
+
+
+
+fnName = ['tle_',num2str(numberTLE),'.txt'];
+
+save_TLE % Saves TLEs as txt file
+
