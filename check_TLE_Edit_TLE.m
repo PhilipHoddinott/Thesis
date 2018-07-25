@@ -32,6 +32,7 @@ for i =1:length(relDebCheck) % gets the TLES that have still not been got
         tle_to_get(conck,1)=relDebCheck(i);
         tle_to_get(conck,2)=i;
         rowIn=[relDebCheck(i),conck,conck,conck,conck,conck,conck,conck,conck,conck,conck];
+%rowIn=[];%[relDebCheck(i),conck,conck,conck,conck,conck,conck,conck,conck,conck,conck];
         temp = [tleUP(1:i-1,:);rowIn];
         tempBot=tleUP(i:end,:);
         tleUP=[temp;tempBot];       
@@ -57,15 +58,60 @@ grid on
 for i=1:length(relDebCheck)-1
     tleCompCheck(i,:)=[relDebCheck(i),tleUP(i,:)];
 end
-
+ fprintf('prepare for fina\n');
+tile_pre_final=tleCompCheck;
 tle_final=tleCompCheck;
+%{
 float_length=length(tle_final);
-for i=1:float_length;
-    if tle_final(i,1)==tle_final(i,3)
+for i=1:float_length
+    %if tle_final(i,2)==tle_final(i,3)
+    if i>length(tle_final)
+ break;
+elseif tle_final(i,3)<100
+        fprintf('i=%d\n',i);
         tle_final(i,:)=[];
         float_length=length(tle_final);
     end
 end
+%}
 tle_final(:,1)=[];
+float_length=length(tle_final);
+philip=1;
+i=1;
+while philip<4
+    float_length=length(tle_final);
+    if i>float_length
+        philip=5;
+    elseif tle_final(i,2)<100
+        fprintf('i=%d\n',i);
+        tle_final(i,:)=[];
+        float_length=length(tle_final);
+    end
+    i=i+1;
+    float_length=length(tle_final);
+    if i>float_length
+        philip=5;
+    end
+end
+    
+philip=1;
+i=1;
+while philip<4
+    float_length=length(tle_final);
+    if i>float_length
+        philip=5;
+    elseif tle_final(i,2)<100
+        fprintf('i=%d\n',i);
+        tle_final(i,:)=[];
+        float_length=length(tle_final);
+    end
+    i=i+1;
+    float_length=length(tle_final);
+    if i>float_length
+        philip=5;
+    end
+end
+%% For some reason it gets rid of them best with two. IDK
+
 
     

@@ -35,10 +35,15 @@ strNam = ['TLE_',num2str(launchYear),'.mat']; % save the TLE as a .mat
 save(strNam,'tle_final');
 
 
-close all; clear all; % clear out everything
+%close all; clear all; % clear out everything
 VarStore % run var store for stored variables, ugly but it works
 strNam = ['TLE_',num2str(launchYear),'.mat']; % get strNam
 
 load(strNam, 'tle_final')
+
+tle_low=sortrows(tle_final(:,:),11);
+save('Orbits_MOD_1/tle_low2high.mat','tle_low');
+
+%all_TLES=sortrows(all_TLE(2:end,:),2); % sort rows
 
 

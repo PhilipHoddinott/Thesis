@@ -29,7 +29,6 @@ end
 
 % Earth radius (miles)
 rad = 6378136/1000/1.6;
-rad = (6378136/1000)*0.621371
 colors = [.6 .7 .8];
 colors2 = 'k';
 switch action
@@ -162,12 +161,12 @@ case 'plot_deb'
 
 load('tle_low2high.mat', 'tle_low')
    deg2rad = pi/180;
-   for countP=1:12
+   for countP=1:500
     inc =  tle_low(countP,3)
-    alt_p=(tle_low(countP,11)-6378136)*0.000621371192;
-    alt_a=(tle_low(countP,10)-6378136)*0.000621371192;
+    alt_p=tle_low(countP,11)*0.000621371192;
+    alt_a=tle_final(countP,10)*0.000621371192;
     Omega=tle_low(countP,4)
-    omega=tle_low(countP,6)
+    omega=tle_final(countP,6)
 
 %{
 load('TLE_1990.mat', 'tle_final')
