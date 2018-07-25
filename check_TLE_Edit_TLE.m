@@ -113,6 +113,24 @@ for i =1:length(tleUP)
     end
 end
 
+figure(7)
+hold on
+plot(1:length(tleUP),tleUP(:,1),'-o')
+plot(1:length(tleUP),relDebCheck(1:length(tleUP)),'-x')
+grid on
+
+for ip=1:length(tleUP)
+    diff4(ip)=abs(tleUP(ip,1)-relDebCheck(ip));
+end
+figure(8)
+plot(1:ip,diff4)
+grid on
+
+
+for i=1:length(relDebCheck)-1
+    tleCompCheck(i,:)=[relDebCheck(i),tleUP(i,:)];
+end
+
         
 
 tleComp=[];
