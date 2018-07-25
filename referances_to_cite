@@ -1,0 +1,12 @@
+https://www.mathworks.com/matlabcentral/fileexchange/31932-orbits-plot-orbits-around-earth-in-an-interactive-manner
+% for the orbit visulaization (this is neat but probally won't use it
+
+https://github.com/jgte/matlab-sgp4/blob/master/get_tle.m
+% for the post to get the TLE
+
+https://www.mathworks.com/matlabcentral/fileexchange/56904-read-two-line-element-ephemeris-files
+% for parsing the TLE
+
+thanks for Prof Anderson
+John Benkhe
+freinds/family
