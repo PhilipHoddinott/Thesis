@@ -5,3 +5,4 @@ tle_inc=200; % the number of TLEs in a text file, will fiddle with to see if i c
 tle_folder = 'tle_text_files_'; tle_folder=[tle_folder,num2str(tle_inc)];
 
 timeOutVal=1; % time till time out for url read
+decayEnd=6425;

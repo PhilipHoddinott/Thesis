@@ -132,17 +132,12 @@ relDebCheck=relDeb;
 tle_to_get=[];
 conck=1;
 for i =1:length(relDebCheck) % gets the TLES that have still not been got
-    if i>length(tleUP)
-        fprintf('end now\n');
-    elseif relDebCheck(i)~=tleUP(i,1)
+    if relDebCheck(i)~=tleUP(i,1)
         tle_to_get(conck,1)=relDebCheck(i);
         tle_to_get(conck,2)=i;
-        rowIn=[relDebCheck(i),conck,conck,conck,conck,conck,conck,conck,conck,conck,conck];
-        temp = [tleUP(1:i-1,:);rowIn];
-        tempBot=tleUP(i:end,:);
-        tleUP=[temp;tempBot];
-        %tleUP=[tem
-        %tleUP=[tleUP(1:i,:);relDebCheck(i),conck,conck,conck,conck,conck,conck,conck,conck,conck,conck;tleUP(i+1:end,:)];
+        rowIn=[
+        temp = [tleUP(1:i,:);
+        tleUP=[tleUP(1:i,:);relDebCheck(i),conck,conck,conck,conck,conck,conck,conck,conck,conck,conck;tleUP(i+1:end,:)];
         %relDebCheck(i)=[];  
         
         conck=conck+1;

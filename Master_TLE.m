@@ -26,5 +26,6 @@ VarStore % run var store for stored variables, ugly but it works
 
 readTLE_txt
 
-check_TLE
+%check_TLE
+check_TLE_Edit_TLE
 
