@@ -4,6 +4,7 @@
 close all; clear all; clc; % clear workspace
 %% get data
 VarStore % run var store for stored variables, ugly but it works
+%% func 
 %get_SATCAT % get SATCAT, comment out if already run
 %clear all; % clear those variables, comment of already run
 VarStore % run var store for stored variables, ugly but it works
@@ -13,8 +14,34 @@ load(strNamMat); % load mat of SATCAT
 
 relDeb=str2num(char(all_TLE(2:decayEnd,2))); % get NORAD CAT ID
 
-
+%% func
 %get_Multiple_TLE_from_Id % returns 'outStr' String of TLE
+%% func
+%save_TLE % Saves TLEs as txt file
+% this is probally un nesssisary, as I could just combind this to 
+file = 'tle_text_files/tle_1_1_500.txt';
 
-save_TLE % Saves TLEs as txt file
+readTLE_txt
 
+lne = 2:decayEnd;
+figure(1)
+hold on
+plot(lne(1:500),relDeb(1:500),'-x')
+plot(lne(1:500), tle_stor_1_500(2:501,1),'-o')
+leee=499;%500;
+for i=1:leee
+    diff(i)=tle_stor_1_500(i+1,1)-relDeb(i);
+end
+figure(2)
+plot(lne(1:leee),diff)
+grid on
+
+for i=492:500
+    fprintf('%d, ',relDeb(i));
+end
+fprintf('\n');
+for i=492:501
+    fprintf('%d, ',tle_stor_1_500(i,1));
+end
+relDeb(492:500)
+tle_stor_1_500(493:501,1)

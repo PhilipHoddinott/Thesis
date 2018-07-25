@@ -5,7 +5,7 @@
 
 load('UserPass.mat') % load in username and password
 %mkdir tle_text_files
-tleA = 1:500:decayEnd;
+tleA = 1:tle_inc:decayEnd;
 tleA=[tleA,decayEnd];
 
 for j = 1:13
@@ -16,10 +16,10 @@ for j = 1:13
     end
     if tleA(j+1)==decayEnd
         strTLE=[strTLE, num2str(relDeb(tleA(j+1)-1)),num2str(relDeb(tleA(j))),'/'];
-        fnName = ['tle_text_files/tle_',num2str(j),'_',num2str(tleA(j)),'_',num2str(tleA(j+1)),'.txt'];
+        fnName = [tle_folder,'/tle_',num2str(j),'_',num2str(tleA(j)),'_',num2str(tleA(j+1)),'.txt'];
     else
         strTLE=[strTLE, num2str(relDeb(tleA(j+1)-1)),'/'];
-        fnName = ['tle_text_files/tle_',num2str(j),'_',num2str(tleA(j)),'_',num2str(tleA(j+1)-1),'.txt'];
+        fnName = [tle_folder,'/tle_',num2str(j),'_',num2str(tleA(j)),'_',num2str(tleA(j+1)-1),'.txt'];
     end
     fprintf('j = %d, tle %d to tle %d\n',j,tleA(j), tleA(j+1));
     fprintf(strTLE);
