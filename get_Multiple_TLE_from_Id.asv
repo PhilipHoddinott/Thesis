@@ -24,7 +24,7 @@ for j = 1:length(tleA)-1
     fprintf('j = %d, tle %d to tle %d\n',j,tleA(j), tleA(j+1));
     fprintf(strTLE);
     fprintf('\n');
-    strTLE=[strTLE,'orderby/ORDINAL%20asc/limit/',num2str(tle_inc),'/format/tle/metadata/false'];  
+    strTLE=[strTLE,'orderby/ORDINAL%20asc/limit/',num2str(500),'/format/tle/metadata/false'];  
 
 
     URL='https://www.space-track.org/ajaxauth/login';
@@ -38,7 +38,7 @@ for j = 1:length(tleA)-1
       ]...
     };
 
-    out3TLE=urlread(URL,'Post',post,'Timeout',timeOutVal); % gets the output
+    out3TLE=urlread(URL,'Post',post,'Timeout',50); % gets the output
     outStr=convertCharsToStrings(out3TLE); % coverts output to string
 
     %% Function to save TLE string as txt

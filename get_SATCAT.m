@@ -17,7 +17,7 @@ post={... % Create Post (rember to referance the github)
 };
 
 
-out=urlread(URL,'Post',post,'Timeout',50); % gets the output
+out=urlread(URL,'Post',post,'Timeout',timeOutVal); % gets the output
 outStr=convertCharsToStrings(out); % coverts output to string
 
 

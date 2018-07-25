@@ -10,6 +10,17 @@
 
 % Modified to save TLEs
 % after i get one working I will get it to loop through multiple TLEs
+tleA = 1:tle_inc:decayEnd;
+tleA=[tleA,decayEnd];
+
+numArrays = length(tleA)-1;
+tle_stor_Main = cell(numArrays,1);
+for ik = 1: length(tleA)-1 %% untill I fix that error
+    if tleA(ik+1)==decayEnd
+        file = [tle_folder,'/tle_',num2str(ik),'_',num2str(tleA(ik)),'_',num2str(tleA(ik+1)),'.txt'];
+    else
+        file = [tle_folder,'/tle_',num2str(ik),'_',num2str(tleA(ik)),'_',num2str(tleA(ik+1)-1),'.txt'];
+    end
  catalog = [];
 
   fd = fopen(file,'r');
@@ -52,6 +63,7 @@ A0='unknown';
       fprintf('Semi-minor axis: %.0f meters\n', b)
       
       %tle_stor_1_500(n+1,:)=[satnum,str2num(A1(19:32)),Incl,Omega,ecc,w,M,n,T,a,b];
+      
       tle_stor_1_500(j+1,1)=satnum;
       tle_stor_1_500(j+1,2)=str2num(A1(19:32));
       tle_stor_1_500(j+1,3)=Incl;
@@ -71,6 +83,8 @@ A0='unknown';
   end
 
   fclose(fd);
+  tle_stor_Main{ik}=tle_stor_1_500(:,:);
+end
 %end
 
 %%
