@@ -23,9 +23,24 @@ VarStore % run var store for stored variables, ugly but it works
 %file = 'tle_1_1_500.txt';
 %file =['tle_1_1_',num2str(tle_inc),'.txt'];
 %file = [tle_folder,'/',file];
-
+fprintf('readTLE_txt\n');
 readTLE_txt
 
 %check_TLE
+fprintf('check_TLE_Edit_TLE\n');
 check_TLE_Edit_TLE
+
+fprintf('pickUP_TLE\n');
+pickUP_TLE
+
+fprintf('readTLE_PU_txt\n');
+readTLE_PU_txt
+
+fprintf('append_TLE\n');
+append_TLE
+%% TO DO
+% Make the funcitons more atnomus, call loops inside the master program
+% like the get_TLE stuff
+
+
 

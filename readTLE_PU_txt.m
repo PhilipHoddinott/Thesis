@@ -10,17 +10,8 @@
 
 % Modified to save TLEs
 % after i get one working I will get it to loop through multiple TLEs
-tleA = 1:tle_inc:decayEnd;
-tleA=[tleA,decayEnd];
 
-numArrays = length(tleA)-1;
-tle_stor_Main = cell(numArrays,1);
-for ik = 1: length(tleA)-1 %% untill I fix that error
-    if tleA(ik+1)==decayEnd
-        file = [tle_folder,'/tle_',num2str(ik),'_',num2str(tleA(ik)),'_',num2str(tleA(ik+1)),'.txt'];
-    else
-        file = [tle_folder,'/tle_',num2str(ik),'_',num2str(tleA(ik)),'_',num2str(tleA(ik+1)-1),'.txt'];
-    end
+    file = fnName;
  catalog = [];
 
   fd = fopen(file,'r');
@@ -46,7 +37,7 @@ A0='unknown';
       Incl = str2num(A2(9:16));
       %fprintf('Inclination: %f deg\n', Incl)
       Omega = str2num(A2(18:25));
-      %%fprintf('RA of ascending node: %f deg\n', Omega)
+      %fprintf('RA of ascending node: %f deg\n', Omega)
       ecc = str2num(['.' A2(27:33)]);
       %fprintf('Eccentricity: %f\n', ecc)
       w = str2num(A2(35:42));
@@ -64,27 +55,30 @@ A0='unknown';
       
       %tle_stor_1_500(n+1,:)=[satnum,str2num(A1(19:32)),Incl,Omega,ecc,w,M,n,T,a,b];
       
-      tle_stor_1_500(j+1,1)=satnum;
-      tle_stor_1_500(j+1,2)=str2num(A1(19:32));
-      tle_stor_1_500(j+1,3)=Incl;
-      tle_stor_1_500(j+1,4)=Omega;
-      tle_stor_1_500(j+1,5)=ecc;
-      tle_stor_1_500(j+1,6)=w;
-      tle_stor_1_500(j+1,7)=M;
-      tle_stor_1_500(j+1,8)=n;
-      tle_stor_1_500(j+1,9)=T;
-      tle_stor_1_500(j+1,10)=a;
-      tle_stor_1_500(j+1,11)=b;
+      tle_stor_PU(j+1,1)=satnum;
+      tle_stor_PU(j+1,2)=str2num(A1(19:32));
+      tle_stor_PU(j+1,3)=Incl;
+      tle_stor_PU(j+1,4)=Omega;
+      tle_stor_PU(j+1,5)=ecc;
+      tle_stor_PU(j+1,6)=w;
+      tle_stor_PU(j+1,7)=M;
+      tle_stor_PU(j+1,8)=n;
+      tle_stor_PU(j+1,9)=T;
+      tle_stor_PU(j+1,10)=a;
+      tle_stor_PU(j+1,11)=b;
+      disp(tle_stor_PU);
     end
 
    % A0 = fgetl(fd);
     A1 = fgetl(fd);
     A2 = fgetl(fd);
+     disp(tle_stor_PU);
   end
 
   fclose(fd);
-  tle_stor_Main{ik}=tle_stor_1_500(:,:);
-end
+ 
+  %tle_stor_Main{ik}=tle_stor_PU(:,:);
+
 %end
 
 %%
