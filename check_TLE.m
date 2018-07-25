@@ -8,8 +8,13 @@ end_c_T=decayEnd-1; % 4800
 
 for ik=1:length(tleA)-1
     tle_stor_temp=tle_stor_Main{ik};
-    tle_stor_current=[tle_stor_current;tle_stor_temp(2:tle_inc+1,1)];
+    tle_stor_current=[tle_stor_current;tle_stor_temp(2:tle_inc+1,:)];
 end
+tleU=unique(tle_stor_current(:,:),'rows');
+[C,ia,ic]=unique(tle_stor_current(:,1),'rows');
+tleUP = tle_stor_current(ia,:);
+
+tle_stor_current=sortrows(tle_stor_current(1:end,:),1);
 %end_c_T=length(tle_stor_current);
 %diff(:)=tle_stor_current(:,1)-relDeb(1:end_c_T,1);
 diff(:)=tle_stor_current(1:decayEnd-1,1)-relDeb(:,1);
@@ -24,6 +29,8 @@ hold on
 plot(lne,diff,'-x')
 grid on
 pk=1;
+
+
 for i=1:1200%length(diff)
     if abs(diff(i))>0
         fprintf('problem %d:\n',pk);
@@ -34,6 +41,50 @@ for i=1:1200%length(diff)
         pk=pk+1;
     end
 end
+
+for pp=2:length(tleU)-1
+    sl(pp)=tleU(pp,1)-tleU(pp-1,1);
+end
+sl1=1:length(sl);
+figure(3)
+plot(sl1,sl)
+grid on
+for ppp=1:length(relDeb)
+    ssl(ppp)=tleU(ppp,1)-relDeb(ppp,1);
+end
+
+ssl1=1:length(relDeb);
+figure(4)
+plot(ssl1,ssl)
+grid on
+tleComp=[];
+for i=1:length(relDeb)
+    tleComp(i,:)=[relDeb(i),tleU(i,:)];
+end
+tleU1=tleU;
+for i=3:length(tleU)
+    curr_cat=tleU(i,1);
+    yn=0;
+    for j=1:i-1
+        if curr_cat==tleU(j,1)
+            yn=yn+1;
+            locP=j;
+        end
+    end
+    if yn~=0
+        tleU1(i,:)=[];
+        %tleU1=[tleU1(1:i-1,:);tleU1(i+1:end,:)];
+        fprintf('removed dup ID %d from line %d, also at %d, lenght now %d\n',curr_cat,i,locP,length(tleU1));
+    end
+end
+
+for i=1:length(tleU1)
+    tleU1Comp(i,:)=[relDeb(i),tleU1(i,:)];
+end
+
+        
+            
+    
 
     
 
