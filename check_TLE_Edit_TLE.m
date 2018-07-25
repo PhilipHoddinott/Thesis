@@ -102,6 +102,18 @@ end
 for i=1:length(tleUP)
     tleU1PP_Comp(i,:)=[relDeb(i),tleUP(i,:)];
 end
+relDebCheck=relDeb;
+tle_to_get=[];
+conck=1;
+for i =1:length(tleUP)
+    if relDebCheck(i)~=tleUP(i,1)
+        tle_to_get(conck,1)=relDebCheck(i);
+        relDebCheck(i)=[];  
+        conck=conck+1;
+    end
+end
+
+        
 
 tleComp=[];
 for i=1:length(relDeb)
