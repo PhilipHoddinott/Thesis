@@ -37,9 +37,10 @@ switch action
    % build GUI
 case 'build'
    
-   strings = {'w','W','i','Apogee','Perigee'};
-   tags = {'o','O','i','alt_a','alt_p'};
-   values = {'45','45','30','345','115'};
+   %strings = {'w','W','i','Apogee','Perigee'};
+   strings = {'w','W','i','Apogee','Perigee','numOrb'};
+   tags = {'o','O','i','alt_a','alt_p','numOrb'};
+   values = {'45','45','30','345','115','10'};
    strings2 = {'Plot Debris','Plot Orbit','Clear Orbits','Center Earth',...
          'Zoom All','Flyby','Help','Toggle Earth','Quit'};
    callbacks = {'orbits(''plot_deb'')','orbits(''plot'')','orbits(''clear'')',...
@@ -161,8 +162,9 @@ case 'earth'
 case 'plot_deb'
 
 load('tle_low2high.mat', 'tle_low')
+numOrb = str2num(get(findobj('tag','numOrb'),'string'));
    deg2rad = pi/180;
-   for countP=1:12
+   for countP=1:numOrb
     inc =  tle_low(countP,3)
     alt_p=(tle_low(countP,11)-6378136)*0.000621371192;
     alt_a=(tle_low(countP,10)-6378136)*0.000621371192;
