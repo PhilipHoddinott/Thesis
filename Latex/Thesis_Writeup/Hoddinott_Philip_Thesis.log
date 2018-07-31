@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  31 JUL 2018 16:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  31 JUL 2018 17:56
 entering extended mode
 **./Hoddinott_Philip_Thesis.tex
 (Hoddinott_Philip_Thesis.tex
@@ -1177,9 +1177,9 @@ LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <25> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 104.
  [5] [6]
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 128.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 136.
  [1]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 149.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 154.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
@@ -1190,16 +1190,11 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 170.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 175.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 210.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(Hoddinott_Philip_Thesis.bbl [2] [3]) [4
-
-] [5
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 215.
+ [2] [3]
+(Hoddinott_Philip_Thesis.bbl [4]) [5
 
 ]
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
@@ -1209,22 +1204,24 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 AED: lastpage setting LastPage
 [6] (Hoddinott_Philip_Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 10066 strings out of 493312
- 146221 string characters out of 3138896
- 380544 words of memory out of 3000000
- 13328 multiletter control sequences out of 15000+200000
- 97001 words of font info for 114 fonts, out of 3000000 for 9000
+ 10131 strings out of 493312
+ 146938 string characters out of 3138896
+ 380550 words of memory out of 3000000
+ 13334 multiletter control sequences out of 15000+200000
+ 107355 words of font info for 160 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,11n,43p,293b,377s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,12n,43p,553b,377s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Philip/AppData/Roaming/MiKTeX/2.9/
 fonts/enc/dvips/cm-super/cm-super-t1.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc
-/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/adobe/utopia/putb8a
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/adobe/utopia/putr8a.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/adobe/utopia/putri8a.pfb><C:/Users/Philip/AppDa
-ta/Roaming/MiKTeX/2.9/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on Hoddinott_Philip_Thesis.pdf (12 pages, 159604 bytes).
+/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/fourier/four
+ier-mlit.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/fourier/fourier-ms
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/adobe/utopia/putb8a.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/adobe/utopia/putr8a.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/adobe/utopia/putri8a.pfb><C:/Users/Philip/AppData/Roaming/MiK
+TeX/2.9/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on Hoddinott_Philip_Thesis.pdf (12 pages, 171706 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
+ 70 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 32774 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 38918 words of extra memory for PDF output out of 42996 (max. 10000000)
 

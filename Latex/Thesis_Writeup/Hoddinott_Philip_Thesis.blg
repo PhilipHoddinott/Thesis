@@ -3,4 +3,6 @@ The style file: unsrt.bst
 Database file #1: ref.bib
 Warning--entry type for "SpaceTrackTLE" isn't style-file defined
 --line 3 of file ref.bib
-(There was 1 warning)
+Warning--entry type for "celestrak_TLE_FAQ" isn't style-file defined
+--line 22 of file ref.bib
+(There were 2 warnings)

@@ -105,7 +105,14 @@
 	%\addcontentsline{toc}{section}{\uppercase{Acknowledgement}}
 	
 	
-	Thank lots of people here
+	Thank lots of people here\par 
+	
+	Mom, dad, David,
+	P Anderson
+	John B for git and PHP
+	Paul McKee for latex 
+	
+	
 	
 
 	
@@ -116,7 +123,8 @@
 	\newpage
 	\section{Abstract}
 
-	Talk about Goals of project
+The goal of this project is to get access to the orbital information of space debris.\par 
+This is for the initial stage of the project: get data from NORAD into a useable format. Should this be accomplished in a timely manner more work will be done on the orbital dynamics of OSCAR getting to said debris.
 	% ------------------------------------------------------------
 	% Introduction
 	% ------------------------------------------------------------
@@ -141,10 +149,7 @@
 	\newpage
 	%\section{Data Types}
 	\section{Two Line Elements}
-	A Two Line Element (TLE) is a data format that encodes a list of orbital elements for an Earth-orbiting object for a given point in time [Re do this]
-
-	
-	Stuff about it\par
+	A Two Line Element (TLE) is a data format that encodes a list of orbital elements for an Earth-orbiting object for a given point in time [\textcolor{red}{Re do this}]\par
 	An example is given below. The line under the dashes is the reference number line.
 	\begin{verbatim}
 	ISS (ZARYA)
@@ -209,6 +214,31 @@
 			\end{tabular}%
 		}
 	\end{table}
+	Of the terms given in table \ref{tab:TLE_Desc} the B* term is the least heard of. It is a way of modeling drag on orbiting objects in propagation models.  
+	Aerodynamic drag is given by the following equation:
+	\begin{equation}
+	F_D = \frac{1}{2}\rho C_d A v^2
+	\end{equation}
+	Where $A$ is the area, $C_d$ is the drag coefficient, $v$ the velocity, and $\rho$ is the fluid density. From Newton's second law
+	\begin{equation}
+	F = m\times a
+	\end{equation}
+	the accleration due to the force of drag is 
+	\begin{equation}
+	a_D=\frac{F_D}{m}=\frac{\rho C_d A v^2}{2m}=\frac{ C_d A}{m}\times\frac{\rho v^2}{2}
+	\end{equation}
+	The ballistic coefficient is given by the following equation:
+	\begin{equation}
+	B=\frac{ C_d A}{m}
+	\end{equation}
+	The \textit{starred} ballistic coefficient is then
+	\begin{equation}
+	B^{*} = \frac{\rho_0 B}{2}=\frac{\rho_0 C_d A}{2m}
+	\end{equation}
+	This turns the equation for acceleration due to drag into \cite{celestrak_TLE_FAQ}\cite{castor2_BSTAR}
+	\begin{equation}
+	a_D=\frac{\rho}{\rho_0}B^{*} v^2
+	\end{equation}
 	
 	\textcolor{red}{to do here, add more details on what the checksum and stuff liek that is}
 	\subsection{SatCat?}
@@ -218,7 +248,27 @@
 	
 	
 	\subsection{Space-Track Query}
-	\subsection{matlab code?}
+	
+	\section{Code Overview}
+		\subsection{VarStore.m}
+		This is a file where a few imporant variables are stored. Depening on how the code is reformatted, it might get deleted.\textcolor{red}{COME BACK TO THIS}
+		\subsection{UserPass.m}at
+		This file is where the username and password for space-track.org are stored. 
+		\subsection{MASTER\_TLE.m}
+		This file is the master file for the Two Line Element MATLAB files. Running it will run all of the associated MATLAB files. These MATLAB files take some time to run, so it may be convenient to toggle the files run by the MASTER\_TLE.m
+		\subsection{get\_SATCAT.m}
+		Get\_SATCAT.m is the MATLAB file that gets the satellite catalog  numbers of all orbital debris launched after a given year and with the “RCS\_SIZE” value equal to “SMALL”. The Launch Year can be set by the values given by the user in VarStore.m The default launch year is set to 1990. Note that an earlier launch year will provide more data, and thus it will take more time to process. This may cause a time out error. Should this happen the timeOutVal in VarStore.m should be adjusted to be longer.\par 
+		Once the SATCAT csv file has been acquired the file then formats it. The quotation marks that are around every entry are removed. The debris that have already deorbited are also removed. Finally the debris is sorted by NORAD Catoluge Id, and saved as a .mat file.
+		\subsection{get\_Multiple\_TLE\_from\_Id.m}
+		This file takes the Ids given in the .mat file and then obtains the Two Line Element files associated with the debris. It does this by saving the TLEs in .txt files. The number of TLEs grabbed at a time and saved in a .txt file is set by the user. It is not advised to go above 400, as that causes time out errors. \par 
+		Withing MASTER\_TLE.m, this code is surrounded by a a loop and a try/catch error. The loop runs through all the different blocks of TLEs. In the case of a time out the the try/catch will attempt to download the TLEs a second time.\par 
+		At this point in the code the space debris has had it's Two Line Element files saved to .txt files. This is the longest part of the code to run, but also with the .txt files saved, these functions need only be run once every few days. 
+
+		\subsection{readTLE\_txt.m}
+		This MATLAB file reads the .txt files and then converts the TLE format to the standard orbital elements stored in a .mat file. 
+		\subsection{check\_TLE\_Edit\_TLE.m}
+		
+		
 	
 	
 	\section{Conclusion}
@@ -229,14 +279,7 @@
 		
 		\bibliographystyle{unsrt}
 		\bibliography{ref}
-		\begin{thebibliography}{10}
-			\addcontentsline{toc}{section}{Bibliography}
-			
-			\bibitem{Hold} %1
-			Hold for now before I used the bib file
-			
-			
-		\end{thebibliography}
+
 		
 		%-----------------------------------------------------------
 		% Appendix
@@ -262,7 +305,7 @@
 			%emph=[2]{word1,word2}, emphstyle=[2]{style},    
 		}
 		
-	Thanks for Paul McKee who started this template. It seems to have good matlab code viwing
+	%Thanks for Paul McKee who started this template. It seems to have good matlab code viwing
 		
 	\end{document}
 	

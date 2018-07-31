@@ -4,4 +4,8 @@
 Space Track.
 \newblock Basic description of the two line element (tle) format, 2013.
 
+\bibitem{celestrak_TLE_FAQ}
+By~Dr.~T.S. Kelso.
+\newblock Frequently asked questions: Two-line element set format, 1998.
+
 \end{thebibliography}

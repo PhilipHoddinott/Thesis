@@ -19,7 +19,7 @@ for i=1:length(tleUP)
 end
 figure(1)
 
-plot(1:6388,tleCheck1(:,1))
+plot(1:length(tleCheck1(:,1)),tleCheck1(:,1))
 grid on
 
 relDebCheck=relDeb;
