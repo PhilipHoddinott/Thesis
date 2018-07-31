@@ -1,0 +1,166 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdftex 2018.7.31)  31 JUL 2018 13:28
+entering extended mode
+**./rpithes-short.tex
+(rpithes-short.tex
+! Undefined control sequence.
+l.14 \documentclass
+                   {thesis}
+? 
+! Undefined control sequence.
+l.15 \usepackage
+                {graphicx}   % if you want to include graphics files
+? 
+! Undefined control sequence.
+l.25 \thesistitle
+                 {\bf Differential Equations\\On two lines}
+? 
+! Argument of \\ has an extra }.
+<inserted text> 
+                \par 
+<to be read again> 
+                   }
+l.25 ...{\bf Differential Equations\\On two lines}
+                                                  
+? 
+Runaway argument?
+On two lines
+! Paragraph ended before \\ was complete.
+<to be read again> 
+                   \par 
+<to be read again> 
+                   }
+l.25 ...{\bf Differential Equations\\On two lines}
+                                                  
+? 
+! Undefined control sequence.
+l.26 \author
+            {Sir Isaac Newton}
+? 
+! Undefined control sequence.
+l.27 \degree
+            {Master of Science}
+? 
+! Undefined control sequence.
+l.28 \department
+                {Mathematics} % provide your area of study here; e.g.,
+? 
+! Undefined control sequence.
+l.30 \thadviser
+               {Galileo}
+? 
+! Undefined control sequence.
+l.35 \submitdate
+                {January 1685\\(For Graduation May 1685)}
+? 
+! Argument of \\ has an extra }.
+<inserted text> 
+                \par 
+<to be read again> 
+                   }
+l.35 ...e{January 1685\\(For Graduation May 1685)}
+                                                  
+? 
+Runaway argument?
+(For Graduation May 1685)
+! Paragraph ended before \\ was complete.
+<to be read again> 
+                   \par 
+<to be read again> 
+                   }
+l.35 ...e{January 1685\\(For Graduation May 1685)}
+                                                  
+? 
+! Undefined control sequence.
+l.39 \begin
+           {document}
+? 
+! Undefined control sequence.
+l.40 \titlepage
+                            % Print titlepage
+? 
+! Undefined control sequence.
+l.42 \tableofcontents
+                            % required
+? 
+! Undefined control sequence.
+l.43 \listoftables
+                            % required if there are tables
+? 
+! Undefined control sequence.
+l.44 \listoffigures
+                            % required if there are figures
+? 
+! Undefined control sequence.
+l.46 \specialhead
+                 {ACKNOWLEDGMENT}
+? 
+! Undefined control sequence.
+l.50 \specialhead
+                 {ABSTRACT}
+? 
+! Undefined control sequence.
+l.53 \chapter
+             {INTRODUCTION}
+? 
+! Undefined control sequence.
+l.55 bibliography, use a command such as:\cite
+                                              {thisbook}
+? 
+! Undefined control sequence.
+l.56 \section
+             {A Section Heading}
+? 
+! Undefined control sequence.
+l.58 \subsection
+                {A Subsection Heading}
+? 
+! Undefined control sequence.
+l.60 \chapter
+             {THE NEXT CHAPTER}
+? 
+! Undefined control sequence.
+l.62 Another citation for the bibliography:\cite
+                                                {anotherbook}
+? 
+
+Overfull \hbox (3.03891pt too wide) in paragraph at lines 60--63
+[]\tenrm THE NEXT CHAP-TER And so on, for more chap-ters. An-other ci-ta-tion f
+or the bib-li-og-ra-phy:anotherbook |
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm T
+.\tenrm H
+.\tenrm E
+.\glue 3.33333 plus 1.66498 minus 1.11221
+.etc.
+
+! Undefined control sequence.
+l.66 \specialhead
+                 {LITERATURE CITED}
+? 
+! Undefined control sequence.
+l.67 \begin
+           {singlespace}
+? 
+! Undefined control sequence.
+l.68 \begin
+           {thebibliography}{99}
+? 
+! Undefined control sequence.
+l.69 \bibitem
+             {thisbook} This is the first item in the Bibliography.
+? 
+! Undefined control sequence.
+l.72 \bibitem
+             {anotherbook} The second item in the Bibliography.
+? 
+[1{C:/Users/Philip/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] )<C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on rpithes-short.pdf (1 page, 35442 bytes).
+PDF statistics:
+ 14 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

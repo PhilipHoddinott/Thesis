@@ -1,0 +1,268 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Paul McKee
+% Rensselaer Polytechnic Institute
+% 1/31/18
+% Master's Thesis
+% with Dr. Kurt Anderson
+% LaTeX Template: Project Titlepage Modified (v 0.1) by rcx
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{report}
+\usepackage[a4paper]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[myheadings]{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
+\usepackage[T1]{fontenc}
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage{fourier}
+\usepackage[protrusion=true, expansion=true]{microtype}
+\usepackage[english]{babel}
+\usepackage{sectsty}
+\usepackage{url, lipsum}
+\usepackage{makecell}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{titlesec}
+\usepackage[table,xcdraw]{xcolor}
+\titleformat{\section}{\normalfont\fontsize{25}{25}\bfseries}{\thesection}{1em}{}
+
+\usepackage[format=hang,font={small,bf},labelfont=bf]{caption}
+
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+\pagestyle{fancy}
+%\fancyhf{Philip Hoddinott, Module 4 Questions}
+\fancyhf{}
+\fancyhead[L]{Philip Hoddinott}
+\fancyhead[C]{Project 2}
+\fancyhead[R]{\leftmark}
+
+
+% %---------------------------------------------------------------
+% % HEADER & FOOTER
+% %---------------------------------------------------------------
+
+\fancyhf{}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+%\setlength\headheight{0pt}
+%\fancyhead[L]{ Paul McKee }
+%\fancyhead[R]{Rensselaer Polytechnic Institute}
+\cfoot{ \thepage\ } 
+
+
+%--------------------------------------------------------------
+% TITLE PAGE
+%--------------------------------------------------------------
+
+\begin{titlepage}
+	\title{ 
+		\LARGE \textbf{\uppercase{Tracking of space debris from publicly available data\\ Think of a better title}} \\
+		\vspace{0.25cm}
+		\LARGE \textbf{Philip Hoddinott}
+	}
+	\author{\small{Submitted in Partial Fulfillment of the Requirements} \\ \small{for the Degree of} \\
+		\uppercase{Master of Science} \\ \\
+		Approved by: People\\
+		%\\ Kurt Anderson, Chair \\ John Christian \\ Sandipan Mishra \\ \\ %% from paul's template
+		\includegraphics[width=2.5cm]{rensselaer_seal.png} \\
+		\small{\textit{Department of Mechanical, Aerospace, and Nuclear Engineering}} \\
+		\small{Rensselaer Polytechnic Institute} \\ 
+		\small{Troy, New York} \\
+		\small{August 2018}
+	}
+\end{titlepage}
+
+\begin{document}
+	\maketitle
+	
+	\pagenumbering{roman}
+	\setcounter{page}{2}
+	% --Table of Contents----------
+	\tableofcontents
+	%\addcontentsline{toc}{section}{\uppercase{Table of Contents}}
+	\listoftables
+	%\addcontentsline{toc}{section}{\uppercase{List of Tables}}
+	\listoffigures
+	%\addcontentsline{toc}{section}{\uppercase{List of Figures}}
+	% -----------------------------
+	
+	% ------------------------------------------------------------
+	% Acknowledgement
+	% ------------------------------------------------------------
+	\newpage
+	\section{Acknowledgments}
+	%\addcontentsline{toc}{section}{\uppercase{Acknowledgement}}
+	
+	
+	Thank lots of people here
+	
+
+	
+	% ------------------------------------------------------------
+	% Abstract 
+	% ------------------------------------------------------------
+	
+	\newpage
+	\section{Abstract}
+
+	Talk about Goals of project
+	% ------------------------------------------------------------
+	% Introduction
+	% ------------------------------------------------------------
+	\newpage
+	\section{Introduction}
+	
+	Talk more about project. one or two paragraph here 
+
+	\subsection{Space Debris}
+	Space Debris is bad
+	\subsection{CubeSats}
+	talk about cube sats here
+	\pagenumbering{arabic} % this should start the normal numberinbg
+	
+	\subsection{OSCAR}
+	Unsure if talking about oscar? Yes not
+	\subsection{NORAD /Space Track}
+	
+	% ------------------------------------------------------------
+	% Spacecraft Dynamics
+	% ------------------------------------------------------------
+	\newpage
+	%\section{Data Types}
+	\section{Two Line Elements}
+	A Two Line Element (TLE) is a data format that encodes a list of orbital elements for an Earth-orbiting object for a given point in time [Re do this]
+
+	
+	Stuff about it\par
+	An example is given below. The line under the dashes is the reference number line.
+	\begin{verbatim}
+	ISS (ZARYA)
+	1 25544U 98067A   04236.56031392  .00020137  00000-0  16538-3 0  9993
+	2 25544  51.6335 344.7760 0007976 126.2523 325.9359 15.70406856328906
+	----------------------------------------------------------------------
+	1234567890123456789012345678901234567890123456789012345678901234567890   
+	1         2         3         4         5         6         7
+	
+	\end{verbatim}
+	Table \ref{tab:TLE_Desc}\cite{SpaceTrackTLE} describes the example TLE. 
+	% Please add the following required packages to your document preamble:
+	% \usepackage{graphicx}
+	% \usepackage[table,xcdraw]{xcolor}
+	% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+	
+	% Please add the following required packages to your document preamble:
+	% \usepackage{graphicx}
+	% \usepackage[table,xcdraw]{xcolor}
+	% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+		\begin{table}[h!]
+		\centering
+		\caption{Description of TLE}
+		\label{tab:TLE_Desc}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{|l|l|l|}
+				\hline
+				\multicolumn{3}{|l|}{\textbf{Line 0}}                                                                                                                               \\ \hline
+				\rowcolor[HTML]{333333} 
+				{\color[HTML]{FFFFFF} \textbf{Columns}} & {\color[HTML]{FFFFFF} \textbf{Example}} & {\color[HTML]{FFFFFF} \textbf{Description}}                                     \\ \hline
+				1-24                                    & ISS (ZARYA)                             & The common name for the object based on information from the Satellite Catalog. \\ \hline
+				\multicolumn{3}{|l|}{\textbf{Line 1}}                                                                                                                               \\ \hline
+				\rowcolor[HTML]{333333} 
+				{\color[HTML]{FFFFFF} \textbf{Columns}} & {\color[HTML]{FFFFFF} \textbf{Example}} & {\color[HTML]{FFFFFF} \textbf{Description}}                                     \\ \hline
+				1                                       & 1                                       & Line Number                                                                     \\ \hline
+				3-7                                     & 25544                                   & Satellite Catalog Number                                                        \\ \hline
+				8                                       & U                                       & Elset Classification                                                            \\ \hline
+				10-11                                   & 98                                      & International Designator (Last two digits of launch year)                       \\ \hline
+				12-14                                   & 067                                     & International Designator (Launch number of the year)                            \\ \hline
+				15-17                                   & A                                       & International Designator (Piece of the launch)                                  \\ \hline
+				19-32                                   & 04                                      & Epoch Year (last two digits of year)                                            \\ \hline
+				21-32                                   & 236.56031392                            & Epoch (day of the year and fractional portion of the day)                       \\ \hline
+				34-43                                   & .00020137                               & 1st Derivative of the Mean Motion with respect to Time                          \\ \hline
+				45-52                                   & 00000-0                                 & 2nd Derivative of the Mean Motion with respect to Time (decimal point assumed)  \\ \hline
+				54-61                                   & 16538-3                                 & B* Drag Term                                                                    \\ \hline
+				63                                      & 0                                       & Element Set Type                                                                \\ \hline
+				65-68                                   & 999                                     & Element Number                                                                  \\ \hline
+				69                                      & 3                                       & Checksum                                                                        \\ \hline
+				\multicolumn{3}{|l|}{\textbf{Line 2}}                                                                                                                               \\ \hline
+				\rowcolor[HTML]{333333} 
+				{\color[HTML]{FFFFFF} \textbf{Columns}} & {\color[HTML]{FFFFFF} \textbf{Example}} & {\color[HTML]{FFFFFF} \textbf{Description}}                                     \\ \hline
+				1                                       & 2                                       & Line Number                                                                     \\ \hline
+				3-7                                     & 25544                                   & Satellite Catalog Number                                                        \\ \hline
+				9-16                                    & 51.6335                                 & Orbit Inclination (degrees)                                                     \\ \hline
+				18-25                                   & 344.7760                                & Right Ascension of Ascending Node (degrees)                                     \\ \hline
+				27-33                                   & 0007976                                 & Eccentricity (decimal point assumed)                                            \\ \hline
+				35-42                                   & 126.2523                                & Argument of Perigee (degrees)                                                   \\ \hline
+				44-51                                   & 325.9359                                & Mean Anomaly (degrees)                                                          \\ \hline
+				53-63                                   & 15.70406856                             & Mean Motion (revolutions/day)                                                   \\ \hline
+				64-68                                   & 32890                                   & Revolution Number at Epoch                                                      \\ \hline
+				69                                      & 6                                       & Checksum                                                                        \\ \hline
+			\end{tabular}%
+		}
+	\end{table}
+	
+	\textcolor{red}{to do here, add more details on what the checksum and stuff liek that is}
+	\subsection{SatCat?}
+	\section{NORAD Space-Track}	
+	Describe the site
+	desribe the SATCAT, then the TLE query
+	
+	
+	\subsection{Space-Track Query}
+	\subsection{matlab code?}
+	
+	
+	\section{Conclusion}
+		
+		%--------------------------------------
+		% References
+		% -------------------------------------
+		
+		\bibliographystyle{unsrt}
+		\bibliography{ref}
+		\begin{thebibliography}{10}
+			\addcontentsline{toc}{section}{Bibliography}
+			
+			\bibitem{Hold} %1
+			Hold for now before I used the bib file
+			
+			
+		\end{thebibliography}
+		
+		%-----------------------------------------------------------
+		% Appendix
+		%-----------------------------------------------------------
+		\newpage
+		\section*{Appendix 1 - MATLAB code}
+		\addcontentsline{toc}{section}{Appendix}
+		
+		\lstset{language=Matlab,%
+			%basicstyle=\color{red},
+			breaklines=true,%
+			morekeywords={matlab2tikz},
+			keywordstyle=\color{blue},%
+			morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+			identifierstyle=\color{black},%
+			stringstyle=\color{mylilas},
+			commentstyle=\color{mygreen},%
+			showstringspaces=false,%without this there will be a symbol in the places where there is a space
+			numbers=left,%
+			numberstyle={\tiny \color{black}},% size of the numbers
+			numbersep=9pt, % this defines how far the numbers are from the text
+			emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+			%emph=[2]{word1,word2}, emphstyle=[2]{style},    
+		}
+		
+	Thanks for Paul McKee who started this template. It seems to have good matlab code viwing
+		
+	\end{document}
+	

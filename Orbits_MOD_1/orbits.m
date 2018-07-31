@@ -165,11 +165,12 @@ load('tle_low2high.mat', 'tle_low')
 numOrb = str2num(get(findobj('tag','numOrb'),'string'));
    deg2rad = pi/180;
    for countP=1:numOrb
-    inc =  tle_low(countP,3)
+    inc =  tle_low(countP,3);
     alt_p=(tle_low(countP,11)-6378136)*0.000621371192;
     alt_a=(tle_low(countP,10)-6378136)*0.000621371192;
-    Omega=tle_low(countP,4)
-    omega=tle_low(countP,6)
+    Omega=tle_low(countP,4);
+    omega=tle_low(countP,6);
+    fprintf('Finished orbit %d of %d\n',countP,numOrb);
 
 %{
 load('TLE_1990.mat', 'tle_final')

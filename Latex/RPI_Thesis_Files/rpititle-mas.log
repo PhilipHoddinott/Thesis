@@ -1,0 +1,122 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdftex 2018.7.31)  31 JUL 2018 13:24
+entering extended mode
+**./rpititle-mas.tex
+(rpititle-mas.tex
+! Undefined control sequence.
+l.15 \thesistitle
+                 {\bf Differential Equations\\On two lines}
+? 
+! Argument of \\ has an extra }.
+<inserted text> 
+                \par 
+<to be read again> 
+                   }
+l.15 ...{\bf Differential Equations\\On two lines}
+                                                  
+? 
+Runaway argument?
+On two lines
+! Paragraph ended before \\ was complete.
+<to be read again> 
+                   \par 
+<to be read again> 
+                   }
+l.15 ...{\bf Differential Equations\\On two lines}
+                                                  
+? 
+! Undefined control sequence.
+l.16 \author
+            {Sir Isaac Newton}
+? 
+! Undefined control sequence.
+l.17 \degree
+            {Master of Science}
+? 
+! Undefined control sequence.
+l.18 \department
+                {Mathematics} % provide your area of study here; e.g.,
+? 
+! Undefined control sequence.
+l.21 \signaturelines
+                    {3}
+? 
+! Undefined control sequence.
+l.22 \projadviser
+                 {Galileo} % For a masters project use \projadviser instead ...
+
+? 
+! Undefined control sequence.
+l.23 \memberone
+               {Isaac Newton}
+? 
+! Undefined control sequence.
+l.24 \membertwo
+               {Copernicus}
+? 
+! Undefined control sequence.
+l.27 \submitdate
+                {January 1685\\(For Graduation May 1685)}
+? 
+! Argument of \\ has an extra }.
+<inserted text> 
+                \par 
+<to be read again> 
+                   }
+l.27 ...e{January 1685\\(For Graduation May 1685)}
+                                                  
+? 
+Runaway argument?
+(For Graduation May 1685)
+! Paragraph ended before \\ was complete.
+<to be read again> 
+                   \par 
+<to be read again> 
+                   }
+l.27 ...e{January 1685\\(For Graduation May 1685)}
+                                                  
+? 
+! Undefined control sequence.
+l.28 \copyrightyear
+                   {1685}   % if omitted, current year is used.
+? 
+! Undefined control sequence.
+l.31 \titlepage
+               
+? 
+! Undefined control sequence.
+l.32 \copyrightpage
+                            %optional
+? 
+! Undefined control sequence.
+l.33 \tableofcontents
+                     
+? 
+! Undefined control sequence.
+l.34 \listoftables
+                            %required if there are tables
+? 
+! Undefined control sequence.
+l.35 \listoffigures
+                            %required if there are figures
+? 
+)
+*
+(Please type a command or say `\end')
+*
+(Please type a command or say `\end')
+*
+(Please type a command or say `\end')
+*
+(Please type a command or say `\end')
+*
+(Please type a command or say `\end')
+*\end
+[1{C:/Users/Philip/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]<C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on rpititle-mas.pdf (1 page, 29088 bytes).
+PDF statistics:
+ 14 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
