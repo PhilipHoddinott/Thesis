@@ -6,19 +6,18 @@
 
 
 strTLE='/';
-for i = tleA(j):tleA(j+1)-2
+for i = tleA(j_GMTFI):tleA(j_GMTFI+1)-2
     strTLE=[strTLE, num2str(relDeb(i)),','];
 end
-if tleA(j+1)==decayEnd
-    strTLE=[strTLE, num2str(relDeb(tleA(j+1)-1)),num2str(relDeb(tleA(j))),'/'];
-    fnName = [tle_folder,'/tle_',num2str(j),'_',num2str(tleA(j)),'_',num2str(tleA(j+1)),'.txt'];
+if tleA(j_GMTFI+1)==decayEnd
+    strTLE=[strTLE, num2str(relDeb(tleA(j_GMTFI+1)-1)),num2str(relDeb(tleA(j_GMTFI))),'/'];
+    fnName = [tle_folder,'/tle_',num2str(j_GMTFI),'_',num2str(tleA(j_GMTFI)),'_',num2str(tleA(j_GMTFI+1)),'.txt'];
 else
-    strTLE=[strTLE, num2str(relDeb(tleA(j+1)-1)),'/'];
-    fnName = [tle_folder,'/tle_',num2str(j),'_',num2str(tleA(j)),'_',num2str(tleA(j+1)-1),'.txt'];
+    strTLE=[strTLE, num2str(relDeb(tleA(j_GMTFI+1)-1)),'/'];
+    fnName = [tle_folder,'/tle_',num2str(j_GMTFI),'_',num2str(tleA(j_GMTFI)),'_',num2str(tleA(j_GMTFI+1)-1),'.txt'];
 end
-fprintf('j = %d, tle %d to tle %d\n',j,tleA(j), tleA(j+1));
-%fprintf(strTLE);
-%fprintf('\n');
+fprintf('j = %d, tle %d to tle %d\n',j_GMTFI,tleA(j_GMTFI), tleA(j_GMTFI+1));
+%fprintf(strTLE);fprintf('\n'); %uncomment if you need to see %NORAD_CAT_ID
 strTLE=[strTLE,'orderby/ORDINAL%20asc/limit/',num2str(tle_inc),'/format/tle/metadata/false'];  
 
 

@@ -10,3 +10,6 @@ https://www.mathworks.com/matlabcentral/fileexchange/56904-read-two-line-element
 thanks for Prof Anderson
 John Benkhe
 freinds/family
+
+https://www.mathworks.com/matlabcentral/answers/284560-text-file-modification-remove-blank-line
+for removing the blank line in get multiple TLE from ID

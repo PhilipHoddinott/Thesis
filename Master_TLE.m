@@ -10,11 +10,12 @@ VarStore % run var store for stored variables, ugly but it works
 %% func get_SATCAT
 % Function to get a .mat file from the SATCAT
 
-if get_SATCAT_tog==1
+if get_SATCAT_tog==1 % if the satcat file is out of date, run this
     get_SATCAT % get SATCAT, comment out if already run
-else
+else % if the satcat file is recent then no nead to run get_SATCAT
     strNamMat = ['SATCAT_',num2str(launchYear),'.mat'];
     load(strNamMat); % load mat of SATCAT
+    decayEnd=length(all_TLE(:,1));
 end
 fprintf('get_SATCAT.m has finished running\n');
 relDeb=str2num(char(all_TLE(2:decayEnd,2))); % get NORAD CAT ID
@@ -30,15 +31,14 @@ if get_Multiple_TLE_from_Id_tog==1
     tleA=[tleA,decayEnd];
     
     jStart =1; % starting value
-    %Connection timed out.
-    
+        
     try
 
         for j = jStart:length(tleA)-1%1:length(tleA)-1
             get_Multiple_TLE_from_Id % returns 'outStr' String of TLE
         end
     catch ME
-        fprintf('Something happened\n');
+        fprintf('Error occured\n');
         jStart=j;
        switch ME.identifier
            case 'MATLAB:Connection timed out'
@@ -52,23 +52,23 @@ if get_Multiple_TLE_from_Id_tog==1
        rethrow(ME)
     end
 end
-
+fprintf('get_Multiple_TLE_from_Id.m has finished running\n');
 %% Func readTLE_txt
 % function to parse the txt files into a usable TLE, stored in a matrix
 fprintf('readTLE_txt\n');
 readTLE_txt
+fprintf('readTLE_txt.m has finished running\n');
 
 %% Func check_TLE_edit_TLE
 % function to neatly sort TLEs, remove duplicates, and list TLEs that were
 % not given
 fprintf('check_TLE_Edit_TLE\n');
 check_TLE_Edit_TLE
-
-strNam = ['TLE_',num2str(launchYear),'.mat']; % save the TLE as a .mat
-save(strNam,'tle_final');
+fprintf('check_TLE_Edit_TLE.m has finished running\n');
 
 
-%close all; clear all; % clear out everything
+
+close all; clear all; % clear out everything
 VarStore % run var store for stored variables, ugly but it works
 strNam = ['TLE_',num2str(launchYear),'.mat']; % get strNam
 
@@ -80,4 +80,7 @@ save('Orbits_MOD_1/tle_low2high.mat','tle_low');
 % Note that these files could be made functions in MATLAB. For debuggin
 % purposes they currently are not 
 
+tle_view=tle_final;
+tle_view_temp=["norad_cat_id","Epoch time","Inclination (deg)","RAAN (deg)","Eccentricity (deg)","Arg of perigee(deg)","Mean anomaly (deg)","Mean motion (rev/day)","Period of rev (s/rev)","Semi-major axis (meter)","Semi-minor axis (meter)"];
 
+tle_vew = [tle_view_temp;tle_view];
