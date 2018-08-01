@@ -5,19 +5,64 @@ close all; clear all; clc; % clear workspace
 
 get_SATCAT_tog =0; % toggle for get_SATCAT 1 = run, 0 = don't run
 get_Multiple_TLE_from_Id_tog =0;
+readTLE_txt_tog=0;
+check_TLE_Edit_TLE_tog=0;
 %% get data
 VarStore % run var store for stored variables, ugly but it works
+
+
+%% check for existing data
+strNam = ['TLE_',num2str(launchYear),'.mat']; % get strNam
+%if exist(strNam, 'file') == 2
+try 
+    load(strNam, 'tle_final','dateCreated'); % load in file
+    cTime =datetime;
+    if cTime>(dateCreated+calweeks(1)) % 
+        fprintf('The file %s, was created within the last week\n',strNam);
+        get_SATCAT_tog =0; % toggle for get_SATCAT 1 = run, 0 = don't run
+        get_Multiple_TLE_from_Id_tog =0;
+        readTLE_txt_tog=0;
+        check_TLE_Edit_TLE_tog=0;
+    else
+        fprintf('File is one week out of date, auto running program\n');
+        get_SATCAT_tog =1; % toggle for get_SATCAT 1 = run, 0 = don't run
+        get_Multiple_TLE_from_Id_tog =1;
+        readTLE_txt_tog=1;
+        check_TLE_Edit_TLE_tog=1;
+    end
+
+
+catch
+    switch ME.identifier
+        case 'MATLAB:load:couldNotReadFile'
+            warning('File does not exist, auto running program\n');
+        case 'MATLAB:UndefinedFunction'
+            warning('dateCreated not found, auto running program\n');
+                    
+    end
+   
+    get_SATCAT_tog =1; % toggle for get_SATCAT 1 = run, 0 = don't run
+    get_Multiple_TLE_from_Id_tog =1;
+    readTLE_txt_tog=1;
+    check_TLE_Edit_TLE_tog=1;
+end
+    
+    
+
+
 %% func get_SATCAT
 % Function to get a .mat file from the SATCAT
 
 if get_SATCAT_tog==1 % if the satcat file is out of date, run this
     get_SATCAT % get SATCAT, comment out if already run
+    fprintf('get_SATCAT.m has finished running\n'); % output SATCAT has run
 else % if the satcat file is recent then no nead to run get_SATCAT
     strNamMat = ['SATCAT_',num2str(launchYear),'.mat'];
     load(strNamMat); % load mat of SATCAT
-    decayEnd=length(all_TLE(:,1));
+    %decayEnd=length(all_TLE(:,1));
+    fprintf('get_SATCAT.m was not run\n'); % output SATCAT was not run
 end
-fprintf('get_SATCAT.m has finished running\n');
+
 relDeb=str2num(char(all_TLE(2:decayEnd,2))); % get NORAD CAT ID
 
 %% func get_Multiple_TLE_from_Id
@@ -25,46 +70,31 @@ relDeb=str2num(char(all_TLE(2:decayEnd,2))); % get NORAD CAT ID
 VarStore % run var store for stored variables, ugly but it works
 
 if get_Multiple_TLE_from_Id_tog==1
-    load('UserPass.mat') % load in username and password
-    mkdir(tle_folder)% tle_text_files % note this will give a warning if folder already exists
-    tleA = 1:tle_inc:decayEnd;
-    tleA=[tleA,decayEnd];
-    
-    jStart =1; % starting value
-        
-    try
-
-        for j = jStart:length(tleA)-1%1:length(tleA)-1
-            get_Multiple_TLE_from_Id % returns 'outStr' String of TLE
-        end
-    catch ME
-        fprintf('Error occured\n');
-        jStart=j;
-       switch ME.identifier
-           case 'MATLAB:Connection timed out'
-               warning('connection timed out, trying again\n');
-               fprintf('Connection time out occured\n');
-               jStart=j;
-               for j = jStart:length(tleA)-1%1:length(tleA)-1
-                    get_Multiple_TLE_from_Id % returns 'outStr' String of TLE
-               end
-       end
-       rethrow(ME)
-    end
+   get_TLE_from_Id
+   fprintf('get_Multiple_TLE_from_Id.m has finished running\n');
+else
+    fprintf('get_Multiple_TLE_from_Id.m was not run\n');
 end
-fprintf('get_Multiple_TLE_from_Id.m has finished running\n');
+
 %% Func readTLE_txt
 % function to parse the txt files into a usable TLE, stored in a matrix
-fprintf('readTLE_txt\n');
-readTLE_txt
-fprintf('readTLE_txt.m has finished running\n');
+if readTLE_txt_tog==1
+    readTLE_txt
+    fprintf('readTLE_txt.m has finished running\n');
+else
+    fprintf('readTLE_txt.m was not run\n');
+end
 
 %% Func check_TLE_edit_TLE
 % function to neatly sort TLEs, remove duplicates, and list TLEs that were
 % not given
-fprintf('check_TLE_Edit_TLE\n');
-check_TLE_Edit_TLE
-fprintf('check_TLE_Edit_TLE.m has finished running\n');
+
+if check_TLE_Edit_TLE_tog==1
+    check_TLE_Edit_TLE
+    fprintf('check_TLE_Edit_TLE.m has finished running\n');
+else
+    fprintf('check_TLE_Edit_TLE.m was not run\n');
+end
 
 
 
@@ -83,4 +113,17 @@ save('Orbits_MOD_1/tle_low2high.mat','tle_low');
 tle_view=tle_final;
 tle_view_temp=["norad_cat_id","Epoch time","Inclination (deg)","RAAN (deg)","Eccentricity (deg)","Arg of perigee(deg)","Mean anomaly (deg)","Mean motion (rev/day)","Period of rev (s/rev)","Semi-major axis (meter)","Semi-minor axis (meter)"];
 
-tle_vew = [tle_view_temp;tle_view];
+tle_veiw = [tle_view_temp;tle_view]; % useful for looking at numbers
+
+strNam = ['TLE_',num2str(launchYear),'.mat']; % get strNam
+if exist(strNam, 'file') == 2
+    load(strNam, 'tle_final'); % load in file
+    tle_latest=sortrows(tle_final(:,:),2); % sort by last epoch
+    c=clock;
+    %cyear=clock(1); cmonth=clock(2); cday =clock(3); chour=clock(4); cmin=clock(5); csec=clock(6);
+    cyear=c(1); cmonth=c(2); cday =c(3); chour=c(4); cmin=c(5); csec=c(6);
+    tleY=mod(tle_latest(:,2),cyear)
+    
+    
+    
+end

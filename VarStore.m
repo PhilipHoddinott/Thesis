@@ -7,3 +7,4 @@ tle_folder = 'tle_text_files_'; tle_folder=[tle_folder,'LY_',num2str(launchYear)
 %timeOutVal=150; % time till time out for url read
 timeOutVal=150; % time till time out for url read
 %decayEnd=6425;
+

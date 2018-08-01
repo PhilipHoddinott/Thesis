@@ -5,7 +5,7 @@
 
 close all;
 tle_stor_current=[];
-end_c_T=decayEnd; %% take out?
+
 for ik=1:length(tleA)-1 % save all tles to one array
     tle_stor_temp=tle_stor_Main{ik};
     tle_stor_current=[tle_stor_current;tle_stor_temp(2:tle_inc+1,:)];
@@ -14,21 +14,15 @@ end
 [C,ia,ic]=unique(tle_stor_current(:,1),'rows'); % sort by row by norard cat id
 tleUP = tle_stor_current(ia,:);
 
-for i=1:length(tleUP)
-    tleCheck1(i,:)=[relDeb(i)-tleUP(i,1),relDeb(i),tleUP(i,:)];
-end
-
-
 relDebCheck=relDeb;
-tle_to_get=[];
-conck=1;
+tle_to_get=[]; conck=1;
 for i =1:length(relDebCheck) % gets the TLES that have still not been got
     if i>length(tleUP)
         fprintf('end now\n');
     elseif relDebCheck(i)~=tleUP(i,1)
         tle_to_get(conck,1)=relDebCheck(i);
         tle_to_get(conck,2)=i;
-        rowIn=[relDebCheck(i),conck,conck,conck,conck,conck,conck,conck,conck,conck,conck];
+        rowIn=[relDebCheck(i),conck,conck,conck,conck,conck,conck,conck,conck,conck,conck]; % adjuss where duplicates are
         temp = [tleUP(1:i-1,:);rowIn];
         tempBot=tleUP(i:end,:);
         tleUP=[temp;tempBot];       
@@ -38,6 +32,10 @@ end
 
 % un comment for plots that show all the tles are matching
 %{
+for i=1:length(tleUP)
+    tleCheck1(i,:)=[relDeb(i)-tleUP(i,1),relDeb(i),tleUP(i,:)];
+end
+
 figure(1)
 
 plot(1:length(tleCheck1(:,1)),tleCheck1(:,1))
@@ -67,7 +65,7 @@ tle_final=tleCompCheck;
 tle_final(:,1)=[];
 float_length=length(tle_final);
 
-for dup=1:2
+for dup=1:3 % removes the duplicate lines
     iDup=1;
     i=1;
     while iDup<4
@@ -75,7 +73,7 @@ for dup=1:2
         if i>float_length
             iDup=5;
         elseif tle_final(i,2)<100
-            fprintf('i=%d\n',i);
+            % fprintf('i=%d\n',i); % prints out duplicates
             tle_final(i,:)=[];
             float_length=length(tle_final);
         end
@@ -92,7 +90,8 @@ end
 
 
 strNam = ['TLE_',num2str(launchYear),'.mat']; % save the TLE as a .mat
-save(strNam,'tle_final');
+dateCreated=datetime;
+save(strNam,'tle_final','dateCreated');
 
 
     

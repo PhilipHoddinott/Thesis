@@ -21,7 +21,7 @@ while j~=jEnd % ensures that try catch keeps running untill it has gone all the 
             case 'MATLAB:urlread:Timeout'
                warning('connection timed out at j = %d, trying again',j);
                jStart=j;
-               for j = jStart:jEnd % rerun loop
+               for j = jStart:jEnd % rerun 
                     get_Multiple_TLE_from_Id % creates text file of tles
                end
        end
