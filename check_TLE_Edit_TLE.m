@@ -89,7 +89,7 @@ end
 %% For some reason it gets rid of them best with two. IDK
 
 
-strNam = ['TLE_',num2str(launchYear),'.mat']; % save the TLE as a .mat
+strNam = ['mat_files/TLE_',num2str(launchYear),'.mat']; % save the TLE as a .mat
 dateCreated=datetime;
 save(strNam,'tle_final','dateCreated');
 

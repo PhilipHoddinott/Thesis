@@ -59,6 +59,6 @@ all_TLE=all_TLE(1:decayEnd,:); % trim to only have debris that has not yet decay
 all_TLES=sortrows(all_TLE(2:end,:),2); % sort rows by NORAD ID
 all_TLE=[all_TLE(1,:);all_TLES]; % save the sorted row by NORAD ID
 
-
-strNam = ['SATCAT_',num2str(launchYear),'.mat'];
+%% save to a file
+strNam = ['mat_files/SATCAT_',num2str(launchYear),'.mat'];
 save(strNam,'all_TLE','decayEnd');

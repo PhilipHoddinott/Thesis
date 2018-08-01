@@ -3,50 +3,59 @@
 %% Setup
 close all; clear all; clc; % clear workspace
 
-get_SATCAT_tog =0; % toggle for get_SATCAT 1 = run, 0 = don't run
-get_Multiple_TLE_from_Id_tog =0;
-readTLE_txt_tog=0;
-check_TLE_Edit_TLE_tog=0;
+tog_All=0;
+get_SATCAT_tog =tog_All; % toggle for get_SATCAT 1 = run, 0 = don't run
+get_Multiple_TLE_from_Id_tog =tog_All;
+readTLE_txt_tog=tog_All;
+check_TLE_Edit_TLE_tog=tog_All;
 %% get data
 VarStore % run var store for stored variables, ugly but it works
 
 
 %% check for existing data
-strNam = ['TLE_',num2str(launchYear),'.mat']; % get strNam
+strNam = ['mat_files/TLE_',num2str(launchYear),'.mat']; % get strNam
+strNam_SC = ['mat_files/SATCAT_',num2str(launchYear),'.mat']; % get strNam
+
 %if exist(strNam, 'file') == 2
-try 
-    load(strNam, 'tle_final','dateCreated'); % load in file
-    cTime =datetime;
-    if cTime>(dateCreated+calweeks(1)) % 
-        fprintf('The file %s, was created within the last week\n',strNam);
-        get_SATCAT_tog =0; % toggle for get_SATCAT 1 = run, 0 = don't run
-        get_Multiple_TLE_from_Id_tog =0;
-        readTLE_txt_tog=0;
-        check_TLE_Edit_TLE_tog=0;
-    else
-        fprintf('File is one week out of date, auto running program\n');
-        get_SATCAT_tog =1; % toggle for get_SATCAT 1 = run, 0 = don't run
-        get_Multiple_TLE_from_Id_tog =1;
-        readTLE_txt_tog=1;
-        check_TLE_Edit_TLE_tog=1;
+try % check the satcat tog;
+    load(strNam_SC);
+    tog_SC=0;
+        
+    try % try for TLE file
+        load(strNam, 'tle_final','dateCreated'); % load in file
+        cTime =datetime;
+        if cTime>(dateCreated+calweeks(1)) % file out of date, rerun not SATCAT
+            fprintf('File is one week out of date, auto running program\n');
+            tog_All=1;
+            tog_SC=0;
+        else % file recent, no need to run any
+            fprintf('The file %s, was created within the last week\n',strNam);
+            tog_All=0;
+            tog_SC=0;
+        end
+    catch ME % if tle not found or no date run all
+        switch ME.identifier
+            case 'MATLAB:load:couldNotReadFile'
+                warning('TLE File does not exist, auto running program');
+            case 'MATLAB:UndefinedFunction'
+                warning('dateCreated not found, auto running program');          
+        end
+        tog_All=1;
+        tog_SC=1;
     end
 
-
-catch
+catch ME
     switch ME.identifier
         case 'MATLAB:load:couldNotReadFile'
-            warning('File does not exist, auto running program\n');
-        case 'MATLAB:UndefinedFunction'
-            warning('dateCreated not found, auto running program\n');
-                    
+            warning('SATCAT File does not exist, auto running program');
+            tog_SC=1;
     end
-   
-    get_SATCAT_tog =1; % toggle for get_SATCAT 1 = run, 0 = don't run
-    get_Multiple_TLE_from_Id_tog =1;
-    readTLE_txt_tog=1;
-    check_TLE_Edit_TLE_tog=1;
 end
-    
+% assign values
+get_SATCAT_tog =tog_SC; % toggle for get_SATCAT 1 = run, 0 = don't run
+get_Multiple_TLE_from_Id_tog =tog_All;
+readTLE_txt_tog=tog_All;
+check_TLE_Edit_TLE_tog=tog_All;
     
 
 
@@ -57,8 +66,8 @@ if get_SATCAT_tog==1 % if the satcat file is out of date, run this
     get_SATCAT % get SATCAT, comment out if already run
     fprintf('get_SATCAT.m has finished running\n'); % output SATCAT has run
 else % if the satcat file is recent then no nead to run get_SATCAT
-    strNamMat = ['SATCAT_',num2str(launchYear),'.mat'];
-    load(strNamMat); % load mat of SATCAT
+    
+    load(strNam_SC,'all_TLE','decayEnd'); % load mat of SATCAT
     %decayEnd=length(all_TLE(:,1));
     fprintf('get_SATCAT.m was not run\n'); % output SATCAT was not run
 end
@@ -100,7 +109,7 @@ end
 
 close all; clear all; % clear out everything
 VarStore % run var store for stored variables, ugly but it works
-strNam = ['TLE_',num2str(launchYear),'.mat']; % get strNam
+strNam = ['mat_files/TLE_',num2str(launchYear),'.mat']; % get strNam
 
 load(strNam, 'tle_final')
 
@@ -115,15 +124,13 @@ tle_view_temp=["norad_cat_id","Epoch time","Inclination (deg)","RAAN (deg)","Ecc
 
 tle_veiw = [tle_view_temp;tle_view]; % useful for looking at numbers
 
-strNam = ['TLE_',num2str(launchYear),'.mat']; % get strNam
+strNam = ['mat_files/TLE_',num2str(launchYear),'.mat']; % get strNam
 if exist(strNam, 'file') == 2
     load(strNam, 'tle_final'); % load in file
     tle_latest=sortrows(tle_final(:,:),2); % sort by last epoch
     c=clock;
     %cyear=clock(1); cmonth=clock(2); cday =clock(3); chour=clock(4); cmin=clock(5); csec=clock(6);
     cyear=c(1); cmonth=c(2); cday =c(3); chour=c(4); cmin=c(5); csec=c(6);
-    tleY=mod(tle_latest(:,2),cyear)
-    
-    
+    tleY=mod(tle_latest(:,2),cyear);
     
 end
