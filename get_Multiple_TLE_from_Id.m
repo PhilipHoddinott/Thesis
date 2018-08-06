@@ -17,7 +17,9 @@ else
     strTLE=[strTLE, num2str(relDeb(tleA(j_GMTFI+1)-1)),'/'];
     fnName = [tle_folder,'/tle_',num2str(j_GMTFI),'_',num2str(tleA(j_GMTFI)),'_',num2str(tleA(j_GMTFI+1)-1),'.txt'];
 end
-fprintf('j = %d, tle %d to tle %d\n',j_GMTFI,tleA(j_GMTFI), tleA(j_GMTFI+1));
+fprintf('j = %d, tle %d to tle %d',j_GMTFI,tleA(j_GMTFI), tleA(j_GMTFI+1));
+c=clock;
+fprintf(' H = %d, Min = %d, Sec = %.1f\n',c(4),c(5),c(6));
 %fprintf(strTLE);fprintf('\n'); %uncomment if you need to see %NORAD_CAT_ID
 strTLE=[strTLE,'orderby/ORDINAL%20asc/limit/',num2str(tle_inc),'/format/tle/metadata/false'];  
 

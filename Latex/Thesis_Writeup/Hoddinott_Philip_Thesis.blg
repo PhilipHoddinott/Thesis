@@ -1,8 +1,16 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Hoddinott_Philip_Thesis.aux
 The style file: unsrt.bst
 Database file #1: ref.bib
+Warning--entry type for "NASATLE" isn't style-file defined
+--line 1 of file ref.bib
+Warning--entry type for "SpaceTrackLegend" isn't style-file defined
+--line 17 of file ref.bib
 Warning--entry type for "SpaceTrackTLE" isn't style-file defined
---line 3 of file ref.bib
+--line 27 of file ref.bib
+Warning--entry type for "SpaceTrackSATCAT" isn't style-file defined
+--line 49 of file ref.bib
 Warning--entry type for "celestrak_TLE_FAQ" isn't style-file defined
---line 22 of file ref.bib
-(There were 2 warnings)
+--line 66 of file ref.bib
+Warning--entry type for "castor2_BSTAR" isn't style-file defined
+--line 77 of file ref.bib
+(There were 6 warnings)

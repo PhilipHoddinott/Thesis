@@ -1,11 +1,33 @@
 \begin{thebibliography}{1}
 
-\bibitem{SpaceTrackTLE}
-Space Track.
-\newblock Basic description of the two line element (tle) format, 2013.
+\bibitem{NASATLE}
+Amiko~Kauderer Kim~Dismukes.
+\newblock Definition of two-line element set coordinate system, 2011.
 
 \bibitem{celestrak_TLE_FAQ}
 By~Dr.~T.S. Kelso.
 \newblock Frequently asked questions: Two-line element set format, 1998.
+
+\bibitem{castor2_BSTAR}
+Canadian~Satellite Tracking and Orbit~Research (CASTOR).
+\newblock B-star drag term, 2010.
+
+\bibitem{SpaceTrackTLE}
+Space Track.
+\newblock Basic description of the two line element (tle) format, 2013.
+
+\bibitem{vallado2012two}
+David~A Vallado and Paul~J Cefola.
+\newblock Two-line element sets--practice and use.
+\newblock In {\em 63rd International Astronautical Congress, Naples, Italy},
+  2012.
+
+\bibitem{SpaceTrackLegend}
+Space Track.
+\newblock Space track legend, 2018.
+
+\bibitem{SpaceTrackSATCAT}
+Space Track.
+\newblock Space-track satellite catalog search, 2018.
 
 \end{thebibliography}

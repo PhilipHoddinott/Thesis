@@ -114,6 +114,7 @@
 	
 	
 	
+	
 
 	
 	% ------------------------------------------------------------
@@ -122,35 +123,143 @@
 	
 	\newpage
 	\section{Abstract}
-
-The goal of this project is to get access to the orbital information of space debris.\par 
-This is for the initial stage of the project: get data from NORAD into a useable format. Should this be accomplished in a timely manner more work will be done on the orbital dynamics of OSCAR getting to said debris.
+	The purpose of this project is to acquire information about earth orbiting debris, turn the information into a usable format, and develop a targeting algorithm for a debris removal satellite. The information is things such as orbital elements, debris size, \textcolor{red}{ and sping if i can find htis.} \par 
+	 Should this be accomplished in a timely manner more work will be done on the orbital dynamics of OSCAR getting to said debris.
 	% ------------------------------------------------------------
 	% Introduction
 	% ------------------------------------------------------------
 	\newpage
+	\pagenumbering{arabic} % this should start the normal numberinbg
 	\section{Introduction}
 	
 	Talk more about project. one or two paragraph here 
 
 	\subsection{Space Debris}
-	Space Debris is bad
+	Todo
 	\subsection{CubeSats}
-	talk about cube sats here
-	\pagenumbering{arabic} % this should start the normal numberinbg
+	Todo
 	
 	\subsection{OSCAR}
 	Unsure if talking about oscar? Yes not
-	\subsection{NORAD /Space Track}
+	
+	\subsection{Orbital Elements}
+	Talk about orbital elements, define them.
+
 	
 	% ------------------------------------------------------------
 	% Spacecraft Dynamics
 	% ------------------------------------------------------------
 	\newpage
-	%\section{Data Types}
-	\section{Two Line Elements}
+	\section{Data Sources and Formats}
+	
+	
+	
+	First data sources for space debris must be found, and the data formats must be understood. The most common data format for orbital elements is the Two Line Element Set (TLE). Despite the large number of objects in space, real time data is surprisingly hard to find. While there are various websites and programs to track the location of objects such as the International Space Station, debris from old spacecraft is not quite as popular. The website space-track.org publishes TLEs for public use. First the TLE format will be explained then their acquisition will be discussed. 
+	
+	
+	
+	
+	\subsection{The Two Line Element Format}
+	
+	Orbital elements provide the means to determine a theoretical orbit. Since spacecraft are constantly experiencing forces such as atmospheric drag or solar wind their orbital elements are constantly changing. \par 
 	A Two Line Element (TLE) is a data format that encodes a list of orbital elements for an Earth-orbiting object for a given point in time [\textcolor{red}{Re do this}]\par
-	An example is given below. The line under the dashes is the reference number line.
+	
+	An example shows how orbital infomration is derived from a Two Line Element \cite{NASATLE}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.7\linewidth]{tle_nasa}
+		\caption{TLE with descriptions}
+		\label{fig:tlenasa}
+	\end{figure}
+	
+	\begin{enumerate}
+		\item \textbf{Name of Satellite:} NOAA 6
+		
+		This is the name of the satellite. In this example it is NOAA 6.
+		\item 	\textbf{International Designator:} 84123 A
+		
+		This number shows the last two digets of the launch year and what number launch of that year it was. In this example it is 84 123 A. The satellite was launched in the year 1984 and it was the 124th launch of the year. The A means that it was the first object that came from the launch. \textcolor{red}{Check this is right}
+		
+		\item \textbf{Epoch Date and Julian Date Fraction:} 86 50.28438588
+		
+		The Epoch date shows the year this TLE was made and the Julian Date fraction is the number of days in said year. 
+		
+		\item \textbf{First Derivative of Mean Motion:} 0.00000140
+		
+		This is the daily rate of change of number of revolutions the object completes per day divided by two. This is also called the ballistic coefficient.\cite{NASATLE} It's units are $\frac{rev}{day^2}$. 
+		
+		\item \textbf{Second Derivative of Mean Motion:} 00000-0
+		
+		This is the second derivative of mean motion divided by six, with units of $\frac{rev}{day^3}$.
+		
+		\item \textbf{Drag term or B* Term: }6970-4
+		
+		Of the terms given here, the B* term is the least heard of. It is a way of modeling drag on orbiting objects in propagation models.  
+		Aerodynamic drag is given by the following equation:
+		\begin{equation}
+		F_D = \frac{1}{2}\rho C_d A v^2
+		\end{equation}
+		Where $A$ is the area, $C_d$ is the drag coefficient, $v$ the velocity, and $\rho$ is the fluid density. From Newton's second law
+		\begin{equation}
+		F = m\times a
+		\end{equation}
+		the accleration due to the force of drag is 
+		\begin{equation}
+		a_D=\frac{F_D}{m}=\frac{\rho C_d A v^2}{2m}=\frac{ C_d A}{m}\times\frac{\rho v^2}{2}
+		\end{equation}
+		The ballistic coefficient is given by the following equation:
+		\begin{equation}
+		B=\frac{ C_d A}{m}
+		\end{equation}
+		The starred ballistic coefficient is then
+		\begin{equation}
+		B^{*} = \frac{\rho_0 B}{2}=\frac{\rho_0 C_d A}{2m}
+		\end{equation}
+		This turns the equation for acceleration due to drag into \cite{celestrak_TLE_FAQ}\cite{castor2_BSTAR}
+		\begin{equation}
+		a_D=\frac{\rho}{\rho_0}B^{*} v^2
+		\end{equation}
+		\textcolor{red}{Possibly not needed maybe take out. }\par 
+		\item \textbf{Element Set Number and Check Sum}
+		
+		\item \textbf{Satellite Number: } 11416U
+		
+		This is the Satellite Catalog Number and designation of the object. A U means unclassified. 
+		
+		\item \textbf{Inclination (degrees): }98.5105
+		
+		This is one of the orbital elements.
+		\item \textbf{Right Ascension of the Ascending Node (degrees): }69.3305
+		
+		This is one of the orbital elements.
+		
+		\item \textbf{Eccentricity: } 0012788
+		
+		This is one of the orbital elements.
+		
+		\item \textbf{Argument of Perigee (degrees): }63.2828
+		
+		This is one of the orbital elements.
+		
+		\item \textbf{Mean Anomaly (degrees): }296.9658
+		
+		This is one of the orbital elements.
+		
+		\item \textbf{Mean Motion: } 14.24899292
+		
+		This is the orbits per day the object completes. 
+		
+		\item \textbf{Revolution Number and Check Sum: } 346978
+		
+		
+		
+		
+	\end{enumerate}
+
+\par 
+	
+\newpage	
+A second example is given below. This time with references to the position of values, for extraction. The line under the dashes is the reference number line.
 	\begin{verbatim}
 	ISS (ZARYA)
 	1 25544U 98067A   04236.56031392  .00020137  00000-0  16538-3 0  9993
@@ -160,7 +269,7 @@ This is for the initial stage of the project: get data from NORAD into a useable
 	1         2         3         4         5         6         7
 	
 	\end{verbatim}
-	Table \ref{tab:TLE_Desc}\cite{SpaceTrackTLE} describes the example TLE. 
+	Table \ref{tab:TLE_Desc} describes the second example TLE\cite{SpaceTrackTLE}. 
 	% Please add the following required packages to your document preamble:
 	% \usepackage{graphicx}
 	% \usepackage[table,xcdraw]{xcolor}
@@ -214,40 +323,26 @@ This is for the initial stage of the project: get data from NORAD into a useable
 			\end{tabular}%
 		}
 	\end{table}
-	Of the terms given in table \ref{tab:TLE_Desc} the B* term is the least heard of. It is a way of modeling drag on orbiting objects in propagation models.  
-	Aerodynamic drag is given by the following equation:
-	\begin{equation}
-	F_D = \frac{1}{2}\rho C_d A v^2
-	\end{equation}
-	Where $A$ is the area, $C_d$ is the drag coefficient, $v$ the velocity, and $\rho$ is the fluid density. From Newton's second law
-	\begin{equation}
-	F = m\times a
-	\end{equation}
-	the accleration due to the force of drag is 
-	\begin{equation}
-	a_D=\frac{F_D}{m}=\frac{\rho C_d A v^2}{2m}=\frac{ C_d A}{m}\times\frac{\rho v^2}{2}
-	\end{equation}
-	The ballistic coefficient is given by the following equation:
-	\begin{equation}
-	B=\frac{ C_d A}{m}
-	\end{equation}
-	The \textit{starred} ballistic coefficient is then
-	\begin{equation}
-	B^{*} = \frac{\rho_0 B}{2}=\frac{\rho_0 C_d A}{2m}
-	\end{equation}
-	This turns the equation for acceleration due to drag into \cite{celestrak_TLE_FAQ}\cite{castor2_BSTAR}
-	\begin{equation}
-	a_D=\frac{\rho}{\rho_0}B^{*} v^2
-	\end{equation}
 	
+	
+
 	\textcolor{red}{to do here, add more details on what the checksum and stuff liek that is}
+	
+	\par 
+	The process of TLE gathering and updating is somewhat shadowy. \cite{vallado2012two} What is known is that observations are collected multiple times per day at the Joint
+	Space Operations Center (JSPOC) which is operated by the US Air Force Space Command (AFSPC). Then the unclassified TLEs are passed on to space-track for public release.  
+	
+	\subsection{Space-Track.org}
+	Information about objects in space may be found the website space-track.org. Space-track is the main source for orbital data, though some are also avalbile from the website celestrak.com. Of the two space-track has far more information and better methods of access.  "Space-Track.org is managed, maintained and administered by JFSCC"\cite{SpaceTrackLegend}.   \textcolor{red}{Put more information about the website here}.\par 
+	space-track allows information to be downloaded manually from the TLE search \cite{SpaceTrackTLE} or the satellite catalog search \cite{SpaceTrackSATCAT}. While these are useful tools the code needs a way to automatically download data. Fortunately space-track also has an API that allows queries. 
+	\subsection{Space-Track Query}
 	\subsection{SatCat?}
 	\section{NORAD Space-Track}	
 	Describe the site
 	desribe the SATCAT, then the TLE query
 	
 	
-	\subsection{Space-Track Query}
+	
 	
 	\section{Code Overview}
 		\subsection{VarStore.m}
@@ -269,7 +364,8 @@ This is for the initial stage of the project: get data from NORAD into a useable
 		\subsection{check\_TLE\_Edit\_TLE.m}
 		
 		
-	
+		\section{Targeting}
+		Once the data has been collected, the next step is to target possible orbits. Since OSCAR has a delta V of \textcolor{red}{Find delta V} inclanation and plane changes are out of the question. What is desired is a number of debris in a plane with simialr inclanations
 	
 	\section{Conclusion}
 		

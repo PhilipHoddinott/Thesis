@@ -38,12 +38,12 @@ switch action
 case 'build'
    
    %strings = {'w','W','i','Apogee','Perigee'};
-   strings = {'w','W','i','Apogee','Perigee','numOrb'};
-   tags = {'o','O','i','alt_a','alt_p','numOrb'};
-   values = {'45','45','30','345','115','10'};
-   strings2 = {'Plot Debris','Plot Orbit','Clear Orbits','Center Earth',...
+   strings = {'w','W','i','Apogee','Perigee','numOrb','from','to'};
+   tags = {'o','O','i','alt_a','alt_p','numOrb','from','to'};
+   values = {'45','45','30','345','115','10','60','40'};
+   strings2 = {'plot_to_from','Plot Debris','Plot Orbit','Clear Orbits','Center Earth',...
          'Zoom All','Flyby','Help','Toggle Earth','Quit'};
-   callbacks = {'orbits(''plot_deb'')','orbits(''plot'')','orbits(''clear'')',...
+   callbacks = {'orbits(''plot_to_from'')','orbits(''plot_deb'')','orbits(''plot'')','orbits(''clear'')',...
          'camva(15);view(120,30);camlookat(findobj(''tag'',''earth''));',...
          'camva(15);camlookat','orbits(''flyby'')','help orbits',...
          'orbits(''earth'')','close(gcf)'};
@@ -158,10 +158,112 @@ case 'earth'
    
    set(gcf,'userdata',data);
 
+
+case 'plot_to_from'
+
+
+%load('tle_RANN.mat', 'tle_high')
+load('tle_INC.mat', 'tle_INC')
+tle_low=tle_INC;
+lowT = str2num(get(findobj('tag','to'),'string'))
+highF = str2num(get(findobj('tag','from'),'string'))
+for i = 1:length(tle_low(:,3))
+    if tle_low(i,3)<lowT
+        lowV=i
+        break;
+    end
+end
+for i = 1:length(tle_low(:,3))
+    if tle_low(i,3)<highF
+        highV=i
+        break;
+    end
+end
+   deg2rad = pi/180;
+   for countP=highV:lowV%lowV:highV
+    inc =  tle_low(countP,3);
+    alt_p=(tle_low(countP,11)-6378136)*0.000621371192;
+    alt_a=(tle_low(countP,10)-6378136)*0.000621371192;
+    Omega=tle_low(countP,4)
+    omega=tle_low(countP,6);
+    fprintf('Finished orbit %d of %d\n',countP,highV);
+
+   data = get(gcf,'userdata');
+   handles = data.handles;
+   
+   % get orbital elements from GUI
+   %alt_p = str2num(get(findobj('tag','alt_p'),'string'));
+   %alt_a = str2num(get(findobj('tag','alt_a'),'string'));
+   %inc = str2num(get(findobj('tag','i'),'string'));
+   %Omega = str2num(get(findobj('tag','O'),'string'));
+   %omega = str2num(get(findobj('tag','o'),'string'));
+   
+   % check for correctness of input data
+   if alt_p > alt_a
+      error1 = errordlg('Perigee must be smaller than apogee');
+      waitfor(error1);
+   else
+      
+      % Orbital elements
+      a = (alt_p + alt_a + 2*rad)/2;
+      c = a - alt_p - rad;
+      e = c/a;
+      p = a*(1 - e^2);
+      
+      th = linspace(0,2*pi,200);
+      r = p./(1 + e*cos(th));
+      xx = r.*cos(th);
+      yy = r.*sin(th);
+      
+      Omega = Omega*deg2rad;
+      inc = inc*deg2rad; 
+      omega = omega*deg2rad; 
+      
+      % Coordinate Transformations
+      ZZ = [cos(Omega) -sin(Omega) 0;
+         sin(Omega) cos(Omega) 0;
+         0 0 1];
+      XX = [1 0 0;
+         0 cos(inc) -sin(inc);
+         0 sin(inc) cos(inc)];
+      ZZ2 = [cos(omega) -sin(omega) 0;
+         sin(omega) cos(omega) 0;
+         0 0 1];
+      
+      % actual plot
+      vec = ZZ*XX*ZZ2*[xx;yy;zeros(1,length(xx))];
+      h1 = plot3(vec(1,:),vec(2,:),vec(3,:));
+      set([h1],'linewidth',1,'color',[1 1 1]);
+      
+      % line of ascending node
+      vec1 = ZZ*[rad+600;0;0];
+      h2 = plot([0 vec1(1)],[0 vec1(2)],'r-');
+      % line of periapsis
+      vec2 = ZZ*XX*ZZ2*[rad+600;0;0];
+      h3 = plot3([0 vec2(1)],[0 vec2(2)],[0 vec2(3)],'color',...
+         [1 1 0]);
+      % line of inclination
+      vec3 = ZZ*XX*[0;0;rad+600];
+      h4 = plot3([0 vec3(1)],[0 vec3(2)],[0 vec3(3)],...
+         'color',[0 0 .8]);
+      set([h2 h3 h4],'linewidth',2);
+      
+      data.handles = [data.handles h1 h2 h3 h4];
+      %data.handles = [data.handles h1 ];%h2 h3 h4];
+      set(gcf,'userdata',data);
+      %camlookat;
+   end
+   % plot orbits
+end
+
+      
    
 case 'plot_deb'
 
-load('tle_low2high.mat', 'tle_low')
+%load('tle_low2high.mat', 'tle_low')
+%load('tle_high2low.mat', 'tle_high')
+load('tle_RANN.mat', 'tle_high')
+tle_low=tle_high;
 numOrb = str2num(get(findobj('tag','numOrb'),'string'));
    deg2rad = pi/180;
    for countP=1:numOrb
@@ -243,6 +345,7 @@ load('TLE_1990.mat', 'tle_final')
       set([h2 h3 h4],'linewidth',2);
       
       data.handles = [data.handles h1 h2 h3 h4];
+      %data.handles = [data.handles h1 ];%h2 h3 h4];
       set(gcf,'userdata',data);
       %camlookat;
    end
