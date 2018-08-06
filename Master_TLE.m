@@ -78,6 +78,8 @@ else
     fprintf('get_Multiple_TLE_from_Id.m was not run\n');
 end
 
+readTLE_txt_tog=1;
+check_TLE_Edit_TLE_tog=1;
 %% Func readTLE_txt
 % function to parse the txt files into a usable TLE, stored in a matrix
 if readTLE_txt_tog==1
@@ -100,7 +102,7 @@ end
 
 
 
-close all; clear all; % clear out everything
+%close all; clear all; % clear out everything
 VarStore % run var store for stored variables, ugly but it works
 strNam = ['mat_files/TLE_',num2str(launchYear),'.mat']; % get strNam
 

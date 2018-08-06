@@ -12,8 +12,11 @@ for ik=1:length(tleA)-1 % save all tles to one array
 end
 
 [C,ia,ic]=unique(tle_stor_current(:,1),'rows'); % sort by row by norard cat id
-tleUP = tle_stor_current(ia,:);
+tleUP_1 = tle_stor_current(ia,:);
 
+tleUP=tleUP_1;
+tle_final=tleUP_1;
+%{
 relDebCheck=relDeb;
 tle_to_get=[]; conck=1;
 for i =1:length(relDebCheck) % gets the TLES that have still not been got
@@ -31,7 +34,7 @@ for i =1:length(relDebCheck) % gets the TLES that have still not been got
 end
 
 % un comment for plots that show all the tles are matching
-%{
+
 for i=1:length(tleUP)
     tleCheck1(i,:)=[relDeb(i)-tleUP(i,1),relDeb(i),tleUP(i,:)];
 end
@@ -53,7 +56,7 @@ end
 figure(8)
 plot(1:ip,diff4)
 grid on
-%}
+
 
 for i=1:length(relDebCheck)-1
     tleCompCheck(i,:)=[relDebCheck(i),tleUP(i,:)];
@@ -84,7 +87,7 @@ for dup=1:3 % removes the duplicate lines
         end
     end
 end
-    
+    %}
 
 %% For some reason it gets rid of them best with two. IDK
 
