@@ -16,6 +16,20 @@ tleUP_1 = tle_stor_current(ia,:);
 
 tleUP=tleUP_1;
 tle_final=tleUP_1;
+
+%%%%%%%%%%%%%%%%% 
+%% TO DO
+ removeA=[];
+    if inc_2_a~='a'
+        for i =1:length(tle_arr(:,1))
+            if tle_arr(i,3)>inc_2
+                removeA=[removeA,i];                
+            end
+        end
+        tle_arr(removeA,:)=[];
+    end
+    %% PUT THAT IN FOR REMOVING ROWS YOU FUCK
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
 %{
 relDebCheck=relDeb;
 tle_to_get=[]; conck=1;

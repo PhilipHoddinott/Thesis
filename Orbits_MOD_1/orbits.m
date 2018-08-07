@@ -336,28 +336,44 @@ case 'plot_from_to_2'
     load('tle_1960.mat', 'tle_final');
     tle_arr=tle_final;
     
-    alt_p_1 = str2num(get(findobj('tag','alt_p_1'),'string'));
-    alt_a_1 = str2num(get(findobj('tag','alt_a_1'),'string'));
+    alt_p_1_a = get(findobj('tag','alt_p_1'),'string');
+    alt_p_1 = str2num(alt_p_1_a);
+    alt_p_1=alt_p_1+6378136/1000;
+    
+    alt_a_1_a = get(findobj('tag','alt_a_1'),'string');
+    alt_a_1 = str2num(alt_a_1_a);
+    alt_a_1=alt_a_1+6378136/1000;
+    
     inc_1_a = get(findobj('tag','i_1'),'string');
     inc_1 = str2num(inc_1_a);
-    Omega_1 = str2num(get(findobj('tag','O_1'),'string'));
-    omega_1 = str2num(get(findobj('tag','o_1'),'string'));
-
-    if alt_p_1~=[]
-        for i=1:length(tle_arr)
+    
+    Omega_1_a = get(findobj('tag','O_1'),'string');
+    Omega_1 = str2num(Omega_1_a);
+    
+    omega_1_a = get(findobj('tag','o_1'),'string');
+    omega_1 = str2num(omega_1_a);
+    
+  
+    removeA=[];
+    if alt_p_1_a~='a'
+        for i =1:length(tle_arr(:,1))
             if tle_arr(i,11)<alt_p_1
-                tle_arr(i,:)=[];
+                removeA=[removeA,i];                
             end
         end
+        tle_arr(removeA,:)=[];
     end
     
-    if alt_a_1~=[]
-        for i=1:length(tle_arr)
+    removeA=[];
+    if alt_a_1_a~='a'
+        for i =1:length(tle_arr(:,1))
             if tle_arr(i,10)<alt_a_1
-                tle_arr(i,:)=[];
+                removeA=[removeA,i];                
             end
         end
+        tle_arr(removeA,:)=[];
     end
+
     removeA=[];
     if inc_1_a~='a'
         for i =1:length(tle_arr(:,1))
@@ -367,105 +383,65 @@ case 'plot_from_to_2'
         end
         tle_arr(removeA,:)=[];
     end
-    %{
-        
-        philip=0;i=0;
-        while philip<1
-            i=i+1;
-            if tle_arr(i,3)<inc_1
-                tle_arr(i,:)=[];
-            end
-            vp=length(tle_arr(:,1));
-            if i>=vp
-                philip=1;
-            end
-            fprintf('inc_1 = %d, tle_inc = %.3f, i = %d, len = %d\n',inc_1, tle_arr(i,3),i,(length(tle_arr(:,1))));
-        end
-        
-            
-            %{
-        for i=1:length(tle_arr)
-            if tle_arr(i,3)<inc_1
-                tle_arr(i,:)=[];
-                %disp(i)
-                
-                fprintf('i = %d, len = %d\n',i,(length(tle_arr(:,1))));
-                i=i-1;
-            end
-        end
-        
-    end
-       %}
- %}
-    if Omega_1~=[]
-        for i=1:length(tle_arr)
+   
+    
+    if Omega_1_a~='a'
+        for i =1:length(tle_arr(:,1))
             if tle_arr(i,4)<Omega_1
-                tle_arr(i,:)=[];
+                removeA=[removeA,i];                
             end
         end
+        tle_arr(removeA,:)=[];
     end
     
-    if omega_1~=[]
-        for i=1:length(tle_arr)
+     if omega_1_a~='a'
+        for i =1:length(tle_arr(:,1))
             if tle_arr(i,6)<omega_1
-                tle_arr(i,:)=[];
+                removeA=[removeA,i];                
             end
         end
-    end
-
-    alt_p_2 = str2num(get(findobj('tag','alt_p_2'),'string'));
-    alt_a_2 = str2num(get(findobj('tag','alt_a_2'),'string'));
-    %inc_2 = str2num(get(findobj('tag','i_2'),'string'));
+        tle_arr(removeA,:)=[];
+     end
     
-       inc_2_a = get(findobj('tag','i_2'),'string');
+    alt_p_2_a = get(findobj('tag','alt_p_2'),'string');
+    alt_p_2 = str2num(alt_p_2_a);
+    alt_p_2=alt_p_2+6378136/1000;
+    
+    
+    alt_a_2_a = get(findobj('tag','alt_a_2'),'string');
+    alt_a_2 = str2num(alt_a_2_a);
+    alt_a_2=alt_a_2+6378136/1000;
+    
+    inc_2_a = get(findobj('tag','i_2'),'string');
     inc_2 = str2num(inc_2_a);
     
-    Omega_2 = str2num(get(findobj('tag','O_2'),'string'));
-    omega_2 = str2num(get(findobj('tag','o_2'),'string'));
-
-   if alt_p_2~=[]
-        for i=1:length(tle_arr)
+    Omega_2_a = get(findobj('tag','O_2'),'string');
+    Omega_2 = str2num(Omega_2_a);
+    
+    omega_2_a = get(findobj('tag','o_2'),'string');
+    omega_2 = str2num(omega_2_a);
+    
+    
+    
+    removeA=[];
+    if alt_p_2_a~='a'
+        for i =1:length(tle_arr(:,1))
             if tle_arr(i,11)>alt_p_2
-                tle_arr(i,:)=[];
+                removeA=[removeA,i];                
             end
         end
+        tle_arr(removeA,:)=[];
     end
     
-    if alt_a_2~=[]
-        for i=1:length(tle_arr)
+    removeA=[];
+    if alt_a_2_a~='a'
+        for i =1:length(tle_arr(:,1))
             if tle_arr(i,10)>alt_a_2
-                tle_arr(i,:)=[];
+                removeA=[removeA,i];                
             end
         end
+        tle_arr(removeA,:)=[];
     end
-    %{
-    if inc_2~=[]
-        for i=1:length(tle_arr)
-            if tle_arr(i,3)>inc_2
-                tle_arr(i,:)=[];
-            end
-        end
-    end
-    %}
-    %{
-   if inc_2_a~='a'
-        philip=0;i=0;
-        while philip<1
-            i=i+1;
-            if tle_arr(i,3)>inc_2
-                tle_arr(i,:)=[];
-            end
-            vp=length(tle_arr(:,1));
-            if i>=vp
-                philip=1;
-                fprintf('end\n');
-            else
-                fprintf('inc_2 = %d, tle_inc = %.3f, i = %d, len = %d\n',inc_2, tle_arr(i,3),i,(length(tle_arr(:,1))));
-            end
-        end
-        
-   end
-    %}
     
    removeA=[];
     if inc_2_a~='a'
@@ -476,22 +452,27 @@ case 'plot_from_to_2'
         end
         tle_arr(removeA,:)=[];
     end
-        
-    if Omega_2~=[]
-        for i=1:length(tle_arr)
-            if tle_arr(i,4)>Omega_2
-                tle_arr(i,:)=[];
-            end
-        end
-    end
     
-    if omega_2~=[]
-        for i=1:length(tle_arr)
-            if tle_arr(i,6)>omega_2
-                tle_arr(i,:)=[];
+    removeA=[];
+    if Omega_2_a~='a'
+        for i =1:length(tle_arr(:,1))
+            if tle_arr(i,4)>Omega_2
+                removeA=[removeA,i];                
             end
         end
-    end
+        tle_arr(removeA,:)=[];
+    end    
+
+    removeA=[];
+    if omega_2_a~='a'
+        for i =1:length(tle_arr(:,1))
+            if tle_arr(i,6)>omega_2
+                removeA=[removeA,i];                
+            end
+        end
+        tle_arr(removeA,:)=[];
+    end   
+    
     save('check.mat','tle_arr','inc_1','inc_2','tle_final','alt_p_2');
     
     
