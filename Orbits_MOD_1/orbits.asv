@@ -29,7 +29,7 @@ end
 
 % Earth radius (miles)
 rad = 6378136/1000/1.6;
-rad = (6378136/1000)*0.621371
+rad = (6378136/1000)*0.621371;
 colors = [.6 .7 .8];
 colors2 = 'k';
 switch action
@@ -38,18 +38,18 @@ switch action
 case 'build'
    
    %strings = {'w','W','i','Apogee','Perigee'};
-   strings = {'w','W','i','Apogee','Perigee','numOrb','from','to'};
-   tags = {'o','O','i','alt_a','alt_p','numOrb','from','to'};
-   values = {'45','45','30','345','115','10','60','40'};
-   strings2 = {'plot_to_from','Plot Debris','Plot Orbit','Clear Orbits','Center Earth',...
+   strings = {'w','W','i','Apogee','Perigee','numOrb'};
+   tags = {'o','O','i','alt_a','alt_p','numOrb'};
+   values = {'45','45','30','345','115','10'};
+   strings2 = {'Plot Debris','Plot Orbit','Clear Orbits','Center Earth',...
          'Zoom All','Flyby','Help','Toggle Earth','Quit'};
-   callbacks = {'orbits(''plot_to_from'')','orbits(''plot_deb'')','orbits(''plot'')','orbits(''clear'')',...
+   callbacks = {'orbits(''plot_deb'')','orbits(''plot'')','orbits(''clear'')',...
          'camva(15);view(120,30);camlookat(findobj(''tag'',''earth''));',...
          'camva(15);camlookat','orbits(''flyby'')','help orbits',...
          'orbits(''earth'')','close(gcf)'};
    
    if isempty(findobj('tag','orbits'))
-      www = figure('tag','orbits')%,'units','normalized','outerposition',[0 0 1 1]);
+      www = figure('tag','orbits');%,'units','normalized','outerposition',[0 0 1 1]);
    else
       www = findobj('tag','orbits');
       figure(www);
@@ -61,7 +61,7 @@ case 'build'
    %xlim=get(gca,'xlim')
    %text(xlim(1),ylim(2),'yourtext')
 
-   for kk = 1:length(strings),
+   for kk = 1:length(strings)
       ppp = uicontrol('Units','pixels','Position',[2 (20*(kk-1)+16) 50 20],...
          'String',strings{kk},'style','text','backgroundcolor',colors2,...
          'foregroundcolor','w','fontsize',9);
@@ -71,9 +71,10 @@ case 'build'
          set(ppp,'fontname','symbol','fontsize',12);
       end
    end
+   str2Pos=375;
    for kk =1:length(strings2)
        
-      uicontrol('Units','pixels','Position',[10 (25*(kk-1)+150) 70 22],...
+      uicontrol('Units','pixels','Position',[10 (25*(kk-1)+str2Pos) 70 22],...
          'string',strings2{kk},'callback',callbacks{kk},'backgroundcolor',colors);
    end
   %{ 
@@ -236,7 +237,7 @@ case 'earth'
    
    set(gcf,'userdata',data);
 
-
+%%%%% REmove this case
 case 'plot_to_from'
 
     %load('tle_RANN.mat', 'tle_high')
@@ -335,12 +336,15 @@ case 'plot_to_from'
 case 'plot_from_to_2'
     load('tle_1960.mat', 'tle_final');
     tle_arr=tle_final;
+    initLen=length(tle
     
     alt_p_1_a = get(findobj('tag','alt_p_1'),'string');
     alt_p_1 = str2num(alt_p_1_a);
+    alt_p_1=alt_p_1+6378136/1000;
     
     alt_a_1_a = get(findobj('tag','alt_a_1'),'string');
     alt_a_1 = str2num(alt_a_1_a);
+    alt_a_1=alt_a_1+6378136/1000;
     
     inc_1_a = get(findobj('tag','i_1'),'string');
     inc_1 = str2num(inc_1_a);
@@ -351,24 +355,27 @@ case 'plot_from_to_2'
     omega_1_a = get(findobj('tag','o_1'),'string');
     omega_1 = str2num(omega_1_a);
     
-    Omega_1 = str2num(get(findobj('tag','O_1'),'string'));
-    omega_1 = str2num(get(findobj('tag','o_1'),'string'));
-
-    if alt_p_1~=[]
-        for i=1:length(tle_arr)
+  
+    removeA=[];
+    if alt_p_1_a~='a'
+        for i =1:length(tle_arr(:,1))
             if tle_arr(i,11)<alt_p_1
-                tle_arr(i,:)=[];
+                removeA=[removeA,i];                
             end
         end
+        tle_arr(removeA,:)=[];
     end
     
-    if alt_a_1~=[]
-        for i=1:length(tle_arr)
+    removeA=[];
+    if alt_a_1_a~='a'
+        for i =1:length(tle_arr(:,1))
             if tle_arr(i,10)<alt_a_1
-                tle_arr(i,:)=[];
+                removeA=[removeA,i];                
             end
         end
+        tle_arr(removeA,:)=[];
     end
+
     removeA=[];
     if inc_1_a~='a'
         for i =1:length(tle_arr(:,1))
@@ -379,47 +386,65 @@ case 'plot_from_to_2'
         tle_arr(removeA,:)=[];
     end
    
-    if Omega_1~=[]
-        for i=1:length(tle_arr)
+    
+    if Omega_1_a~='a'
+        for i =1:length(tle_arr(:,1))
             if tle_arr(i,4)<Omega_1
-                tle_arr(i,:)=[];
+                removeA=[removeA,i];                
             end
         end
+        tle_arr(removeA,:)=[];
     end
     
-    if omega_1~=[]
-        for i=1:length(tle_arr)
+     if omega_1_a~='a'
+        for i =1:length(tle_arr(:,1))
             if tle_arr(i,6)<omega_1
-                tle_arr(i,:)=[];
+                removeA=[removeA,i];                
             end
         end
-    end
-
-    alt_p_2 = str2num(get(findobj('tag','alt_p_2'),'string'));
-    alt_a_2 = str2num(get(findobj('tag','alt_a_2'),'string'));
+        tle_arr(removeA,:)=[];
+     end
     
-       inc_2_a = get(findobj('tag','i_2'),'string');
+    alt_p_2_a = get(findobj('tag','alt_p_2'),'string');
+    alt_p_2 = str2num(alt_p_2_a);
+    alt_p_2=alt_p_2+6378136/1000;
+    
+    
+    alt_a_2_a = get(findobj('tag','alt_a_2'),'string');
+    alt_a_2 = str2num(alt_a_2_a);
+    alt_a_2=alt_a_2+6378136/1000;
+    
+    inc_2_a = get(findobj('tag','i_2'),'string');
     inc_2 = str2num(inc_2_a);
     
-    Omega_2 = str2num(get(findobj('tag','O_2'),'string'));
-    omega_2 = str2num(get(findobj('tag','o_2'),'string'));
-
-   if alt_p_2~=[]
-        for i=1:length(tle_arr)
+    Omega_2_a = get(findobj('tag','O_2'),'string');
+    Omega_2 = str2num(Omega_2_a);
+    
+    omega_2_a = get(findobj('tag','o_2'),'string');
+    omega_2 = str2num(omega_2_a);
+    
+    
+    
+    removeA=[];
+    if alt_p_2_a~='a'
+        for i =1:length(tle_arr(:,1))
             if tle_arr(i,11)>alt_p_2
-                tle_arr(i,:)=[];
+                removeA=[removeA,i];                
             end
         end
+        tle_arr(removeA,:)=[];
     end
     
-    if alt_a_2~=[]
-        for i=1:length(tle_arr)
+    removeA=[];
+    if alt_a_2_a~='a'
+        for i =1:length(tle_arr(:,1))
             if tle_arr(i,10)>alt_a_2
-                tle_arr(i,:)=[];
+                removeA=[removeA,i];                
             end
         end
+        tle_arr(removeA,:)=[];
     end
-
+    
    removeA=[];
     if inc_2_a~='a'
         for i =1:length(tle_arr(:,1))
@@ -429,23 +454,41 @@ case 'plot_from_to_2'
         end
         tle_arr(removeA,:)=[];
     end
-        
-    if Omega_2~=[]
-        for i=1:length(tle_arr)
-            if tle_arr(i,4)>Omega_2
-                tle_arr(i,:)=[];
-            end
-        end
-    end
     
-    if omega_2~=[]
-        for i=1:length(tle_arr)
-            if tle_arr(i,6)>omega_2
-                tle_arr(i,:)=[];
+    removeA=[];
+    if Omega_2_a~='a'
+        for i =1:length(tle_arr(:,1))
+            if tle_arr(i,4)>Omega_2
+                removeA=[removeA,i];                
             end
         end
-    end
+        tle_arr(removeA,:)=[];
+    end    
+
+    removeA=[];
+    if omega_2_a~='a'
+        for i =1:length(tle_arr(:,1))
+            if tle_arr(i,6)>omega_2
+                removeA=[removeA,i];                
+            end
+        end
+        tle_arr(removeA,:)=[];
+    end   
+    
     save('check.mat','tle_arr','inc_1','inc_2','tle_final','alt_p_2');
+    c=clock;
+    cyear=c(1); cmonth=c(2); cday =c(3); chour=c(4); cmin=c(5); csec=c(6);
+    fprintf('Operation performed on ');
+    fprintf('%d/%d/%d, at %d:%d:%.3f\n',cday,cmonth,cyear,chour,cmin,csec);
+    fprintf('Debris bounds (blank means no data entered):\n');
+    fprintf('Perigee (km): %.3f - %.3f\n',alt_p_1,alt_p_2);
+    fprintf('Apogee (km): %.3f - %.3f\n',alt_a_1,alt_a_2);
+    fprintf('Inclination (deg): %.3f - %.3f\n',inc_1,inc_2);
+    fprintf('Longitude of the ascending node  (deg): %.3f - %.3f\n',Omega_1,Omega_2);
+    fprintf('Argument of periapsis (deg): %.3f - %.3f\n',omega_1,omega_2);
+    fprintf('
+    
+    
     
     
     

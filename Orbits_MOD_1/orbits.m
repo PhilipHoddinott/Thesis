@@ -29,7 +29,7 @@ end
 
 % Earth radius (miles)
 rad = 6378136/1000/1.6;
-rad = (6378136/1000)*0.621371
+rad = (6378136/1000)*0.621371;
 colors = [.6 .7 .8];
 colors2 = 'k';
 switch action
@@ -38,18 +38,18 @@ switch action
 case 'build'
    
    %strings = {'w','W','i','Apogee','Perigee'};
-   strings = {'w','W','i','Apogee','Perigee','numOrb','from','to'};
-   tags = {'o','O','i','alt_a','alt_p','numOrb','from','to'};
-   values = {'45','45','30','345','115','10','60','40'};
-   strings2 = {'plot_to_from','Plot Debris','Plot Orbit','Clear Orbits','Center Earth',...
+   strings = {'w','W','i','Apogee','Perigee','numOrb'};
+   tags = {'o','O','i','alt_a','alt_p','numOrb'};
+   values = {'45','45','30','345','115','10'};
+   strings2 = {'Plot Debris','Plot Orbit','Clear Orbits','Center Earth',...
          'Zoom All','Flyby','Help','Toggle Earth','Quit'};
-   callbacks = {'orbits(''plot_to_from'')','orbits(''plot_deb'')','orbits(''plot'')','orbits(''clear'')',...
+   callbacks = {'orbits(''plot_deb'')','orbits(''plot'')','orbits(''clear'')',...
          'camva(15);view(120,30);camlookat(findobj(''tag'',''earth''));',...
          'camva(15);camlookat','orbits(''flyby'')','help orbits',...
          'orbits(''earth'')','close(gcf)'};
    
    if isempty(findobj('tag','orbits'))
-      www = figure('tag','orbits')%,'units','normalized','outerposition',[0 0 1 1]);
+      www = figure('tag','orbits');%,'units','normalized','outerposition',[0 0 1 1]);
    else
       www = findobj('tag','orbits');
       figure(www);
@@ -61,7 +61,7 @@ case 'build'
    %xlim=get(gca,'xlim')
    %text(xlim(1),ylim(2),'yourtext')
 
-   for kk = 1:length(strings),
+   for kk = 1:length(strings)
       ppp = uicontrol('Units','pixels','Position',[2 (20*(kk-1)+16) 50 20],...
          'String',strings{kk},'style','text','backgroundcolor',colors2,...
          'foregroundcolor','w','fontsize',9);
@@ -71,9 +71,10 @@ case 'build'
          set(ppp,'fontname','symbol','fontsize',12);
       end
    end
+   str2Pos=375;
    for kk =1:length(strings2)
        
-      uicontrol('Units','pixels','Position',[10 (25*(kk-1)+150) 70 22],...
+      uicontrol('Units','pixels','Position',[10 (25*(kk-1)+str2Pos) 70 22],...
          'string',strings2{kk},'callback',callbacks{kk},'backgroundcolor',colors);
    end
   %{ 
@@ -120,7 +121,7 @@ case 'build'
     'style','text','backgroundcolor',colors2,'fontsize',8,...
     'HorizontalAlignment','left','foregroundcolor','w');
    
-   fP = get(www, 'Position')
+   fP = get(www, 'Position');
    %{
     for kk = 1:length(string3)
       ppp = uicontrol('Units','pixels','Position',[ps1 (20*(kk-1)+16) 50 20],...
@@ -236,7 +237,7 @@ case 'earth'
    
    set(gcf,'userdata',data);
 
-
+%%%%% REmove this case
 case 'plot_to_from'
 
     %load('tle_RANN.mat', 'tle_high')
@@ -335,6 +336,7 @@ case 'plot_to_from'
 case 'plot_from_to_2'
     load('tle_1960.mat', 'tle_final');
     tle_arr=tle_final;
+    initLen=length(tle_arr(:,1));
     
     alt_p_1_a = get(findobj('tag','alt_p_1'),'string');
     alt_p_1 = str2num(alt_p_1_a);
@@ -474,6 +476,19 @@ case 'plot_from_to_2'
     end   
     
     save('check.mat','tle_arr','inc_1','inc_2','tle_final','alt_p_2');
+    c=clock;
+    cyear=c(1); cmonth=c(2); cday =c(3); chour=c(4); cmin=c(5); csec=c(6);
+    fprintf('Operation performed on ');
+    fprintf('%d/%d/%d, at %d:%d:%.3f\n',cday,cmonth,cyear,chour,cmin,csec);
+    fprintf('Debris bounds (blank means no data entered):\n');
+    fprintf('Perigee (km): %.3f - %.3f\n',alt_p_1,alt_p_2);
+    fprintf('Apogee (km): %.3f - %.3f\n',alt_a_1,alt_a_2);
+    fprintf('Inclination (deg): %.3f - %.3f\n',inc_1,inc_2);
+    fprintf('Longitude of the ascending node  (deg): %.3f - %.3f\n',Omega_1,Omega_2);
+    fprintf('Argument of periapsis (deg): %.3f - %.3f\n',omega_1,omega_2);
+    fprintf('Out of %d debris, %d debris found within bounds\n',initLen,length(tle_arr(:,1)));
+    
+    
     
     
     
@@ -490,7 +505,7 @@ case 'plot_from_to_2'
         alt_a=(tle_arr(countP,10)-6378136)*0.000621371192;
         Omega=tle_arr(countP,4);
         omega=tle_arr(countP,6);
-        fprintf('Finished orbit %d of %d\n',countP,highV);
+        %fprintf('Finished orbit %d of %d\n',countP,highV);
 
         data = get(gcf,'userdata');
         handles = data.handles;

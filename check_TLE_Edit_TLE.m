@@ -17,6 +17,22 @@ tleUP_1 = tle_stor_current(ia,:);
 tleUP=tleUP_1;
 tle_final=tleUP_1;
 
+vLen= 1:length(tle_final(:,1));
+figure(1)
+plot(vLen,tle_final(:,1))
+grid on
+
+diff = [];
+for i=1:length(tle_final(:,1))-1
+    diff(i)=tle_final(i+1,1)-tle_final(i,1);
+    vLd(i)=i;
+end
+
+figure(2)
+plot(vLd,diff)
+grid on
+
+%{
 %%%%%%%%%%%%%%%%% 
 %% TO DO
  removeA=[];
@@ -28,6 +44,7 @@ tle_final=tleUP_1;
         end
         tle_arr(removeA,:)=[];
     end
+%}
     %% PUT THAT IN FOR REMOVING ROWS YOU FUCK
     %%%%%%%%%%%%%%%%%%%%%%%%%%
 %{
@@ -106,7 +123,7 @@ end
 %% For some reason it gets rid of them best with two. IDK
 
 
-strNam = ['mat_files/TLE_',num2str(launchYear),'.mat']; % save the TLE as a .mat
+strNam = ['mat_files/TLE_test_',num2str(launchYear),'.mat']; % save the TLE as a .mat
 dateCreated=datetime;
 save(strNam,'tle_final','dateCreated');
 

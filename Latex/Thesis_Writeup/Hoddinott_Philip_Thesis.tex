@@ -47,6 +47,10 @@
 \fancyhead[C]{Project 2}
 \fancyhead[R]{\leftmark}
 
+%\linespread{1.5}
+\usepackage{setspace}
+\doublespacing
+
 
 % %---------------------------------------------------------------
 % % HEADER & FOOTER
@@ -345,6 +349,21 @@ A second example is given below. This time with references to the position of va
 	
 	
 	\section{Code Overview}
+	The code obtains orbital data for space debris depending on what variables the user has inputted, such as the launch year of the debris or how recent the data should be.
+	First the code ascertains what data is already available. It checks to see if there is a .mat file for the SATCAT. This is simply a file that contains the catalog ids of the debris. If this file does not exist then the code has not been run for the current parameters, and the code will be run. \par 
+	The code will also check to see if there is a TLE .mat file. If this file exists the code then checks when the file was created. Depending on user variables, the code may consider the information to be out of date, will rerun everything. However if the TLE .mat file is recent, then the code will load the current debris data into the workspace.\par 
+	Assuming that the code detects that it has no data, or the data is out of date the code will work in the following steps\par 
+	\begin{enumerate}
+		\item The desired NORAD satellite catalog ids will be collected with the get\_SATCAT.m file. These ids are determined by user variables such as launch date. The code downloads them as a csv, strips things like quotation marks away, and sorts the ids in order.
+		\begin{itemize}
+			\item if a SATCAT .mat file exists and is recent this step is skipped.
+		\end{itemize}  
+		\item The code then downloads the TLEs as .txt files from the satellite ids. It does this in groups that have their size determined by the user. 
+		\item The .txt files are then parsed, the TLEs are turned into usable orbital information, and saved as an array in MATLAB. This is done in the readTLE\_txt.m file.
+		\item Finally the array of debris information is sorted in order of satellite id and duplicate rows are removed. It should be noted that not all TLEs requested will be provided. So if the code requests TLEs of objects with a id from 1000 to 1100 and expects 100 TLEs, but some are classified, then duplicated TLEs will be returned to make 100 TLEs. As such these duplicates must be removed. The final array is stored in a .mat file with it's date of creation noted. The user now has a usable list of space debris and their orbital elements.
+	\end{enumerate}
+
+	What now follows is a more in depth explanation of each file. 
 		\subsection{VarStore.m}
 		This is a file where a few imporant variables are stored. Depening on how the code is reformatted, it might get deleted.\textcolor{red}{COME BACK TO THIS}
 		\subsection{UserPass.m}at
