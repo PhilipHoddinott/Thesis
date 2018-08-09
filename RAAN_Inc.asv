@@ -54,41 +54,15 @@ ylabel('RAAN')
 figure(6)
 %Y=[1:360;1:150];
 for i=1:360
-    %bC=0;
+    bC=0;
     for j=1:150
-        bC=0;
         for w=1:length(tle_RAAN(:,1))
-            if (i<tle_RAAN(w,4)) && ( tle_RAAN(w,4)<(i+1) )
-                if ( j<tle_RAAN(w,3) ) && ( tle_RAAN(w,3)<(j+1) )
-                    bC=bC+1;
-                end
-            end
-        end
-        
-        Y(i,j)=bC;%i*j;
+            if w<tle(RAAN(w,4) &&tle(RAAN(w,4)<(i+1)
+                if
+        Y(i,j)=i*j;
     end
 end
-h=bar3(Y);
-for i = 1:numel(h)
-  index = logical(kron(Y(:, i) == 0, ones(6, 1)));
-  zData = get(h(i), 'ZData');
-  zData(index, :) = nan;
-  set(h(i), 'ZData', zData);
-end
-% https://stackoverflow.com/questions/2050367/how-to-hide-zero-values-in-bar3-plot-in-matlab
-grid on
-zlabel('Number of debris in 1 deb by 1 deg square')
-xlabel('Inc (deg)')
-ylabel('RAAN')
-
-Ytrim = Y(:,60:110);
-figure(7)
-bar3(Ytrim)
-grid on
-zlabel('Number of debris')
-xlabel('Inc (deg)')
-ylabel('RAAN')
-
+bar3(Y)
 
         %Z=1:360;
 %bar3(Y,Z)

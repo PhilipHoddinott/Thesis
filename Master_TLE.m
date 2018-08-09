@@ -78,8 +78,7 @@ else
     fprintf('get_Multiple_TLE_from_Id.m was not run\n');
 end
 
-readTLE_txt_tog=1;
-check_TLE_Edit_TLE_tog=1;
+
 %% Func readTLE_txt
 % function to parse the txt files into a usable TLE, stored in a matrix
 if readTLE_txt_tog==1

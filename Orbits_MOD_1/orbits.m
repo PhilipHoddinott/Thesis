@@ -77,25 +77,16 @@ case 'build'
       uicontrol('Units','pixels','Position',[10 (25*(kk-1)+str2Pos) 70 22],...
          'string',strings2{kk},'callback',callbacks{kk},'backgroundcolor',colors);
    end
-  %{ 
-   uicontrol('Style', 'popup',...
-           'String', {'Zoom All','Flyby','Help','Toggle Earth'},...
-           'Position', [20 340 100 50],...
-           'Callback',{'camva(15);camlookat','orbits(''flyby'')','help orbits','orbits(''earth'')'})
-    %} 
    
    
    string3 = {'w','W','i','Apogee','Perigee'};
    tags1 = {'o_1','O_1','i_1','alt_a_1','alt_p_1'};
    tags2 = {'o_2','O_2','i_2','alt_a_2','alt_p_2'};
-   %values1 = {'0','40','40','340','110'};
-   %values2 = {'360','45','60','345','115'};
+
    values1 = {'a','a','40','a','a'};
    values2 = {'a','a','60','a','a'};
    %'units','normalized',
-   ps1=1350;
-   ps2=ps1+53;
-   ps3=ps2+53;
+   ps1=1350;    ps2=ps1+53;    ps3=ps2+53;
    for kk = 1:length(string3)
       ppp = uicontrol('position',[ps1 (20*(kk-1)+16) 50 20],'units','normalized',...
          'String',string3{kk},'style','text','backgroundcolor',colors2,...
@@ -122,34 +113,7 @@ case 'build'
     'HorizontalAlignment','left','foregroundcolor','w');
    
    fP = get(www, 'Position');
-   %{
-    for kk = 1:length(string3)
-      ppp = uicontrol('Units','pixels','Position',[ps1 (20*(kk-1)+16) 50 20],...
-         'String',string3{kk},'style','text','backgroundcolor',colors2,...
-         'foregroundcolor','w','fontsize',9);
-      uicontrol('Units','pixels','Position',[ps2 (20*(kk-1)+16) 50 20],...
-         'tag',tags{kk},'style','edit','string',values{kk},'backgroundcolor',[1 1 1]);
-      if kk <=2
-         set(ppp,'fontname','symbol','fontsize',12);
-      end
-   end
-   %}
-       
-   %{
-   cbkp={'orbits(''flyby'')','help orbits','orbits(''earth'')'};
-     uicontrol('Style', 'popup',...
-           'String', {'Flyby','Help','Toggle Earth'},...
-           'Position', [20 340 100 50],...
-           'Callback',cbkp)
-      %} 
-       
-         % strings2 = {'plot_to_from','Plot Debris','Plot Orbit','Clear Orbits','Center Earth',...
-         %'Zoom All','Flyby','Help','Toggle Earth','Quit'};
-  % callbacks = {'orbits(''plot_to_from'')','orbits(''plot_deb'')','orbits(''plot'')','orbits(''clear'')',...
-  %       'camva(15);view(120,30);camlookat(findobj(''tag'',''earth''));',...
-  %       'camva(15);camlookat','orbits(''flyby'')','help orbits',...
-  %       'orbits(''earth'')','close(gcf)'};
-   %uicontrol('Units','pixels','Position',[10 370 100 80],...
+
    uicontrol('position',[10 780 120 80],'units','normalized',...
       'string',['Left click and drag Earth for dynamic viewing.',...
          ' Right click for zooming. Double-Click to center. '],...
@@ -236,102 +200,6 @@ case 'earth'
    
    
    set(gcf,'userdata',data);
-
-%%%%% REmove this case
-case 'plot_to_from'
-
-    %load('tle_RANN.mat', 'tle_high')
-    load('tle_INC.mat', 'tle_INC')
-    tle_arr=tle_INC;
-    lowT = str2num(get(findobj('tag','to'),'string'))
-    highF = str2num(get(findobj('tag','from'),'string'))
-    for i = 1:length(tle_arr(:,3))
-        if tle_arr(i,3)<lowT
-            lowV=i
-            break;
-        end
-    end
-    for i = 1:length(tle_arr(:,3))
-        if tle_arr(i,3)<highF
-            highV=i
-            break;
-        end
-    end
-    deg2rad = pi/180;
-    for countP=highV:lowV%lowV:highV
-        philip(tle_arr,countP,highV,rad)
-        %{
-        inc =  tle_arr(countP,3);
-        alt_p=(tle_arr(countP,11)-6378136)*0.000621371192;
-        alt_a=(tle_arr(countP,10)-6378136)*0.000621371192;
-        Omega=tle_arr(countP,4)
-        omega=tle_arr(countP,6);
-        fprintf('Finished orbit %d of %d\n',countP,highV);
-
-        data = get(gcf,'userdata');
-        handles = data.handles;
-
-   % check for correctness of input data
-       if alt_p > alt_a
-          error1 = errordlg('Perigee must be smaller than apogee');
-          waitfor(error1);
-       else
-
-          % Orbital elements
-          a = (alt_p + alt_a + 2*rad)/2;
-          c = a - alt_p - rad;
-          e = c/a;
-          p = a*(1 - e^2);
-
-          th = linspace(0,2*pi,200);
-          r = p./(1 + e*cos(th));
-          xx = r.*cos(th);
-          yy = r.*sin(th);
-
-          Omega = Omega*deg2rad;
-          inc = inc*deg2rad; 
-          omega = omega*deg2rad; 
-
-          % Coordinate Transformations
-          ZZ = [cos(Omega) -sin(Omega) 0;
-             sin(Omega) cos(Omega) 0;
-             0 0 1];
-          XX = [1 0 0;
-             0 cos(inc) -sin(inc);
-             0 sin(inc) cos(inc)];
-          ZZ2 = [cos(omega) -sin(omega) 0;
-             sin(omega) cos(omega) 0;
-             0 0 1];
-
-          % actual plot
-          vec = ZZ*XX*ZZ2*[xx;yy;zeros(1,length(xx))];
-          h1 = plot3(vec(1,:),vec(2,:),vec(3,:));
-          set([h1],'linewidth',1,'color',[1 1 1]);
-
-          % line of ascending node
-          vec1 = ZZ*[rad+600;0;0];
-          h2 = plot([0 vec1(1)],[0 vec1(2)],'r-');
-          % line of periapsis
-          vec2 = ZZ*XX*ZZ2*[rad+600;0;0];
-          h3 = plot3([0 vec2(1)],[0 vec2(2)],[0 vec2(3)],'color',...
-             [1 1 0]);
-          % line of inclination
-          vec3 = ZZ*XX*[0;0;rad+600];
-          h4 = plot3([0 vec3(1)],[0 vec3(2)],[0 vec3(3)],...
-             'color',[0 0 .8]);
-          set([h2 h3 h4],'linewidth',2);
-
-          data.handles = [data.handles h1 h2 h3 h4];
-          %data.handles = [data.handles h1 ];%h2 h3 h4];
-          set(gcf,'userdata',data);
-          %camlookat;
-       end
-       % plot orbits
-        %}
-    end
-        
-        
-% end plot to from
       
 case 'plot_from_to_2'
     load('tle_1960.mat', 'tle_final');
@@ -495,153 +363,9 @@ case 'plot_from_to_2'
    deg2rad = pi/180;
    highV=length(tle_arr(:,1));
    for countP=1:length(tle_arr(:,1))
-       %countP
-       %vp1=length(tle_arr(:,1))
-       %philip(tle_arr,countP,vp1,rad)
-       
-        deg2rad = pi/180;
-        inc =  tle_arr(countP,3);
-        alt_p=(tle_arr(countP,11)-6378136)*0.000621371192;
-        alt_a=(tle_arr(countP,10)-6378136)*0.000621371192;
-        Omega=tle_arr(countP,4);
-        omega=tle_arr(countP,6);
-        %fprintf('Finished orbit %d of %d\n',countP,highV);
-
-        data = get(gcf,'userdata');
-        handles = data.handles;
-
-   % check for correctness of input data
-       if alt_p > alt_a
-          error1 = errordlg('Perigee must be smaller than apogee');
-          waitfor(error1);
-       else
-
-          % Orbital elements
-          a = (alt_p + alt_a + 2*rad)/2;
-          c = a - alt_p - rad;
-          e = c/a;
-          p = a*(1 - e^2);
-
-          th = linspace(0,2*pi,200);
-          r = p./(1 + e*cos(th));
-          xx = r.*cos(th);
-          yy = r.*sin(th);
-
-          Omega = Omega*deg2rad;
-          inc = inc*deg2rad;
-          omega = omega*deg2rad; 
-
-          % Coordinate Transformations
-          ZZ = [cos(Omega) -sin(Omega) 0;
-             sin(Omega) cos(Omega) 0;
-             0 0 1];
-          XX = [1 0 0;
-             0 cos(inc) -sin(inc);
-             0 sin(inc) cos(inc)];
-          ZZ2 = [cos(omega) -sin(omega) 0;
-             sin(omega) cos(omega) 0;
-             0 0 1];
-
-          % actual plot
-          vec = ZZ*XX*ZZ2*[xx;yy;zeros(1,length(xx))];
-          h1 = plot3(vec(1,:),vec(2,:),vec(3,:));
-          set([h1],'linewidth',1,'color',[1 1 1]);
-
-          % line of ascending node
-          vec1 = ZZ*[rad+600;0;0];
-          h2 = plot([0 vec1(1)],[0 vec1(2)],'r-');
-          % line of periapsis
-          vec2 = ZZ*XX*ZZ2*[rad+600;0;0];
-          h3 = plot3([0 vec2(1)],[0 vec2(2)],[0 vec2(3)],'color',...
-             [1 1 0]);
-          % line of inclination
-          vec3 = ZZ*XX*[0;0;rad+600];
-          h4 = plot3([0 vec3(1)],[0 vec3(2)],[0 vec3(3)],...
-             'color',[0 0 .8]);
-          set([h2 h3 h4],'linewidth',2);
-
-          data.handles = [data.handles h1 h2 h3 h4];
-          %data.handles = [data.handles h1 ];%h2 h3 h4];
-          set(gcf,'userdata',data);
-          %camlookat;
-       end
-       %
+       philip(tle_arr,countP,highV,rad);
+    
    end
-
-
-%{
-load('TLE_1990.mat', 'tle_final')
-   deg2rad = pi/180;
-   for countP=1:500
-    inc =  tle_final(countP,3)
-    alt_p=tle_final(countP,11)*0.000621371192;
-    alt_a=tle_final(countP,10)*0.000621371192;
-    Omega=tle_final(countP,4)
-    omega=tle_final(countP,6)
-%}
-    %{
-   data = get(gcf,'userdata');
-   handles = data.handles;
-   
-
-   % check for correctness of input data
-   if alt_p > alt_a
-      error1 = errordlg('Perigee must be smaller than apogee');
-      waitfor(error1);
-   else
-      
-      % Orbital elements
-      a = (alt_p + alt_a + 2*rad)/2;
-      c = a - alt_p - rad;
-      e = c/a;
-      p = a*(1 - e^2);
-      
-      th = linspace(0,2*pi,200);
-      r = p./(1 + e*cos(th));
-      xx = r.*cos(th);
-      yy = r.*sin(th);
-      
-      Omega = Omega*deg2rad;
-      inc = inc*deg2rad; 
-      omega = omega*deg2rad; 
-      
-      % Coordinate Transformations
-      ZZ = [cos(Omega) -sin(Omega) 0;
-         sin(Omega) cos(Omega) 0;
-         0 0 1];
-      XX = [1 0 0;
-         0 cos(inc) -sin(inc);
-         0 sin(inc) cos(inc)];
-      ZZ2 = [cos(omega) -sin(omega) 0;
-         sin(omega) cos(omega) 0;
-         0 0 1];
-      
-      % actual plot
-      vec = ZZ*XX*ZZ2*[xx;yy;zeros(1,length(xx))];
-      h1 = plot3(vec(1,:),vec(2,:),vec(3,:));
-      set([h1],'linewidth',1,'color',[1 1 1]);
-      
-      % line of ascending node
-      vec1 = ZZ*[rad+600;0;0];
-      h2 = plot([0 vec1(1)],[0 vec1(2)],'r-');
-      % line of periapsis
-      vec2 = ZZ*XX*ZZ2*[rad+600;0;0];
-      h3 = plot3([0 vec2(1)],[0 vec2(2)],[0 vec2(3)],'color',...
-         [1 1 0]);
-      % line of inclination
-      vec3 = ZZ*XX*[0;0;rad+600];
-      h4 = plot3([0 vec3(1)],[0 vec3(2)],[0 vec3(3)],...
-         'color',[0 0 .8]);
-      set([h2 h3 h4],'linewidth',2);
-      
-      data.handles = [data.handles h1 h2 h3 h4];
-      %data.handles = [data.handles h1 ];%h2 h3 h4];
-      set(gcf,'userdata',data);
-      %camlookat;
-   end
-   % plot orbits
-    %}
-  
 
 
 case 'plot_deb'
@@ -653,89 +377,8 @@ tle_arr=tle_high;
 numOrb = str2num(get(findobj('tag','numOrb'),'string'));
    deg2rad = pi/180;
    for countP=1:numOrb
-    inc =  tle_arr(countP,3);
-    alt_p=(tle_arr(countP,11)-6378136)*0.000621371192;
-    alt_a=(tle_arr(countP,10)-6378136)*0.000621371192;
-    Omega=tle_arr(countP,4);
-    omega=tle_arr(countP,6);
-    fprintf('Finished orbit %d of %d\n',countP,numOrb);
-
-%{
-load('TLE_1990.mat', 'tle_final')
-   deg2rad = pi/180;
-   for countP=1:500
-    inc =  tle_final(countP,3)
-    alt_p=tle_final(countP,11)*0.000621371192;
-    alt_a=tle_final(countP,10)*0.000621371192;
-    Omega=tle_final(countP,4)
-    omega=tle_final(countP,6)
-%}
-   data = get(gcf,'userdata');
-   handles = data.handles;
-   
-   % get orbital elements from GUI
-   %alt_p = str2num(get(findobj('tag','alt_p'),'string'));
-   %alt_a = str2num(get(findobj('tag','alt_a'),'string'));
-   %inc = str2num(get(findobj('tag','i'),'string'));
-   %Omega = str2num(get(findobj('tag','O'),'string'));
-   %omega = str2num(get(findobj('tag','o'),'string'));
-   
-   % check for correctness of input data
-   if alt_p > alt_a
-      error1 = errordlg('Perigee must be smaller than apogee');
-      waitfor(error1);
-   else
-      
-      % Orbital elements
-      a = (alt_p + alt_a + 2*rad)/2;
-      c = a - alt_p - rad;
-      e = c/a;
-      p = a*(1 - e^2);
-      
-      th = linspace(0,2*pi,200);
-      r = p./(1 + e*cos(th));
-      xx = r.*cos(th);
-      yy = r.*sin(th);
-      
-      Omega = Omega*deg2rad;
-      inc = inc*deg2rad; 
-      omega = omega*deg2rad; 
-      
-      % Coordinate Transformations
-      ZZ = [cos(Omega) -sin(Omega) 0;
-         sin(Omega) cos(Omega) 0;
-         0 0 1];
-      XX = [1 0 0;
-         0 cos(inc) -sin(inc);
-         0 sin(inc) cos(inc)];
-      ZZ2 = [cos(omega) -sin(omega) 0;
-         sin(omega) cos(omega) 0;
-         0 0 1];
-      
-      % actual plot
-      vec = ZZ*XX*ZZ2*[xx;yy;zeros(1,length(xx))];
-      h1 = plot3(vec(1,:),vec(2,:),vec(3,:));
-      set([h1],'linewidth',1,'color',[1 1 1]);
-      
-      % line of ascending node
-      vec1 = ZZ*[rad+600;0;0];
-      h2 = plot([0 vec1(1)],[0 vec1(2)],'r-');
-      % line of periapsis
-      vec2 = ZZ*XX*ZZ2*[rad+600;0;0];
-      h3 = plot3([0 vec2(1)],[0 vec2(2)],[0 vec2(3)],'color',...
-         [1 1 0]);
-      % line of inclination
-      vec3 = ZZ*XX*[0;0;rad+600];
-      h4 = plot3([0 vec3(1)],[0 vec3(2)],[0 vec3(3)],...
-         'color',[0 0 .8]);
-      set([h2 h3 h4],'linewidth',2);
-      
-      data.handles = [data.handles h1 h2 h3 h4];
-      %data.handles = [data.handles h1 ];%h2 h3 h4];
-      set(gcf,'userdata',data);
-      %camlookat;
-   end
-   % plot orbits
+       philip(tle_arr,countP,numOrb,rad);
+    
   end
 case 'plot'
    deg2rad = pi/180;
@@ -848,7 +491,9 @@ function philip(tle_arr,countP,highV,rad)
         alt_a=(tle_arr(countP,10)-6378136)*0.000621371192;
         Omega=tle_arr(countP,4);
         omega=tle_arr(countP,6);
-        fprintf('Finished orbit %d of %d\n',countP,highV);
+        if mod(countP,100)==0
+            fprintf('Finished orbit %d of %d\n',countP,highV);
+        end
 
         data = get(gcf,'userdata');
         handles = data.handles;
