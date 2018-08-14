@@ -346,7 +346,7 @@ case 'plot_from_to_2'
     save('check.mat','tle_arr','inc_1','inc_2','tle_final','alt_p_2');
     c=clock;
     cyear=c(1); cmonth=c(2); cday =c(3); chour=c(4); cmin=c(5); csec=c(6);
-    fprintf('Operation performed on ');
+    fprintf('\n\nOperation performed on ');
     fprintf('%d/%d/%d, at %d:%d:%.3f\n',cday,cmonth,cyear,chour,cmin,csec);
     fprintf('Debris bounds (blank means no data entered):\n');
     fprintf('Perigee (km): %.3f - %.3f\n',alt_p_1,alt_p_2);

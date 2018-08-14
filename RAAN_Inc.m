@@ -2,10 +2,15 @@
 % This fuction requires the master program to have been run.
 %% Setup
 close all; clear all;
+
+
 VarStore
 strNam = ['mat_files/TLE_',num2str(launchYear),'.mat']; % get strNam
 
 load(strNam, 'tle_final')
+
+c1=clock;
+fprintf('Start time %d/%d/%d, %d:%d:%.3f\n',c1(3),c1(2),c1(1),c1(4),c1(5),c1(6));
 
 tle_view=tle_final;
 tle_view_temp=["norad_cat_id","Epoch time","Inclination (deg)","RAAN (deg)","Eccentricity (deg)","Arg of perigee(deg)","Mean anomaly (deg)","Mean motion (rev/day)","Period of rev (s/rev)","Semi-major axis (meter)","Semi-minor axis (meter)"];
@@ -81,14 +86,51 @@ zlabel('Number of debris in 1 deb by 1 deg square')
 xlabel('Inc (deg)')
 ylabel('RAAN')
 
-Ytrim = Y(:,60:110);
+Ytrim = Y;%(:,60:110);
+
+
 figure(7)
-bar3(Ytrim)
+%bar3(Ytrim)
+
+h=bar3(Ytrim);
+for i = 1:numel(h)
+  index = logical(kron(Y(:, i) == 0, ones(6, 1)));
+  zData = get(h(i), 'ZData');
+  zData(index, :) = nan;
+  set(h(i), 'ZData', zData);
+end
+
+xlim([60, 110]);
 grid on
 zlabel('Number of debris')
 xlabel('Inc (deg)')
 ylabel('RAAN')
 
+
+figure(8)
+%bar3(Ytrim)
+
+h=bar3(Ytrim);
+for i = 1:numel(h)
+  index = logical(kron(Y(:, i) == 0, ones(6, 1)));
+  zData = get(h(i), 'ZData');
+  zData(index, :) = nan;
+  set(h(i), 'ZData', zData);
+end
+
+xlim([60, 110]);
+ylim([150, 340]);
+grid on
+zlabel('Number of debris')
+xlabel('Inc (deg)')
+ylabel('RAAN')
+
+
+c2=clock;
+fprintf('End time %d/%d/%d, %d:%d:%.3f\n',c2(3),c2(2),c2(1),c2(4),c2(5),c2(6));
+rt=(c2(6)+c2(5)*60+c2(4)*60*60)-(c1(6)+c1(5)*60+c1(4)*60*60);
+rts=mod(rt,60); rtm=floor(rt);
+fprintf('Run time = %d min, %.3f seconds\n',rtm,rts);
 
         %Z=1:360;
 %bar3(Y,Z)
