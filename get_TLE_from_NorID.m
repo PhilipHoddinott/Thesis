@@ -1,12 +1,29 @@
-% test combind Tle, txt reader 
-close all; clear all;
+%% Gets TLE from NORARD IDs
+% based off this code: 
+% https://github.com/jgte/matlab-sgp4/blob/master/get_tle.m
+%% This code goes through a loop and gets all the TLEs, not just a small number
+
+
+
+
+strTLE='/';
+for i = tleA(j_GMTFI):tleA(j_GMTFI+1)-2
+    strTLE=[strTLE, num2str(relDeb(i)),','];
+end
+if tleA(j_GMTFI+1)==decayEnd
+    strTLE=[strTLE, num2str(relDeb(tleA(j_GMTFI+1)-1)),num2str(relDeb(tleA(j_GMTFI))),'/'];
+    fnName = [tle_folder,'/tle_',num2str(j_GMTFI),'_',num2str(tleA(j_GMTFI)),'_',num2str(tleA(j_GMTFI+1)),'.txt'];
+else
+    strTLE=[strTLE, num2str(relDeb(tleA(j_GMTFI+1)-1)),'/'];
+    fnName = [tle_folder,'/tle_',num2str(j_GMTFI),'_',num2str(tleA(j_GMTFI)),'_',num2str(tleA(j_GMTFI+1)-1),'.txt'];
+end
+fprintf('j = %d, tle %d to tle %d',j_GMTFI,tleA(j_GMTFI), tleA(j_GMTFI+1));
 c=clock;
 fprintf(' H = %d, Min = %d, Sec = %.1f\n',c(4),c(5),c(6));
+%fprintf(strTLE);fprintf('\n'); %uncomment if you need to see %NORAD_CAT_ID
+strTLE=[strTLE,'orderby/ORDINAL%20asc/limit/',num2str(tle_inc),'/format/tle/metadata/false'];  
 
-load('UserPass.mat') % load in username and password
-VarStore
 
-strTLE='/38584,38587,38595,38596,38598,38603,38604,38605,38607,38613,38614,38615,38617,38618,38620,38621,38623,38626,38627,38628,38630,38632,38633,38634,38635,38637,38638,38639,38641,38642,38644,38657,38658,38659,38660,38661,38662,38663,38664,38674,38677,38678,38679,38879,38907,38948,38957,38959,38960,38961,38966,38971,38989,39029,39119,39204,39205,39213,39214,39224,39225,39231,39327,39329,39331,39342,39600,39601,39626,39627,39628,39629,39798,39799,39802,39803,39804,39933,39934,39987,39990,39991,39992,39993,39994,39995,39996,39997,40052,40121,40152,40154,40155,40156,40164,40165,40167,40168,40173,40176,40177,40183,40200,40245,40263,40264,40265,40266,40288,40289,40290,40291,40328,40530,40531,40532,40533,40594,40649,40816,40817,40818,40822,40823,40824,40826,40827,40828,40830,40833,40834,40835,40836,40846,40857,40864,40870,40871,40872,40987,40989,40990,40991,41023,41024,41040,41041,41042,41119,41318,41319,41320,41322,41323,41324,41439,41444,41445,41447,41541,41542,41543,41544,41545,41546,41547,41548,41561,41562,41642,41643,41644,41645,41646,41647,41648,41649,41650,41651,41676,41678,41679,41680,41682,41683,41684,41685,41686,41688,41689,41690,41691,41692,41693,41694,41695,41696,41697,41698,41700/orderby/ORDINAL%20asc/limit/200/format/tle/metadata/false';
 URL='https://www.space-track.org/ajaxauth/login';
 
 post={... % Create Post (rember to referance the github)
@@ -17,11 +34,9 @@ post={... % Create Post (rember to referance the github)
     strTLE
   ]...
 };
-out4TLE=urlread(URL,'Post',post,'Timeout',timeOutVal); % gets the output
-outStr=convertCharsToStrings(out4TLE); % coverts output to string
 
-c=clock;
-fprintf(' H = %d, Min = %d, Sec = %.1f\n',c(4),c(5),c(6));
+out3TLE=urlread(URL,'Post',post,'Timeout',timeOutVal); % gets the output
+outStr=convertCharsToStrings(out3TLE); % coverts output to string
 
 
 j=1;
@@ -78,20 +93,22 @@ while j<length(C)-1
 
         %A1 = fgetl(fd);
         %A2 = fgetl(fd);
-        j=j+2
+        j=j+2;
         k=k+1;
 end
-    tle_final=tle_stor;
-    
-    
-    save(strNam,'tle_final');
-[C,ia,ic]=unique(tle_stor(:,1),'rows'); % sort by row by norard cat id
-tle_view_1 = tle_final(ia,:);
+tle_final=tle_stor;
+%{ 
 
-tle_view_temp=["norad_cat_id","Epoch time","Inclination (deg)","RAAN (deg)","Eccentricity (deg)","Arg of perigee(deg)","Mean anomaly (deg)","Mean motion (rev/day)","Period of rev (s/rev)","Semi-major axis (meter)","Semi-minor axis (meter)"];
+%% Function to save TLE string as txt
+fid = fopen(fnName,'wt');
+fprintf(fid, '%s', outStr);
+fclose(fid); % prints to txt file
 
-tle_veiw_1 = [tle_view_temp;tle_view_1]; % useful for looking at numbers
-
-strNam = ['mat_files/TLE_test_',num2str(launchYear),'.mat']; % save the TLE as a .mat
-dateCreated=datetime;
-save(strNam,'tle_veiw_1','dateCreated');
+% gets rid of white space, from this link 
+% https://www.mathworks.com/matlabcentral/answers/284560-text-file-modification-remove-blank-line
+filecontent = fileread(fnName);
+newcontent = regexprep(filecontent, {'\r', '\n\n+', '\n'}, {'', '\n', '\r\n'});
+fid = fopen(fnName, 'w');
+fwrite(fid, newcontent);
+fclose(fid);
+%}
