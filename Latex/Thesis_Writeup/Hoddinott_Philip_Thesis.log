@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  7 AUG 2018 13:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  20 AUG 2018 11:55
 entering extended mode
 **./Hoddinott_Philip_Thesis.tex
 (Hoddinott_Philip_Thesis.tex
@@ -1215,7 +1215,24 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [8]
-[9] (Hoddinott_Philip_Thesis.bbl [10] [11]) [12
+[9]
+<../../Bloom_County_2.jpg, id=66, 685.3605pt x 215.00325pt>
+File: ../../Bloom_County_2.jpg Graphic file (type jpg)
+<use ../../Bloom_County_2.jpg>
+Package pdftex.def Info: ../../Bloom_County_2.jpg  used on input line 393. on i
+nput line 393.
+Package pdftex.def Info: Requested size: 317.07614pt x 99.47025pt on input line
+ 393.
+ [10]
+<../../Bloom_County.png, id=70, 1027.84pt x 333.245pt>
+File: ../../Bloom_County.png Graphic file (type png)
+<use ../../Bloom_County.png>
+Package pdftex.def Info: ../../Bloom_County.png  used on input line 400. on inp
+ut line 400.
+Package pdftex.def Info: Requested size: 317.07614pt x 102.80147pt on input lin
+e 400.
+ (Hoddinott_Philip_Thesis.bbl [11 <../../Bloom_County_2.jpg> <../../Bloom_Count
+y.png>]) [12
 
 ]
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
@@ -1225,10 +1242,10 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 AED: lastpage setting LastPage
 [13] (Hoddinott_Philip_Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 10238 strings out of 493312
- 148217 string characters out of 3138896
- 380744 words of memory out of 3000000
- 13367 multiletter control sequences out of 15000+200000
+ 10252 strings out of 493312
+ 148518 string characters out of 3138896
+ 380870 words of memory out of 3000000
+ 13377 multiletter control sequences out of 15000+200000
  112727 words of font info for 214 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,12n,43p,613b,385s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1240,9 +1257,9 @@ s.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/adobe/utopia/putb8a.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/adobe/utopia/putr8a.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/adobe/utopia/putri8a.pfb><C:/Users/Philip/AppData/Roaming/Mi
 KTeX/2.9/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on Hoddinott_Philip_Thesis.pdf (21 pages, 246252 bytes).
+Output written on Hoddinott_Philip_Thesis.pdf (21 pages, 445194 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
+ 103 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 39435 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 39445 words of extra memory for PDF output out of 42996 (max. 10000000)
 

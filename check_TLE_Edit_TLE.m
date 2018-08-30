@@ -19,7 +19,7 @@ tle_final=tleUP_1;
 
 
 
-strNam = ['mat_files/TLE_test_',num2str(launchYear),'.mat']; % save the TLE as a .mat
+strNam = ['mat_files/TLE_',num2str(launchYear),'.mat']; % save the TLE as a .mat
 dateCreated=datetime;
 save(strNam,'tle_final','dateCreated');
 

@@ -109,7 +109,7 @@ load(strNam, 'tle_final')
 
 %tle_low=sortrows(tle_final(:,:),11);
 %save('Orbits_MOD_1/tle_low2high.mat','tle_low');
-
+%{
 tle_high=sortrows(tle_final(:,:),11,'descend');
 save('Orbits_MOD_1/tle_high2low.mat','tle_high');
 % Note that these files could be made functions in MATLAB. For debuggin
@@ -120,7 +120,7 @@ save('Orbits_MOD_1/tle_RANN.mat','tle_high');
 
 tle_INC=sortrows(tle_final(:,:),3,'descend');
 save('Orbits_MOD_1/tle_INC.mat','tle_INC');
-
+%}
 tle_view=tle_final;
 tle_view_temp=["norad_cat_id","Epoch time","Inclination (deg)","RAAN (deg)","Eccentricity (deg)","Arg of perigee(deg)","Mean anomaly (deg)","Mean motion (rev/day)","Period of rev (s/rev)","Semi-major axis (meter)","Semi-minor axis (meter)"];
 
