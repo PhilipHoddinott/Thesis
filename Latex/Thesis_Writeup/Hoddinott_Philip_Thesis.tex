@@ -11,7 +11,7 @@
 \usepackage[a4paper]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[myheadings]{fullpage}
-\usepackage{fancyhdr}
+%\usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
 \usepackage[T1]{fontenc}
@@ -40,29 +40,29 @@
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{5}
 
-\pagestyle{fancy}
+%\pagestyle{fancy}
 %\fancyhf{Philip Hoddinott, Module 4 Questions}
-\fancyhf{}
-\fancyhead[L]{Philip Hoddinott}
-\fancyhead[C]{Project 2}
-\fancyhead[R]{\leftmark}
+%\fancyhf{}
+%\fancyhead[L]{Philip Hoddinott}
+%\fancyhead[C]{Project 2}
+%\fancyhead[R]{\leftmark}
 
 %\linespread{1.5}
 \usepackage{setspace}
-\doublespacing
+%\doublespacing
 
 
 % %---------------------------------------------------------------
 % % HEADER & FOOTER
 % %---------------------------------------------------------------
 
-\fancyhf{}
-\pagestyle{fancy}
-\renewcommand{\headrulewidth}{0pt}
+%\fancyhf{}
+%\pagestyle{fancy}
+%\renewcommand{\headrulewidth}{0pt}
 %\setlength\headheight{0pt}
 %\fancyhead[L]{ Paul McKee }
 %\fancyhead[R]{Rensselaer Polytechnic Institute}
-\cfoot{ \thepage\ } 
+%\cfoot{ \thepage\ } 
 
 
 %--------------------------------------------------------------
@@ -94,6 +94,45 @@
 	\setcounter{page}{2}
 	% --Table of Contents----------
 	\tableofcontents
+	\newpage
+	\newlength\longest
+	\clearpage
+	
+	\thispagestyle{empty}
+	\null\vfill
+	
+	\begin{figure}[!t]
+		\begin{center}
+			\settowidth\longest{\huge\itshape But, Captain, I cannot change;}
+			\parbox{\longest}{%
+				\raggedright{\huge\itshape%
+					But, Captain, I cannot change the laws of physics\par\bigskip
+				}   
+				\raggedleft\Large{-Lt. Commander Scott (Scotty)}\par
+				\raggedleft\Large{USS}\textit{ Enterprise}\par%
+				
+			}
+		\end{center}
+	\end{figure}
+	
+	\null\vfill
+			\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{../../Bloom_County_2}
+		\caption{}
+		\label{fig:bloomcounty2}
+	\end{figure}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{../../Bloom_County}
+		\caption{}
+		\label{fig:bloomcounty}
+	\end{figure}
+	
+	\newpage
+	%\thispagestyle{fancy}
+	
 	%\addcontentsline{toc}{section}{\uppercase{Table of Contents}}
 	\listoftables
 	%\addcontentsline{toc}{section}{\uppercase{List of Tables}}
@@ -108,7 +147,10 @@
 	\section{Acknowledgments}
 	%\addcontentsline{toc}{section}{\uppercase{Acknowledgement}}
 	
+	This paper would never have been possible with out the help of so many people. 
+	I am indebet to my parents and my brother for their support. 
 	
+	John Benke for his assitance with Github and PHP. I am thankfull to Paul McKee for his assistance with Latex. 
 	Thank lots of people here\par 
 	
 	Mom, dad, David,
@@ -127,7 +169,7 @@
 	
 	\newpage
 	\section{Abstract}
-	The purpose of this project is to acquire information about earth orbiting debris, turn the information into a usable format, and develop a targeting algorithm for a debris removal satellite. The information is things such as orbital elements, debris size, \textcolor{red}{ and sping if i can find htis.} \par 
+	The purpose of this project is to acquire information about earth orbiting debris, turn the information into a usable format, \textcolor{red}{and develop a targeting algorithm for a debris removal satellite}. The information is things such as orbital elements, debris size, \textcolor{red}{ and sping if i can find htis.} \par 
 	 Should this be accomplished in a timely manner more work will be done on the orbital dynamics of OSCAR getting to said debris.
 	% ------------------------------------------------------------
 	% Introduction
@@ -139,9 +181,42 @@
 	Talk more about project. one or two paragraph here 
 
 	\subsection{Space Debris}
+	
+	March 17th, 1958 the Vanguard 1 satellite was launched. It was the fourth man made satellite. Despite communication beling lost in the 1960s, it is still in orbit to this day\cite{usnrl_2008}. \par 
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.7\linewidth]{Vanguard_1_composite}
+		\caption{Artist's rendition of Vanguard 1 in orbit.}
+		\label{fig:vanguard1composite}
+	\end{figure}
+	
+	
+	Put in Photo of it here!\par 
+	
+	As of 2013 it is estimated that there are:\par 
+	
+	29,000 Objects larger than 10 cm.\par 
+	
+	670,000 Objects larger than 1 cm.\par 
+	
+	Over 170,000,000 Objects larger than 1 mm.
+	
+	These objects can do gerviuos harm to people or objects in space. 
+	A 10 cm object can cause the desctruction of a satellie, a 1 cm object could penetrate the ISS's sheilds puting lives at risk and a 1 mm object could destroy critical subsystems.\cite{sdor2014}
+	
+	\begin{align}
+	E=\frac{1}{2}mv^2
+	\end{align}
+	\begin{align}
+	E=\frac{1}{2}(.001kg)(7.66 \times 10^3)^2
+	\end{align}
+	  
 	Todo
 	\subsection{CubeSats}
-	Todo
+	CubeSats are a type of miniaturized satellite, made up of $10\times10\times10$ cm units. 	First launched in 1998, as of August 2018, there have been 875 CubeSats launched\cite{nanosats_eu}. \par 
+	
+	The Cubesats are used for projects that are too risky for a larger more expensive satillite, often demonstrating new technologies. They can take on larger risks due to their low cost. 
 	
 	\subsection{OSCAR}
 	Unsure if talking about oscar? Yes not
@@ -168,7 +243,7 @@
 	Orbital elements provide the means to determine a theoretical orbit. Since spacecraft are constantly experiencing forces such as atmospheric drag or solar wind their orbital elements are constantly changing. \par 
 	A Two Line Element (TLE) is a data format that encodes a list of orbital elements for an Earth-orbiting object for a given point in time [\textcolor{red}{Re do this}]\par
 	
-	An example shows how orbital infomration is derived from a Two Line Element \cite{NASATLE}.
+	An example shows how orbital information is derived from a Two Line Element \cite{NASATLE}.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.7\linewidth]{tle_nasa}
@@ -330,7 +405,7 @@ A second example is given below. This time with references to the position of va
 	
 	
 
-	\textcolor{red}{to do here, add more details on what the checksum and stuff liek that is}
+	\textcolor{red}{to do here, add more details on what the checksum and stuff like that is}
 	
 	\par 
 	The process of TLE gathering and updating is somewhat shadowy. \cite{vallado2012two} What is known is that observations are collected multiple times per day at the Joint
@@ -384,23 +459,18 @@ A second example is given below. This time with references to the position of va
 		
 		
 		\section{Targeting}
-		Once the data has been collected, the next step is to target possible orbits. Since OSCAR has a delta V of \textcolor{red}{Find delta V} inclanation and plane changes are out of the question. What is desired is a number of debris in a plane with simialr inclanations
+		Once the data has been collected, the next step is to target possible orbits. Since OSCAR has a delta V of \textcolor{red}{Find delta V} inclanation and plane changes are out of the question. What is desired is a number of debris in a plane with simialr inclanations.
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.7\linewidth]{rann_inc}
+			\caption{Debis loc}
+			\label{fig:ranninc}
+		\end{figure}
+		
 	
 	\section{Conclusion}
 	
-		\begin{figure}
-		\centering
-		\includegraphics[width=0.7\linewidth]{../../Bloom_County_2}
-		\caption{}
-		\label{fig:bloomcounty2}
-	\end{figure}
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.7\linewidth]{../../Bloom_County}
-		\caption{}
-		\label{fig:bloomcounty}
-	\end{figure}
 
 	
 		

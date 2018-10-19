@@ -3,7 +3,7 @@
 %% Setup
 close all; clear all;
 
-
+launchYear=1960;
 VarStore
 strNam = ['mat_files/TLE_',num2str(launchYear),'.mat']; % get strNam
 

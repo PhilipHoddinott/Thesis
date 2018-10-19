@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  20 AUG 2018 11:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  19 OCT 2018 00:36
 entering extended mode
 **./Hoddinott_Philip_Thesis.tex
 (Hoddinott_Philip_Thesis.tex
@@ -375,19 +375,6 @@ Now handling font encoding U ...
 Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip43
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
-Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
-s
-\f@nch@headwidth=\skip44
-\f@nch@O@elh=\skip45
-\f@nch@O@erh=\skip46
-\f@nch@O@olh=\skip47
-\f@nch@O@orh=\skip48
-\f@nch@O@elf=\skip49
-\f@nch@O@erf=\skip50
-\f@nch@O@olf=\skip51
-\f@nch@O@orf=\skip52
-)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lastpage\lastpage.sty"
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
@@ -757,7 +744,7 @@ File: microtype-pdftex.def 2018/01/14 v2.7a Definitions specific to pdftex (RS)
 
 LaTeX Info: Redefining \lsstyle on input line 913.
 LaTeX Info: Redefining \lslig on input line 913.
-\MT@outer@space=\skip53
+\MT@outer@space=\skip44
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 
@@ -813,8 +800,8 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \col@sep=\dimen137
 \extrarowheight=\dimen138
 \NC@list=\toks20
-\extratabsurround=\skip54
-\backup@length=\skip55
+\extratabsurround=\skip45
+\backup@length=\skip46
 )
 \rotheadsize=\dimen139
 \c@nlinenum=\count103
@@ -822,7 +809,7 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2017/09/02 v2.17a AMS math features
-\@mathmargin=\skip56
+\@mathmargin=\skip47
 
 For additional information on amsmath, use the `?' option.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
@@ -872,8 +859,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \totwidth@=\dimen147
 \lineht@=\dimen148
 \@envbody=\toks25
-\multlinegap=\skip57
-\multlinetaggap=\skip58
+\multlinegap=\skip48
+\multlinetaggap=\skip49
 \mathdisplay@stack=\toks26
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
@@ -881,8 +868,8 @@ LaTeX Info: Redefining \] on input line 2818.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty"
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box29
-\beforetitleunit=\skip59
-\aftertitleunit=\skip60
+\beforetitleunit=\skip50
+\aftertitleunit=\skip51
 \ttl@plus=\dimen149
 \ttl@minus=\dimen150
 \ttl@toksa=\toks27
@@ -901,7 +888,7 @@ Package xcolor Info: Driver file: pdftex.def on input line 225.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty"
 Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
 \everycr=\toks28
-\minrowclearance=\skip61
+\minrowclearance=\skip52
 )
 \rownum=\count116
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
@@ -1135,63 +1122,90 @@ Package pdftex.def Info: Requested size: 71.13188pt x 71.13045pt on input line
 91.
  [1
 
-] [2{C:/Users/Philip/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./rens
-selaer_seal.png>]
+{C:/Users/Philip/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./renssela
+er_seal.png>]
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 96.
- (Hoddinott_Philip_Thesis.toc
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 11.03998pt on input line 2.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 2.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.43999pt on input line 2.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 11.03998pt on input line 2.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 2.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.43999pt on input line 2.
- [2
 
-])
+(Hoddinott_Philip_Thesis.toc
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 2.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 2.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 2.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 2.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 2.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 2.
+)
 \tf@toc=\write3
 \openout3 = `Hoddinott_Philip_Thesis.toc'.
 
- [3] (Hoddinott_Philip_Thesis.lot)
+ [2
+
+]
+\longest=\skip53
+<../../Bloom_County_2.jpg, id=14, 685.3605pt x 215.00325pt>
+File: ../../Bloom_County_2.jpg Graphic file (type jpg)
+<use ../../Bloom_County_2.jpg>
+Package pdftex.def Info: ../../Bloom_County_2.jpg  used on input line 121. on i
+nput line 121.
+Package pdftex.def Info: Requested size: 317.07614pt x 99.47025pt on input line
+ 121.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 122.
+<../../Bloom_County.png, id=15, 1027.84pt x 333.245pt>
+File: ../../Bloom_County.png Graphic file (type png)
+<use ../../Bloom_County.png>
+Package pdftex.def Info: ../../Bloom_County.png  used on input line 128. on inp
+ut line 128.
+Package pdftex.def Info: Requested size: 317.07614pt x 102.80147pt on input lin
+e 128.
+ [3
+
+ <../../Bloom_County_2.jpg> <../../Bloom_County.png>] (Hoddinott_Philip_Thesis.
+lot)
 \tf@lot=\write4
 \openout4 = `Hoddinott_Philip_Thesis.lot'.
 
  [4
 
-]
-(Hoddinott_Philip_Thesis.lof)
+] (Hoddinott_Philip_Thesis.lof)
 \tf@lof=\write5
 \openout5 = `Hoddinott_Philip_Thesis.lof'.
 
- [5
+
+[5
 
 ]
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <25> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 108.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 147.
  [6] [7]
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 141.
- [1]
-<tle_nasa.png, id=36, 459.51675pt x 184.89075pt>
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 183.
+<Vanguard_1_composite.jpg, id=32, 193.36455pt x 145.0234pt>
+File: Vanguard_1_composite.jpg Graphic file (type jpg)
+<use Vanguard_1_composite.jpg>
+Package pdftex.def Info: Vanguard_1_composite.jpg  used on input line 189. on i
+nput line 189.
+Package pdftex.def Info: Requested size: 317.07614pt x 237.83105pt on input lin
+e 189.
+ [1 <./Vanguard_1_composite.jpg>] [2]
+<tle_nasa.png, id=40, 459.51675pt x 184.89075pt>
 File: tle_nasa.png Graphic file (type png)
 <use tle_nasa.png>
-Package pdftex.def Info: tle_nasa.png  used on input line 174. on input line 17
-4.
+Package pdftex.def Info: tle_nasa.png  used on input line 252. on input line 25
+2.
 Package pdftex.def Info: Requested size: 317.07614pt x 127.58037pt on input lin
-e 174.
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 175.
+e 252.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 180.
- [2 <./tle_nasa.png>] [3] [4]
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 258.
+ [3 <./tle_nasa.png>] [4]
 [5]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 267.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 345.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -1200,39 +1214,27 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[6] [7]
-LaTeX Font Info:    Try loading font information for TS1+futs on input line 359
+ [6]
+LaTeX Font Info:    Try loading font information for TS1+futs on input line 437
 .
- ("C:\Program Files\MiKTeX 2.9\tex\latex\fourier\ts1futs.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\fourier\ts1futs.fd"
 File: ts1futs.fd 2004/03/26 Fontinst v1.926 font definitions for TS1/futs.
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `futs' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [8]
-[9]
-<../../Bloom_County_2.jpg, id=66, 685.3605pt x 215.00325pt>
-File: ../../Bloom_County_2.jpg Graphic file (type jpg)
-<use ../../Bloom_County_2.jpg>
-Package pdftex.def Info: ../../Bloom_County_2.jpg  used on input line 393. on i
-nput line 393.
-Package pdftex.def Info: Requested size: 317.07614pt x 99.47025pt on input line
- 393.
- [10]
-<../../Bloom_County.png, id=70, 1027.84pt x 333.245pt>
-File: ../../Bloom_County.png Graphic file (type png)
-<use ../../Bloom_County.png>
-Package pdftex.def Info: ../../Bloom_County.png  used on input line 400. on inp
-ut line 400.
-Package pdftex.def Info: Requested size: 317.07614pt x 102.80147pt on input lin
-e 400.
- (Hoddinott_Philip_Thesis.bbl [11 <../../Bloom_County_2.jpg> <../../Bloom_Count
-y.png>]) [12
+ [7] [8]
+<rann_inc.jpg, id=63, 921.4425pt x 644.4075pt>
+File: rann_inc.jpg Graphic file (type jpg)
+<use rann_inc.jpg>
+Package pdftex.def Info: rann_inc.jpg  used on input line 469. on input line 46
+9.
+Package pdftex.def Info: Requested size: 317.07614pt x 221.74069pt on input lin
+e 469.
+
+(Hoddinott_Philip_Thesis.bbl [9 <./rann_inc.jpg>] [10]) [11
 
 ]
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
@@ -1240,15 +1242,15 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 
 AED: lastpage setting LastPage
-[13] (Hoddinott_Philip_Thesis.aux) ) 
+[12] (Hoddinott_Philip_Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 10252 strings out of 493312
- 148518 string characters out of 3138896
- 380870 words of memory out of 3000000
- 13377 multiletter control sequences out of 15000+200000
- 112727 words of font info for 214 fonts, out of 3000000 for 9000
+ 10164 strings out of 493312
+ 147656 string characters out of 3138896
+ 378927 words of memory out of 3000000
+ 13276 multiletter control sequences out of 15000+200000
+ 131417 words of font info for 229 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,12n,43p,613b,385s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,11n,40p,613b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Philip/AppData/Roaming/MiKTeX/2.9
 /fonts/enc/dvips/cm-super/cm-super-t1.enc}{C:/Program Files/MiKTeX 2.9/fonts/en
 c/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/fourier/fou
@@ -1257,9 +1259,9 @@ s.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/adobe/utopia/putb8a.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/adobe/utopia/putr8a.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/adobe/utopia/putri8a.pfb><C:/Users/Philip/AppData/Roaming/Mi
 KTeX/2.9/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on Hoddinott_Philip_Thesis.pdf (21 pages, 445194 bytes).
+Output written on Hoddinott_Philip_Thesis.pdf (19 pages, 648793 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
+ 99 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 39445 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 43039 words of extra memory for PDF output out of 51595 (max. 10000000)
 

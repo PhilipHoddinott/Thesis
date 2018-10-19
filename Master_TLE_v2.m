@@ -78,29 +78,6 @@ else
     fprintf('get_Multiple_TLE_from_Id.m was not run\n');
 end
 
-%{
-%% Func readTLE_txt
-% function to parse the txt files into a usable TLE, stored in a matrix
-if readTLE_txt_tog==1
-    readTLE_txt
-    fprintf('readTLE_txt.m has finished running\n');
-else
-    fprintf('readTLE_txt.m was not run\n');
-end
-
-%% Func check_TLE_edit_TLE
-% function to neatly sort TLEs, remove duplicates, and list TLEs that were
-% not given
-
-if check_TLE_Edit_TLE_tog==1
-    check_TLE_Edit_TLE
-    fprintf('check_TLE_Edit_TLE.m has finished running\n');
-else
-    fprintf('check_TLE_Edit_TLE.m was not run\n');
-end
-%}
-
-
 %close all; clear all; % clear out everything
 VarStore % run var store for stored variables, ugly but it works
 strNam = ['mat_files/TLE_',num2str(launchYear),'.mat']; % get strNam
