@@ -19,6 +19,8 @@
 \contentsline {subsection}{\numberline {0.6.4}get\_SATCAT.m}{14}
 \contentsline {subsection}{\numberline {0.6.5}get\_Multiple\_TLE\_from\_Id.m}{14}
 \contentsline {subsection}{\numberline {0.6.6}readTLE\_txt.m}{15}
-\contentsline {section}{\numberline {0.7}Targeting}{15}
-\contentsline {section}{\numberline {0.8}Conclusion}{15}
-\contentsline {section}{Appendix}{19}
+\contentsline {subsection}{\numberline {0.6.7}get\_TLE\_from\_ID\_Manager.m}{15}
+\contentsline {subsection}{\numberline {0.6.8}get\_TLE\_from\_NorID.m}{16}
+\contentsline {section}{\numberline {0.7}Targeting}{17}
+\contentsline {section}{\numberline {0.8}Conclusion}{17}
+\contentsline {section}{Appendix}{21}

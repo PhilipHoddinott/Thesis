@@ -360,7 +360,18 @@
 	\theta &\text{ true anomaly}
 	\end{eqnarray}
 	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{curtis_OE}
+		\caption{Geocentric equatorial frame and the orbital elements\cite{curtis2013}.}
+		\label{fig:curtisoe}
+	\end{figure}
+	
+	
+	However for space debris 
+	
 	However for the use of
+	We use perigee and apogee
 	
 	
 	page 175
@@ -601,6 +612,52 @@ A second example is given below. This time with references to the position of va
 		\subsection{readTLE\_txt.m}
 		This MATLAB file reads the .txt files and then converts the TLE format to the standard orbital elements stored in a .mat file. 
 		%\subsection{check\_TLE\_Edit\_TLE.m}
+		
+		\subsection{get\_TLE\_from\_ID\_Manager.m}
+		The purpose of get\_TLE\_from\_ID\_Manager.m is to act as a handler for function get\_TLE\_from\_NorID.m and to provide status reports. 
+		
+		The code first checks to see if there exists a folder to store the data in, if there is not a folder is created. Then the code begins to run through the list of NORAD Ids. It sends these Ids to get\_TLE\_from\_NorID.m, receives the orbital element data from those Ids. 
+		
+		The code also contains an error handler. The most common problem with downloading large numbers of TLEs is a url timeout may occur. Timeouts are easy for a human to deal with, they may be fixed by simply refreshing the web page. However for MATLAB, it is more difficult. The code deals with a url timeout as follows. 
+		
+		First the code detects the specific error thrown for url timeouts. This error is caught, so the code does not stop running. Then the code gets the current location in the Id array the time out occurred at, and restarts at that spot. The effect of this is the same as refreshing a webpage that is not loading. 
+		
+		Once all the data has been collected for the given Ids, it is saved as a .mat file with the time that it was created.
+		\subsection{get\_TLE\_from\_NorID.m}
+		The purpose of get\_TLE\_from\_NorID.m is to download the TLEs from NORAD given Ids, and to save the TLEs as useful orbital elements. 
+		
+		This function may be divided into two parts: the web interface for TLEs and the TLE to orbital element section. 
+		
+		The first part of the code creates a url from the current set of Ids. This url is then used to download the TLEs. The TLEs are saved as a string within MATLAB.  
+		
+		In the next part of the code a loop goes through the TLE string. The information from these TLEs is saved as a matrix. 
+		
+		
+		From the TLE inclination (i), RA of ascending node ($\Omega$), eccentricity (e), argument of perigee ($\omega$), mean anomaly, and mean motion (n) may be acquired directly. \par 
+		
+		From these values the other orbital elements may be calculated. 
+		
+		Period of rev:
+		\begin{align}
+		T=\frac{24\times60\times60}{n}
+		\end{align}
+		
+		Semi-major axis:
+		\begin{align}
+		a=\left(\left(\frac{T}{2\pi}\right)^2 \times \mu_\text{earth}\right)^{(1/3)}
+		\end{align}
+		where $\mu_\text{earth}$ is the standard gravitational parameter of earth: $3.986\times10^{14}$. 
+		
+		Semi-minor axis:
+		\begin{align}
+		b=a\times\sqrt{1-e^2}
+		\end{align}
+		Perigee and Apogee:
+		\begin{align}
+		r_\text{per}=\left(1-e\right)\times a\\
+		r_\text{ap}=\left(1+e\right)\times a
+		\end{align}
+		
 		
 		
 		\section{Targeting}
