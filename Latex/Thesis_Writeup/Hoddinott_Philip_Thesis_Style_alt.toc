@@ -6,23 +6,21 @@
 \contentsline {subsection}{\numberline {0.3.3}CubeSats}{4}
 \contentsline {subsection}{\numberline {0.3.4}OSCAR}{5}
 \contentsline {subsection}{\numberline {0.3.5}Orbital Elements}{5}
-\contentsline {section}{\numberline {0.4}Data Sources and Formats}{10}
-\contentsline {subsection}{\numberline {0.4.1}The Two Line Element Format}{10}
-\contentsline {subsection}{\numberline {0.4.2}Space-Track.org}{15}
-\contentsline {subsection}{\numberline {0.4.3}Space-Track Query}{15}
-\contentsline {subsection}{\numberline {0.4.4}SatCat?}{15}
-\contentsline {section}{\numberline {0.5}NORAD Space-Track}{15}
-\contentsline {section}{\numberline {0.6}Code Overview}{15}
-\contentsline {subsection}{\numberline {0.6.1}VarStore.m}{17}
-\contentsline {subsection}{\numberline {0.6.2}UserPass.m}{17}
-\contentsline {subsection}{\numberline {0.6.3}MASTER\_TLE.m}{17}
-\contentsline {subsection}{\numberline {0.6.4}get\_SATCAT.m}{17}
-\contentsline {subsection}{\numberline {0.6.5}get\_Multiple\_TLE\_from\_Id.m}{17}
-\contentsline {subsection}{\numberline {0.6.6}readTLE\_txt.m}{18}
-\contentsline {subsection}{\numberline {0.6.7}get\_TLE\_from\_ID\_Manager.m}{18}
-\contentsline {subsection}{\numberline {0.6.8}get\_TLE\_from\_NorID.m}{19}
-\contentsline {section}{\numberline {0.7}Targeting}{20}
-\contentsline {section}{\numberline {0.8}Conclusion}{20}
-\contentsline {section}{Appendix}{24}
-\contentsline {subsection}{\numberline {0.8.1}Master\_TLE.m}{24}
-\contentsline {subsection}{\numberline {0.8.2}get\_SATCAT.m}{26}
+\contentsline {section}{\numberline {0.4}Data Sources and Formats}{8}
+\contentsline {subsection}{\numberline {0.4.1}The Two Line Element Format}{8}
+\contentsline {subsection}{\numberline {0.4.2}Space-Track.org}{13}
+\contentsline {subsection}{\numberline {0.4.3}Space-Track Query}{13}
+\contentsline {subsection}{\numberline {0.4.4}SatCat?}{13}
+\contentsline {section}{\numberline {0.5}NORAD Space-Track}{13}
+\contentsline {section}{\numberline {0.6}Code Overview}{13}
+\contentsline {subsection}{\numberline {0.6.1}VarStore.m}{15}
+\contentsline {subsection}{\numberline {0.6.2}UserPass.m}{15}
+\contentsline {subsection}{\numberline {0.6.3}MASTER\_TLE.m}{15}
+\contentsline {subsection}{\numberline {0.6.4}get\_SATCAT.m}{15}
+\contentsline {subsection}{\numberline {0.6.5}get\_TLE\_from\_ID\_Manager.m}{16}
+\contentsline {subsection}{\numberline {0.6.6}get\_TLE\_from\_NorID.m}{16}
+\contentsline {section}{\numberline {0.7}Targeting}{18}
+\contentsline {section}{\numberline {0.8}Conclusion}{18}
+\contentsline {section}{Appendix}{21}
+\contentsline {subsection}{\numberline {0.8.1}Master\_TLE.m}{21}
+\contentsline {subsection}{\numberline {0.8.2}get\_SATCAT.m}{23}

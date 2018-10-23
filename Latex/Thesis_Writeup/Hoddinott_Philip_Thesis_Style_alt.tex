@@ -363,9 +363,9 @@
 	\theta &\text{ True anomaly}
 	\end{eqnarray}
 	
-	They may be seen in figure \ref{curtis_OE}.
+	They may be seen in figure \ref{fig:curtisoe}.
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{curtis_OE}
 		\caption{Geocentric equatorial frame and the orbital elements\cite{curtis2013}.}
@@ -383,7 +383,7 @@
 	i& \text{ inclination}\nonumber\\
 	\Omega &\text{ right ascension (RA) of the ascending node}\nonumber\\
 	\omega &\text{ argument of perigee}\nonumber\\
-	\theta &\text{ Mean anomaly}
+	\nu &\text{ Mean anomaly}
 	\end{eqnarray}
 	
 	\doublespacing
@@ -425,6 +425,7 @@
 		True/Mean Anomaly                     & $\nu$  & \multicolumn{1}{m{8cm}}{\cellcolor[HTML]{EEEEEE}Defines where the satellite is within the orbit with respect to perigee.}                                          
 	\end{tabular}
 \end{table}
+\iffalse
 	\begin{itemize}
 		\item eccentricity (e)
 		
@@ -445,7 +446,7 @@
 		\item Mean anomaly
 	\end{itemize}
 
-	
+\fi	
 
 	
 	% ------------------------------------------------------------
@@ -642,6 +643,11 @@ A second example is given below. This time with references to the position of va
 	\subsection{Space-Track Query}
 	\subsection{SatCat?}
 	\section{NORAD Space-Track}	
+	
+	
+	
+	Now that the Two-Line Element data format is understood, and the the desired outcome (the orbital elements) is also understood, we need to 
+	
 	Describe the site
 	desribe the SATCAT, then the TLE query
 	
@@ -658,53 +664,60 @@ A second example is given below. This time with references to the position of va
 		\begin{itemize}
 			\item if a SATCAT .mat file exists and is recent this step is skipped.
 		\end{itemize}  
-		\item The code then downloads the TLEs as .txt files from the satellite ids. It does this in groups that have their size determined by the user. 
-		\item The .txt files are then parsed, the TLEs are turned into usable orbital information, and saved as an array in MATLAB. This is done in the readTLE\_txt.m file.
-		\item Finally the array of debris information is sorted in order of satellite id and duplicate rows are removed. It should be noted that not all TLEs requested will be provided. So if the code requests TLEs of objects with a id from 1000 to 1100 and expects 100 TLEs, but some are classified, then duplicated TLEs will be returned to make 100 TLEs. As such these duplicates must be removed. The final array is stored in a .mat file with it's date of creation noted. The user now has a usable list of space debris and their orbital elements.
+	\item The code then begins to loop through the array of Ids. It enters an error catch to handle url time outs. 
+		\begin{itemize}
+		\item Within this loop the code then downloads the TLEs from the satellite ids. The TLEs are stored in a string. It does this in groups that have their size determined by the user. A large group size may risk url timeouts, but a small group size will result in a long run time.
+		\item The TLEs are then parsed, the TLEs are turned into usable orbital information, and saved as an array in MATLAB.
+		\item When the loop has run through all the Ids, the array of data is saved as a .mat file wit the date of it's creation.
+	\end{itemize} 
+\item Now the array of debris data is ready. A copy is saved with a header listing what each collum represents. Another is sent to an orbit visualization file. 
+
+\item  It should be noted that not all TLEs requested will be provided. So if the code requests TLEs of objects with a id from 1000 to 1100 and expects 100 TLEs, but some are classified, then duplicated TLEs less than 100 TLEs will be returned. The user now has a usable list of space debris and their orbital elements.
+	
+		%\item The code then downloads the TLEs as .txt files from the satellite ids. It does this in groups that have their size determined by the user. 
+		%\item The .txt files are then parsed, the TLEs are turned into usable orbital information, and saved as an array in MATLAB. This is done in the readTLE\_txt.m file.
+		%\item Finally the array of debris information is sorted in order of satellite id and duplicate rows are removed. It should be noted that not all TLEs requested will be provided. So if the code requests TLEs of objects with a id from 1000 to 1100 and expects 100 TLEs, but some are classified, then duplicated TLEs will be returned to make 100 TLEs. As such these duplicates must be removed. The final array is stored in a .mat file with it's date of creation noted. The user now has a usable list of space debris and their orbital elements.
 	\end{enumerate}
 
 	What now follows is a more in depth explanation of each file. 
 		\subsection{VarStore.m}
-		This is a file where a few imporant variables are stored. Depening on how the code is reformatted, it might get deleted.\textcolor{red}{COME BACK TO THIS}
-		\subsection{UserPass.m}at
-		This file is where the username and password for space-track.org are stored. 
+		This is a file where a few important variables are stored. It allows the user to only have to edit one file to change the code's operation.
+		\subsection{UserPass.m}
+		This file is where the username and password for space-track.org are stored. This is kept separate from the other code to ensure privacy of usermane and password. 
 		\subsection{MASTER\_TLE.m}
-		This file is the master file for the Two Line Element MATLAB files. Running it will run all of the associated MATLAB files. These MATLAB files take some time to run, so it may be convenient to toggle the files run by the MASTER\_TLE.m
+		This file is the master file for the Two Line Element MATLAB files. Running it will run all of the associated MATLAB files. These MATLAB files take some time to run, so it may be convenient to alter the range of data operated on by MASTER\_TLE.m in VarStore.m
 		\subsection{get\_SATCAT.m}
 		Get\_SATCAT.m is the MATLAB file that gets the satellite catalog  numbers of all orbital debris launched after a given year and with the “RCS\_SIZE” value equal to “SMALL”. The Launch Year can be set by the values given by the user in VarStore.m The default launch year is set to 1990. Note that an earlier launch year will provide more data, and thus it will take more time to process. This may cause a time out error. Should this happen the timeOutVal in VarStore.m should be adjusted to be longer.\par 
 		Once the SATCAT csv file has been acquired the file then formats it. The quotation marks that are around every entry are removed. The debris that have already deorbited are also removed. Finally the debris is sorted by NORAD Catoluge Id, and saved as a .mat file.
-		\subsection{get\_Multiple\_TLE\_from\_Id.m}
-		This file takes the Ids given in the .mat file and then obtains the Two Line Element files associated with the debris. It does this by saving the TLEs in .txt files. The number of TLEs grabbed at a time and saved in a .txt file is set by the user. It is not advised to go above 400, as that causes time out errors. \par 
-		Withing MASTER\_TLE.m, this code is surrounded by a a loop and a try/catch error. The loop runs through all the different blocks of TLEs. In the case of a time out the the try/catch will attempt to download the TLEs a second time.\par 
-		At this point in the code the space debris has had it's Two Line Element files saved to .txt files. This is the longest part of the code to run, but also with the .txt files saved, these functions need only be run once every few days. 
+		%\subsection{get\_Multiple\_TLE\_from\_Id.m}
+		%This file takes the Ids given in the .mat file and then obtains the Two Line Element files associated with the debris. It does this by saving the TLEs in .txt files. The number of TLEs grabbed at a time and saved in a .txt file is set by the user. It is not advised to go above 400, as that causes time out errors. \par 
+		%Withing MASTER\_TLE.m, this code is surrounded by a a loop and a try/catch error. The loop runs through all the different blocks of TLEs. In the case of a time out the the try/catch will attempt to download the TLEs a second time.\par 
+		%At this point in the code the space debris has had it's Two Line Element files saved to .txt files. This is the longest part of the code to run, but also with the .txt files saved, these functions need only be run once every few days. 
 
-		\subsection{readTLE\_txt.m}
-		This MATLAB file reads the .txt files and then converts the TLE format to the standard orbital elements stored in a .mat file. 
+		%\subsection{readTLE\_txt.m}
+		%This MATLAB file reads the .txt files and then converts the TLE format to the standard orbital elements stored in a .mat file. 
 		%\subsection{check\_TLE\_Edit\_TLE.m}
 		
 		\subsection{get\_TLE\_from\_ID\_Manager.m}
-		The purpose of get\_TLE\_from\_ID\_Manager.m is to act as a handler for function get\_TLE\_from\_NorID.m and to provide status reports. 
+		The purpose of get\_TLE\_from\_ID\_Manager.m is to act as a handler for function \newline get\_TLE\_from\_NorID.m. 
 		
 		The code first checks to see if there exists a folder to store the data in, if there is not a folder is created. Then the code begins to run through the list of NORAD Ids. It sends these Ids to get\_TLE\_from\_NorID.m, receives the orbital element data from those Ids. 
 		
-		The code also contains an error handler. The most common problem with downloading large numbers of TLEs is a url timeout may occur. Timeouts are easy for a human to deal with, they may be fixed by simply refreshing the web page. However for MATLAB, it is more difficult. The code deals with a url timeout as follows. 
+		The code also contains an error handler. The most common problem with downloading large numbers of TLEs is a url timeout may occur. Timeouts are easy for a human to deal with, they may be fixed by simply refreshing the web page. However for MATLAB, it is more difficult. The code deals with a url timeout as follows:
 		
 		First the code detects the specific error thrown for url timeouts. This error is caught, so the code does not stop running. Then the code gets the current location in the Id array the time out occurred at, and restarts at that spot. The effect of this is the same as refreshing a webpage that is not loading. 
 		
 		Once all the data has been collected for the given Ids, it is saved as a .mat file with the time that it was created.
 		\subsection{get\_TLE\_from\_NorID.m}
-		The purpose of get\_TLE\_from\_NorID.m is to download the TLEs from NORAD given Ids, and to save the TLEs as useful orbital elements. 
-		
-		This function may be divided into two parts: the web interface for TLEs and the TLE to orbital element section. 
+		The purpose of get\_TLE\_from\_NorID.m is to download the TLEs from NORAD given Ids, and to save the TLEs as useful orbital elements. This function may be divided into two parts: the web interface for TLEs and the TLE to orbital element section. 
 		
 		The first part of the code creates a url from the current set of Ids. This url is then used to download the TLEs. The TLEs are saved as a string within MATLAB.  
 		
-		In the next part of the code a loop goes through the TLE string. The information from these TLEs is saved as a matrix. 
+		In the next part of the code a loop goes through the TLE string. The information from these TLEs is saved as a matrix. Earlier vesrions of this projects code first downloaded all TLEs as .txt files and then parsed through the .txt files to get the orbital elements. However that was unnecessarily slow as MATLAB had to open each .txt file and read it's contents as opposed to reading the contents of a string already in the workspace. By constantly saving the results as a .mat file through out the operation of the code, there is no threat of data loss. 
 		
+			
 		
-		From the TLE inclination (i), RA of ascending node ($\Omega$), eccentricity (e), argument of perigee ($\omega$), mean anomaly, and mean motion (n) may be acquired directly. \par 
-		
-		From these values the other orbital elements may be calculated. 
+		From each TLE the inclination (i), RA of ascending node ($\Omega$), eccentricity (e), argument of perigee ($\omega$), mean anomaly, and mean motion (n) may be acquired directly. From these values the other orbital elements may be calculated. 
 		
 		Period of rev:
 		\begin{align}

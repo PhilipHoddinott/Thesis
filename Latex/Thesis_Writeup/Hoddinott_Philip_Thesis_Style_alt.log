@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  23 OCT 2018 12:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  23 OCT 2018 13:21
 entering extended mode
 **./Hoddinott_Philip_Thesis_Style_alt.tex
 (Hoddinott_Philip_Thesis_Style_alt.tex
@@ -600,10 +600,6 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
-
-
-LaTeX Warning: Reference `curtis_OE' on page 5 undefined on input line 366.
-
 <curtis_OE.png, id=52, 287.27325pt x 185.493pt>
 File: curtis_OE.png Graphic file (type png)
 <use curtis_OE.png>
@@ -611,55 +607,53 @@ Package pdftex.def Info: curtis_OE.png  used on input line 370. on input line 3
 70.
 Package pdftex.def Info: Requested size: 328.82707pt x 212.33879pt on input lin
 e 370.
-[5]
+ [5]
 <nasaOE1.jpg, id=57, 420.82219pt x 362.10281pt>
 File: nasaOE1.jpg Graphic file (type jpg)
 <use nasaOE1.jpg>
-Package pdftex.def Info: nasaOE1.jpg  used on input line 397. on input line 397
+Package pdftex.def Info: nasaOE1.jpg  used on input line 395. on input line 395
 .
 Package pdftex.def Info: Requested size: 328.82707pt x 282.94736pt on input lin
-e 397.
+e 395.
 <nasaOE2.jpg, id=58, 420.82219pt x 246.1697pt>
 File: nasaOE2.jpg Graphic file (type jpg)
 <use nasaOE2.jpg>
-Package pdftex.def Info: nasaOE2.jpg  used on input line 403. on input line 403
+Package pdftex.def Info: nasaOE2.jpg  used on input line 401. on input line 401
 .
 Package pdftex.def Info: Requested size: 328.82707pt x 192.35715pt on input lin
-e 403.
+e 401.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 414.
+               Default added (so using `tbp') on input line 412.
 
 
-Overfull \hbox (6.36205pt too wide) in paragraph at lines 417--429
+Overfull \hbox (6.36205pt too wide) in paragraph at lines 415--427
 [][] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 431.
+[6 <./curtis_OE.png>] [7 <./nasaOE1.jpg> <./nasaOE2.jpg>]
+<tle_nasa.png, id=67, 459.51675pt x 184.89075pt>
+File: tle_nasa.png Graphic file (type png)
+<use tle_nasa.png>
+Package pdftex.def Info: tle_nasa.png  used on input line 473. on input line 47
+3.
+Package pdftex.def Info: Requested size: 328.82707pt x 132.30872pt on input lin
+e 473.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8] [9 <./tle_nasa.png>] [10] [11] [12] [13]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 665.
+
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 431.
-<semi_majoraxis.jpg, id=59, 342.27875pt x 257.96375pt>
-File: semi_majoraxis.jpg Graphic file (type jpg)
-<use semi_majoraxis.jpg>
-Package pdftex.def Info: semi_majoraxis.jpg  used on input line 437. on input l
-ine 437.
-Package pdftex.def Info: Requested size: 328.82707pt x 247.84311pt on input lin
-e 437.
- [6 <./curtis_OE.png>]
-[7 <./nasaOE1.jpg> <./nasaOE2.jpg>] [8 <./semi_majoraxis.jpg>] [9]
-<tle_nasa.png, id=74, 459.51675pt x 184.89075pt>
-File: tle_nasa.png Graphic file (type png)
-<use tle_nasa.png>
-Package pdftex.def Info: tle_nasa.png  used on input line 483. on input line 48
-3.
-Package pdftex.def Info: Requested size: 328.82707pt x 132.30872pt on input lin
-e 483.
- [10 <./tle_nasa.png>] [11] [12] [13] [14] [15] [16]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 665.
+ [14]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
@@ -672,32 +666,27 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [17]
-Overfull \hbox (49.27321pt too wide) in paragraph at lines 697--698
-\OT1/cmr/m/n/12 The pur-pose of get[]TLE[]from[]ID[]Manager.m is to act as a ha
-n-dler for func-tion get[]TLE[]from[]NorID.m
- []
-
-[18] [19]
+ [15] [16]
+[17]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 746.
+               Default added (so using `!tbp') on input line 748.
 
-<rann_inc.jpg, id=114, 921.4425pt x 644.4075pt>
+<rann_inc.jpg, id=106, 921.4425pt x 644.4075pt>
 File: rann_inc.jpg Graphic file (type jpg)
 <use rann_inc.jpg>
-Package pdftex.def Info: rann_inc.jpg  used on input line 748. on input line 74
-8.
+Package pdftex.def Info: rann_inc.jpg  used on input line 750. on input line 75
+0.
 Package pdftex.def Info: Requested size: 328.82707pt x 229.96095pt on input lin
-e 748.
-(Hoddinott_Philip_Thesis_Style_alt.bbl [20 <./rann_inc.jpg>] [21]
+e 750.
+(Hoddinott_Philip_Thesis_Style_alt.bbl [18 <./rann_inc.jpg>]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
- [22
+ [19
 
-])
-[23] ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+]) [20]
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (C:/Users/Philip/Documents/GitHub/Thesis/Master_TLE_v2.m
@@ -1494,7 +1483,7 @@ Package xcolor Warning: Incompatible color definition on input line 34.
 
 Package xcolor Warning: Incompatible color definition on input line 34.
 
-[24]
+[21]
 
 Package xcolor Warning: Incompatible color definition on input line 42.
 
@@ -2293,7 +2282,7 @@ Package xcolor Warning: Incompatible color definition on input line 72.
 
 Package xcolor Warning: Incompatible color definition on input line 72.
 
-[25]
+[22]
 
 Package xcolor Warning: Incompatible color definition on input line 76.
 
@@ -3102,7 +3091,7 @@ Package xcolor Warning: Incompatible color definition on input line 7.
 
 Package xcolor Warning: Incompatible color definition on input line 7.
 
-[26]
+[23]
 
 Package xcolor Warning: Incompatible color definition on input line 9.
 
@@ -3769,7 +3758,7 @@ Package xcolor Warning: Incompatible color definition on input line 44.
 
 Package xcolor Warning: Incompatible color definition on input line 44.
 
-[27]
+[24]
 
 Package xcolor Warning: Incompatible color definition on input line 50.
 
@@ -4134,36 +4123,33 @@ See the caption package documentation for explanation.
 
 
 AED: lastpage setting LastPage
-[28] (Hoddinott_Philip_Thesis_Style_alt.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[25] (Hoddinott_Philip_Thesis_Style_alt.aux) ) 
 Here is how much of TeX's memory you used:
- 7710 strings out of 493312
- 108615 string characters out of 3138896
- 415415 words of memory out of 3000000
- 11089 multiletter control sequences out of 15000+200000
+ 7704 strings out of 493312
+ 108486 string characters out of 3138896
+ 415313 words of memory out of 3000000
+ 11084 multiletter control sequences out of 15000+200000
  15172 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,12n,43p,623b,2081s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Hoddinott_Philip_Thesis_Style_alt.pdf (35 pages, 1197502 byte
+<C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.
+pfb>
+Output written on Hoddinott_Philip_Thesis_Style_alt.pdf (32 pages, 1165609 byte
 s).
 PDF statistics:
- 187 PDF objects out of 1000 (max. 8388607)
+ 177 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
