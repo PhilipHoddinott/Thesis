@@ -20,6 +20,12 @@ How many space debris objects are currently in orbit?, Jul 2014.
 Erik Kulu.
 \newblock Nanosatellite and cubesat database.
 
+\bibitem{paulT}
+Paul McKee.
+\newblock Cubesat dynamics and attitude control: Kane’s method, lqr, and
+  kalman filtering.
+\newblock Master's thesis, Rensselaer Polytechnic Institute, Troy, NY, 2018.
+
 \bibitem{NASATLE}
 Amiko~Kauderer Kim~Dismukes.
 \newblock Definition of two-line element set coordinate system, 2011.

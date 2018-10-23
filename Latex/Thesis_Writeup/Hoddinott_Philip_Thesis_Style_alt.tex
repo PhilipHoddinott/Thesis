@@ -8,10 +8,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt]{report}
+\iffalse
 \usepackage[a4paper]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[myheadings]{fullpage}
-%\usepackage{fancyhdr}
+\usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
 \usepackage[T1]{fontenc}
@@ -27,29 +28,109 @@
 \usepackage{amsmath}
 \usepackage{titlesec}
 \usepackage[table,xcdraw]{xcolor}
-\titleformat{\section}{\normalfont\fontsize{25}{25}\bfseries}{\thesection}{1em}{}
+%\titleformat{\section}{\normalfont\fontsize{25}{25}\bfseries}{\thesection}{1em}{}
 
-\usepackage[format=hang,font={small,bf},labelfont=bf]{caption}
+%\usepackage[format=hang,font={small,bf},labelfont=bf]{caption}
 
 \usepackage{listings}
 \usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
 \definecolor{mylilas}{RGB}{170,55,241}
 
-\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+%\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{5}
-
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx}
 %\pagestyle{fancy}
 %\fancyhf{Philip Hoddinott, Module 4 Questions}
-%\fancyhf{}
+\fancyhf{}
 %\fancyhead[L]{Philip Hoddinott}
 %\fancyhead[C]{Project 2}
 %\fancyhead[R]{\leftmark}
 
+\fancyhead[L]{Master's Thesis}
+%\fancyhead[C]{\thepage}
+%\fancyhead[R]{Module 5 Homework}
+\fancyhead[C]{\leftmark}
+\fancyhead[R]{Philip Hoddinott}
+\fancypagestyle{plain}{
+	\fancyfoot[C]{\thepage}}
+\usepackage{float}
+
+%\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\headrulewidth}{0pt} % remove the header rule
+\rfoot{\thepage}
+
+
+
+\fi
+
+\usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
+\usepackage{sectsty}
+\usepackage{url, lipsum}
+\usepackage{makecell}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\usepackage[table,xcdraw]{xcolor}
+
+
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx}
+
+\pagestyle{fancy}
+%\fancyhf{Philip Hoddinott, Module 5 Questions}
+\fancyhf{}
+%\fancyhead[L]{Philip Hoddinott}
+%\fancyhead[C]{\thepage}
+%\fancyhead[R]{Module 5 Questions}
+\fancyhead[L]{Master's Thesis}
+%\fancyhead[C]{\thepage}
+%\fancyhead[R]{Module 5 Homework}
+\fancyhead[C]{\leftmark}
+\fancyhead[R]{Philip Hoddinott}
+
+\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\usepackage{multicol}
+\newcommand{\mysize}{0.5}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color} 
 %\linespread{1.5}
 \usepackage{setspace}
-%\doublespacing
+
 
 
 % %---------------------------------------------------------------
@@ -90,8 +171,9 @@
 \begin{document}
 	\maketitle
 	
+	
 	\pagenumbering{roman}
-	\setcounter{page}{2}
+	\setcounter{page}{-1}
 	% --Table of Contents----------
 	\tableofcontents
 	\newpage
@@ -116,21 +198,22 @@
 	\end{figure}
 	
 	\null\vfill
-			\begin{figure}
-		\centering
-		\includegraphics[width=0.7\linewidth]{../../Bloom_County_2}
-		\caption{}
-		\label{fig:bloomcounty2}
-	\end{figure}
+	%		\begin{figure}
+	%	\centering
+	%	\includegraphics[width=0.7\linewidth]{../../Bloom_County_2}
+	%	\caption*{}
+	%	\label{fig:bloomcounty2}
+	%\end{figure}
 	
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.7\linewidth]{../../Bloom_County}
-		\caption{}
+		\caption*{}
 		\label{fig:bloomcounty}
 	\end{figure}
 	
 	\newpage
+
 	%\thispagestyle{fancy}
 	
 	%\addcontentsline{toc}{section}{\uppercase{Table of Contents}}
@@ -144,11 +227,12 @@
 	% Acknowledgement
 	% ------------------------------------------------------------
 	\newpage
+		\doublespacing
 	\section{Acknowledgments}
 	%\addcontentsline{toc}{section}{\uppercase{Acknowledgement}}
 	
 	This paper would never have been possible with out the help of so many people. 
-	I am indebet to my parents and my brother for their support. 
+	I am indebted to my parents and my brother for their support. 
 	
 	John Benke for his assitance with Github and PHP. I am thankfull to Paul McKee for his assistance with Latex. 
 	Thank lots of people here\par 
@@ -177,8 +261,8 @@
 	\newpage
 	\pagenumbering{arabic} % this should start the normal numberinbg
 	\section{Introduction}
+	Before the methods of this project are explored, the background of the problem must first be presented. Space debris and the threat they pose will be explained, as well as the proposed solution. 
 	
-	Talk more about project. one or two paragraph here 
 
 	\subsection{Space Debris}
 	
@@ -200,13 +284,15 @@
 		\label{fig:vanguard1orbit}
 	\end{figure}
 
-	The space debris that poses the greatest threat are the smaller pieces. Their size makes them harder to track and predict trajectories. And they are numerous. As of 2013 it is estimated that there are:\newline
-	
+	The debris that poses the greatest threat are the smaller pieces. Their size makes them harder to track and predict trajectories. And they are numerous. As of 2013 it is estimated that there are:
+	\newline
+	\singlespacing
 	29,000 Objects larger than 10 cm.\newline
 	
 	670,000 Objects larger than 1 cm.\newline
 	
 	Over 170,000,000 Objects larger than 1 mm.\newline 
+	\doublespacing
 	
 	These objects can do grievous harm to people or objects in space. A 10 cm object can cause the destruction of a satellite, a 1 cm object could penetrate the ISS's shields putting lives at risk and a 1 mm object could destroy critical subsystems.\cite{sdor2014} The impact of one of these objects is shown in figure \ref{fig:sts7crack}.
 	
@@ -243,14 +329,42 @@
 	The alternative is to lower the orbit until it experiences atmospheric effects. But if the debris's orbit keeps it out of the atmosphere, then the debris must be moved. 
 
 	\subsection{CubeSats}
-	For the task of moving debris, a CubeSat will be used. CubeSats are a type of miniaturized satellite, made up of $10\times10\times10$ cm units.	First launched in 1998, as of August 2018, there have been 875 CubeSats launched\cite{nanosats_eu}. \par 
+	For the task of moving debris, a CubeSat will be used. CubeSats are a type of miniaturized satellite. CubeSats get their name from their structure, they are made up of one or more $10\times10\times10$ cm units.	These units have a maximum mass of 1.33 kilograms. First launched in 1998, as of August 2018, there have been 875 CubeSats launched\cite{nanosats_eu}. \par 
 	
-	The Cubesats are used for projects that are too risky for a larger more expensive satellite, often demonstrating new technologies. They can take on larger risks due to their low cost. Thus a CubeSat is perfect for a mission such as this.
+	
+	
+	CubeSats are used for projects that are too risky for a larger more expensive satellite, often demonstrating new technologies. They can take on larger risks due to their low cost. As such CubeSats are common for experiential missions such as this one.
 	
 	\subsection{OSCAR}
-	Put more details on OSCAR
+	There is a CubeSat currently being designed by Rensselaer Polytechnic Institute (RPI). This CubeSat's goal is deorbit space debris by use of a magnetic tether. \par 
+	
+	
+	This CubeSat is called O.S.C.A.R, which is short for “Obsolete Satellite Capture and Recovery”. It should be noted that this name is only temporary and will likely change in the near future. However for the purposes of this report, the RPI CubeSat will be referred to as OSCAR.\par 
+	
+	OSCAR will be a three unit  $(10\times10\times30)$ CubeSat with a mass of four kilograms. It will be able to remove four pieces of space debris.\cite{paulT}
+	
+	For OSCAR to be able to deorbit space debris, it must know where the space debris is. 
 	
 	\subsection{Orbital Elements}
+	
+	This thesis is concerned with the acquisition of current orbital data of space debris and it's transformation into useful formats. 
+	
+	First orbital elements should be defined. Orbital elements are the parameters that define an orbit. The traditional Keplerian elements found in many textbooks are as follows: 
+	
+	\begin{eqnarray}
+	h& \text{specific angular momentum}\\
+	i& \text{ inclination}\\
+	\Omega &\text{ right ascension (RA) of the ascending node}\\
+	e & \text{ eccentricity}\\
+	\omega &\text{ argument of perigee}\\
+	\theta &\text{ true anomaly}
+	\end{eqnarray}
+	
+	However for the use of
+	
+	
+	page 175
+	
 	Should I define Orbital Elements.
 
 	
@@ -367,6 +481,7 @@
 \par 
 	
 \newpage	
+	\singlespacing
 A second example is given below. This time with references to the position of values, for extraction. The line under the dashes is the reference number line.
 	\begin{verbatim}
 	ISS (ZARYA)
@@ -437,11 +552,12 @@ A second example is given below. This time with references to the position of va
 	\textcolor{red}{to do here, add more details on what the checksum and stuff like that is}
 	
 	\par 
+		\doublespacing
 	The process of TLE gathering and updating is somewhat shadowy. \cite{vallado2012two} What is known is that observations are collected multiple times per day at the Joint
 	Space Operations Center (JSPOC) which is operated by the US Air Force Space Command (AFSPC). Then the unclassified TLEs are passed on to space-track for public release.  
 	
 	\subsection{Space-Track.org}
-	Information about objects in space may be found the website space-track.org. Space-track is the main source for orbital data, though some are also avalbile from the website celestrak.com. Of the two space-track has far more information and better methods of access.  "Space-Track.org is managed, maintained and administered by JFSCC"\cite{SpaceTrackLegend}.   \textcolor{red}{Put more information about the website here}.\par 
+	Information about objects in space may be found the website space-track.org. Space-track is the main source for orbital data, though some are also available from the website celestrak.com. Of the two space-track has far more information and better methods of access.  "Space-Track.org is managed, maintained and administered by JFSCC"\cite{SpaceTrackLegend}.   \textcolor{red}{Put more information about the website here}.\par 
 	space-track allows information to be downloaded manually from the TLE search \cite{SpaceTrackTLE} or the satellite catalog search \cite{SpaceTrackSATCAT}. While these are useful tools the code needs a way to automatically download data. Fortunately space-track also has an API that allows queries. 
 	\subsection{Space-Track Query}
 	\subsection{SatCat?}

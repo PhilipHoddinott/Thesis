@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  19 OCT 2018 00:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  19 OCT 2018 01:20
 entering extended mode
 **./Hoddinott_Philip_Thesis.tex
 (Hoddinott_Philip_Thesis.tex
@@ -1193,29 +1193,72 @@ Package pdftex.def Info: Vanguard_1_composite.jpg  used on input line 189. on i
 nput line 189.
 Package pdftex.def Info: Requested size: 317.07614pt x 237.83105pt on input lin
 e 189.
- [1 <./Vanguard_1_composite.jpg>] [2]
-<tle_nasa.png, id=40, 459.51675pt x 184.89075pt>
+<Vanguard_1_orbit.png, id=33, 510.708pt x 418.56375pt>
+File: Vanguard_1_orbit.png Graphic file (type png)
+<use Vanguard_1_orbit.png>
+Package pdftex.def Info: Vanguard_1_orbit.png  used on input line 198. on input
+ line 198.
+Package pdftex.def Info: Requested size: 317.07614pt x 259.87726pt on input lin
+e 198.
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--206
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
+
+ []
+
+[1 <./Vanguard_1_composite.jpg>]
+<sts7crack.jpg, id=37, 432.1746pt x 537.6888pt>
+File: sts7crack.jpg Graphic file (type jpg)
+<use sts7crack.jpg>
+Package pdftex.def Info: sts7crack.jpg  used on input line 217. on input line 2
+17.
+Package pdftex.def Info: Requested size: 317.07614pt x 394.50325pt on input lin
+e 217.
+<STS-118_debris_entry.jpg, id=38, 803.0pt x 599.23875pt>
+File: STS-118_debris_entry.jpg Graphic file (type jpg)
+<use STS-118_debris_entry.jpg>
+Package pdftex.def Info: STS-118_debris_entry.jpg  used on input line 225. on i
+nput line 225.
+Package pdftex.def Info: Requested size: 317.07614pt x 236.61899pt on input lin
+e 225.
+ [2 <./Vanguard_1_orbit.png>] [3 <./sts7crack.jpg>] [4 <./STS-118_debris_entry.
+jpg>]
+<tle_nasa.png, id=50, 459.51675pt x 184.89075pt>
 File: tle_nasa.png Graphic file (type png)
 <use tle_nasa.png>
-Package pdftex.def Info: tle_nasa.png  used on input line 252. on input line 25
-2.
+Package pdftex.def Info: tle_nasa.png  used on input line 278. on input line 27
+8.
 Package pdftex.def Info: Requested size: 317.07614pt x 127.58037pt on input lin
-e 252.
+e 278.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 258.
- [3 <./tle_nasa.png>] [4]
-[5]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 345.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 284.
+ [5 <./tle_nasa.png>] [6] [7]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 371.
 
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [6]
-LaTeX Font Info:    Try loading font information for TS1+futs on input line 437
+ [8]
+LaTeX Font Info:    Try loading font information for TS1+futs on input line 463
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\fourier\ts1futs.fd"
@@ -1225,16 +1268,19 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `futs' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [7] [8]
-<rann_inc.jpg, id=63, 921.4425pt x 644.4075pt>
+ [9] [10]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 493.
+
+<rann_inc.jpg, id=73, 921.4425pt x 644.4075pt>
 File: rann_inc.jpg Graphic file (type jpg)
 <use rann_inc.jpg>
-Package pdftex.def Info: rann_inc.jpg  used on input line 469. on input line 46
-9.
+Package pdftex.def Info: rann_inc.jpg  used on input line 495. on input line 49
+5.
 Package pdftex.def Info: Requested size: 317.07614pt x 221.74069pt on input lin
-e 469.
-
-(Hoddinott_Philip_Thesis.bbl [9 <./rann_inc.jpg>] [10]) [11
+e 495.
+[11 <./rann_inc.jpg>] (Hoddinott_Philip_Thesis.bbl [12]) [13
 
 ]
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
@@ -1242,13 +1288,13 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 
 AED: lastpage setting LastPage
-[12] (Hoddinott_Philip_Thesis.aux) ) 
+[14] (Hoddinott_Philip_Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 10164 strings out of 493312
- 147656 string characters out of 3138896
- 378927 words of memory out of 3000000
- 13276 multiletter control sequences out of 15000+200000
- 131417 words of font info for 229 fonts, out of 3000000 for 9000
+ 10196 strings out of 493312
+ 148197 string characters out of 3138896
+ 379033 words of memory out of 3000000
+ 13293 multiletter control sequences out of 15000+200000
+ 132227 words of font info for 238 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,11n,40p,613b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Philip/AppData/Roaming/MiKTeX/2.9
@@ -1259,9 +1305,9 @@ s.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/adobe/utopia/putb8a.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/adobe/utopia/putr8a.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/adobe/utopia/putri8a.pfb><C:/Users/Philip/AppData/Roaming/Mi
 KTeX/2.9/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on Hoddinott_Philip_Thesis.pdf (19 pages, 648793 bytes).
+Output written on Hoddinott_Philip_Thesis.pdf (21 pages, 1015794 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
+ 109 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 43039 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 43054 words of extra memory for PDF output out of 51595 (max. 10000000)
 
