@@ -1,30 +1,32 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Hoddinott_Philip_Thesis_Style_alt.aux
 The style file: unsrt.bst
 Database file #1: ref.bib
+Warning--entry type for "ssncltrak" isn't style-file defined
+--line 2 of file ref.bib
+Warning--entry type for "noradSC" isn't style-file defined
+--line 10 of file ref.bib
 Warning--entry type for "nasaOE" isn't style-file defined
---line 1 of file ref.bib
-Warning--entry type for "semMaxis" isn't style-file defined
---line 7 of file ref.bib
+--line 17 of file ref.bib
 Warning--entry type for "endevHole" isn't style-file defined
---line 28 of file ref.bib
+--line 44 of file ref.bib
 Warning--entry type for "stscrack" isn't style-file defined
---line 35 of file ref.bib
+--line 51 of file ref.bib
 Warning--entry type for "nanosats_eu" isn't style-file defined
---line 43 of file ref.bib
+--line 59 of file ref.bib
 Warning--entry type for "sdor2014" isn't style-file defined
---line 50 of file ref.bib
+--line 66 of file ref.bib
 Warning--entry type for "usnrl_2008" isn't style-file defined
---line 54 of file ref.bib
+--line 70 of file ref.bib
 Warning--entry type for "NASATLE" isn't style-file defined
---line 64 of file ref.bib
-Warning--entry type for "SpaceTrackLegend" isn't style-file defined
 --line 80 of file ref.bib
+Warning--entry type for "SpaceTrackLegend" isn't style-file defined
+--line 96 of file ref.bib
 Warning--entry type for "SpaceTrackTLE" isn't style-file defined
---line 90 of file ref.bib
+--line 106 of file ref.bib
 Warning--entry type for "SpaceTrackSATCAT" isn't style-file defined
---line 112 of file ref.bib
+--line 128 of file ref.bib
 Warning--entry type for "celestrak_TLE_FAQ" isn't style-file defined
---line 129 of file ref.bib
+--line 145 of file ref.bib
 Warning--entry type for "castor2_BSTAR" isn't style-file defined
---line 140 of file ref.bib
-(There were 13 warnings)
+--line 156 of file ref.bib
+(There were 14 warnings)

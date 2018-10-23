@@ -8,19 +8,19 @@
 \contentsline {subsection}{\numberline {0.3.5}Orbital Elements}{5}
 \contentsline {section}{\numberline {0.4}Data Sources and Formats}{8}
 \contentsline {subsection}{\numberline {0.4.1}The Two Line Element Format}{8}
-\contentsline {subsection}{\numberline {0.4.2}Space-Track.org}{13}
-\contentsline {subsection}{\numberline {0.4.3}Space-Track Query}{13}
-\contentsline {subsection}{\numberline {0.4.4}SatCat?}{13}
 \contentsline {section}{\numberline {0.5}NORAD Space-Track}{13}
-\contentsline {section}{\numberline {0.6}Code Overview}{13}
+\contentsline {subsection}{\numberline {0.5.1}Space-Track.org}{13}
+\contentsline {subsection}{\numberline {0.5.2}Space-Track Query}{14}
+\contentsline {subsection}{\numberline {0.5.3}SatCat?}{14}
+\contentsline {section}{\numberline {0.6}Code Overview}{14}
 \contentsline {subsection}{\numberline {0.6.1}VarStore.m}{15}
 \contentsline {subsection}{\numberline {0.6.2}UserPass.m}{15}
 \contentsline {subsection}{\numberline {0.6.3}MASTER\_TLE.m}{15}
-\contentsline {subsection}{\numberline {0.6.4}get\_SATCAT.m}{15}
+\contentsline {subsection}{\numberline {0.6.4}get\_SATCAT.m}{16}
 \contentsline {subsection}{\numberline {0.6.5}get\_TLE\_from\_ID\_Manager.m}{16}
-\contentsline {subsection}{\numberline {0.6.6}get\_TLE\_from\_NorID.m}{16}
+\contentsline {subsection}{\numberline {0.6.6}get\_TLE\_from\_NorID.m}{17}
 \contentsline {section}{\numberline {0.7}Targeting}{18}
-\contentsline {section}{\numberline {0.8}Conclusion}{18}
-\contentsline {section}{Appendix}{21}
-\contentsline {subsection}{\numberline {0.8.1}Master\_TLE.m}{21}
-\contentsline {subsection}{\numberline {0.8.2}get\_SATCAT.m}{23}
+\contentsline {section}{\numberline {0.8}Conclusion}{19}
+\contentsline {section}{Appendix}{22}
+\contentsline {subsection}{\numberline {0.8.1}Master\_TLE.m}{22}
+\contentsline {subsection}{\numberline {0.8.2}get\_SATCAT.m}{24}

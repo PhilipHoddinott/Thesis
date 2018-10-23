@@ -17,10 +17,6 @@ HOWARD~D. CURTIS.
 \newblock {\em ORBITAL MECHANICS FOR ENGINEERING STUDENTS}.
 \newblock Elsevier Butterworth Heinemann, 2013.
 
-\bibitem{semMaxis}
-Swinburne~University of~Technology.
-\newblock Semi-major axis.
-
 \bibitem{usnrl_2008}
 Usnrl.
 \newblock Vanguard i celebrates 50 years in space, Mar 2008.
@@ -53,6 +49,14 @@ Canadian~Satellite Tracking and Orbit~Research (CASTOR).
 \bibitem{SpaceTrackTLE}
 Space Track.
 \newblock Basic description of the two line element (tle) format, 2013.
+
+\bibitem{noradSC}
+NORAD.
+\newblock Norad tracks santa.
+
+\bibitem{ssncltrak}
+Dr.T.S. Kelso.
+\newblock Space surveillance, 1997.
 
 \bibitem{vallado2012two}
 David~A Vallado and Paul~J Cefola.
