@@ -1,5 +1,8 @@
 \begin{thebibliography}{10}
 
+\bibitem{nasaOE}
+NASA, 2012.
+
 \bibitem{stscrack}
 NASA.
 \newblock Space debris impact on space shuttle window.
@@ -13,6 +16,10 @@ NASA.
 HOWARD~D. CURTIS.
 \newblock {\em ORBITAL MECHANICS FOR ENGINEERING STUDENTS}.
 \newblock Elsevier Butterworth Heinemann, 2013.
+
+\bibitem{semMaxis}
+Swinburne~University of~Technology.
+\newblock Semi-major axis.
 
 \bibitem{usnrl_2008}
 Usnrl.

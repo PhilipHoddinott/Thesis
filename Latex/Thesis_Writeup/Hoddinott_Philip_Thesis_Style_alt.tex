@@ -129,6 +129,7 @@
 \usepackage{listings}
 \usepackage{color} 
 %\linespread{1.5}
+\newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
 \usepackage{setspace}
 
 
@@ -351,14 +352,18 @@
 	
 	First orbital elements should be defined. Orbital elements are the parameters that define an orbit. The traditional Keplerian elements found in many textbooks are as follows: 
 	
+	\singlespacing
+	
 	\begin{eqnarray}
-	h& \text{specific angular momentum}\\
-	i& \text{ inclination}\\
-	\Omega &\text{ right ascension (RA) of the ascending node}\\
-	e & \text{ eccentricity}\\
-	\omega &\text{ argument of perigee}\\
-	\theta &\text{ true anomaly}
+	h& \text{specific angular momentum}\nonumber\\
+	i& \text{ inclination}\nonumber\\
+	\Omega &\text{ right ascension (RA) of the ascending node}\nonumber\\
+	e & \text{ eccentricity}\nonumber\\
+	\omega &\text{ argument of perigee}\nonumber\\
+	\theta &\text{ True anomaly}
 	\end{eqnarray}
+	
+	They may be seen in figure \ref{curtis_OE}.
 	
 	\begin{figure}
 		\centering
@@ -367,16 +372,80 @@
 		\label{fig:curtisoe}
 	\end{figure}
 	
+	\doublespacing
+	However for space debris the following set of orbital elements is slightly more useful. \par 
 	
-	However for space debris 
+	\singlespacing
 	
-	However for the use of
-	We use perigee and apogee
+	\begin{eqnarray}
+	e & \text{ eccentricity}\nonumber\\
+	a & \text{ semimajor axis}\nonumber\\
+	i& \text{ inclination}\nonumber\\
+	\Omega &\text{ right ascension (RA) of the ascending node}\nonumber\\
+	\omega &\text{ argument of perigee}\nonumber\\
+	\theta &\text{ Mean anomaly}
+	\end{eqnarray}
+	
+	\doublespacing
+	
+	This is preferable as the semi major axis is used in conjunction with eccentricity with it's relation to perigee and apogee.  However this is not a hard rule, and the code could be altered to use the first set of orbital elements. The orbital elements are better demonstrated in figure \ref{fig:nasaoe1} and figure \ref{fig:nasaoe2}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{nasaOE1}
+		\caption{Diagram of Earth and Orbital Elements as well as Cartesian State Vectors\cite{nasaOE}}
+		\label{fig:nasaoe1}
+	\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{nasaOE2}
+		\caption{Diagram of Earth and Orbital Elements\cite{nasaOE}}
+		\label{fig:nasaoe2}
+	\end{figure}
 	
 	
-	page 175
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+	\caption{Orbital Elements and their symbols\cite{nasaOE}}
+	\label{my-label}
+	\begin{tabular}{
+			>{\columncolor[HTML]{EEEEEE}}l 
+			>{\columncolor[HTML]{EEEEEE}}l 
+			>{\columncolor[HTML]{EEEEEE}}l }
+		\multicolumn{3}{c}{\cellcolor[HTML]{6699CC}{\color[HTML]{FFFFFF} \textbf{Orbital Elements:}}}                                                                  \\
+		Semi-major axis                       & a & Defines the size of the orbit.                                                                                     \\
+		Eccentricity                          & e & Defines the shape of the orbit.                                                                                    \\
+		Inclination                           & i & \multicolumn{1}{m{8cm}}{\cellcolor[HTML]{EEEEEE}Defines the orientation of the orbit with respect to the Earth's equator.}                              \\
+		Argument of Perigee                   &$\omega$   & \multicolumn{1}{m{8cm}}{\cellcolor[HTML]{EEEEEE}Defines where the low point, perigee, of the orbit is with respect to the Earth's surface.}                         \\
+		Right Ascension of the Ascending Node &$\Omega$   & \multicolumn{1}{m{8cm}}{\cellcolor[HTML]{EEEEEE}Defines the location of the ascending and descending orbit locations with respect to the Earth's equatorial plane.} \\
+		True/Mean Anomaly                     & $\nu$  & \multicolumn{1}{m{8cm}}{\cellcolor[HTML]{EEEEEE}Defines where the satellite is within the orbit with respect to perigee.}                                          
+	\end{tabular}
+\end{table}
+	\begin{itemize}
+		\item eccentricity (e)
+		
+		The eccentricity is the shape of the ellipse. An eccentricity of 1 is a circle.
+		\item Semi-major axis (a)
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.7\linewidth]{semi_majoraxis}
+			\caption{Figure showing the semi-major axis\cite{semMaxis}}
+			\label{fig:semimajoraxis}
+		\end{figure}
+		
+		\item inclination (i)
+		The inclination is the tilt of the ellipse of the orbit with respect to the referance plane. For earth centered orbits the referance plane is the equator, thus an orbit with an iniclanation of 0 will go along the equator, while an orbit with an inlication of 90 will go over the poles. 
+		\item Longitude of the ascending node ($\Omega$)
+		Also refereed to as the Right Angle of the ascending node 
+		\item argument of perigee ($\omega$)
+		\item Mean anomaly
+	\end{itemize}
+
 	
-	Should I define Orbital Elements.
 
 	
 	% ------------------------------------------------------------
@@ -689,6 +758,7 @@ A second example is given below. This time with references to the position of va
 		% Appendix
 		%-----------------------------------------------------------
 		\newpage
+		\singlespacing
 		\section*{Appendix 1 - MATLAB code}
 		\addcontentsline{toc}{section}{Appendix}
 		
@@ -709,6 +779,12 @@ A second example is given below. This time with references to the position of va
 			%emph=[2]{word1,word2}, emphstyle=[2]{style},    
 		}
 		
+	\subsection{Master\_TLE.m}
+	\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/Master_TLE_v2.m}
+	\subsection{get\_SATCAT.m}
+		\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/get_SATCAT.m}
+	%\lstinputlisting{get_SATCAT.m}
+	
 	%Thanks for Paul McKee who started this template. It seems to have good matlab code viwing
 		
 	\end{document}
