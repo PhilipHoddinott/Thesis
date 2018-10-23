@@ -11,7 +11,6 @@
 \contentsline {section}{\numberline {0.5}NORAD Space-Track}{13}
 \contentsline {subsection}{\numberline {0.5.1}Space-Track.org}{13}
 \contentsline {subsection}{\numberline {0.5.2}Space-Track Query}{14}
-\contentsline {subsection}{\numberline {0.5.3}SatCat?}{14}
 \contentsline {section}{\numberline {0.6}Code Overview}{14}
 \contentsline {subsection}{\numberline {0.6.1}VarStore.m}{15}
 \contentsline {subsection}{\numberline {0.6.2}UserPass.m}{15}

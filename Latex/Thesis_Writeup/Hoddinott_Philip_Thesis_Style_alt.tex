@@ -638,22 +638,27 @@ A second example is given below. This time with references to the position of va
 	
 
 	\section{NORAD Space-Track}	
-	As well as tracking one S. Claus every December 24th\cite{noradSC} NORAD also tracks all objects currently in space. This is done through the Space Surveillance Network\cite{ssncltrak}.
+	Now we understand the format of data that is avalible (the Two-Line Element) and the format we want the data to be in (the orbital elements), the next thing to do is get the data. We want a source of TLEs for objects in space. Fortunately, there is one.\par 
+	As well as tracking one S. Claus every December 24th\cite{noradSC} NORAD also tracks all objects currently in space. This is done through the Space Surveillance Network\cite{ssncltrak}. 
+	
+	\textcolor{red}{PUT IN THE STUFF YOU FOUND THIS MORNING}
 	
 	The process of TLE gathering and updating is somewhat shadowy. \cite{vallado2012two} What is known is that observations are collected multiple times per day at the Joint
-	Space Operations Center (JSPOC) which is operated by the US Air Force Space Command (AFSPC). Then the unclassified TLEs are passed on to space-track for public release.
+	Space Operations Center (JSPOC) which is operated by the US Air Force Space Command (AFSPC). Then the unclassified TLEs are passed on for public release via the website space-track.org. 
 	
+
 	
-	Now that the Two-Line Element data format is understood, and the the desired outcome (the orbital elements) is also understood, we need to 
+	%Describe the site
+	%desribe the SATCAT, then the TLE query
 	
-	Describe the site
-	desribe the SATCAT, then the TLE query
-	
-		\subsection{Space-Track.org}
-	Information about objects in space may be found the website space-track.org. Space-track is the main source for orbital data, though some are also available from the website celestrak.com. Of the two space-track has far more information and better methods of access.  "Space-Track.org is managed, maintained and administered by JFSCC"\cite{SpaceTrackLegend}.   \textcolor{red}{Put more information about the website here}.\par 
-	space-track allows information to be downloaded manually from the TLE search \cite{SpaceTrackTLE} or the satellite catalog search \cite{SpaceTrackSATCAT}. While these are useful tools the code needs a way to automatically download data. Fortunately space-track also has an API that allows queries. 
+	\subsection{Space-Track.org}
+	In their own words, Space-Track.org  "promotes space flight safety, protection of the space environment and the peaceful use of space worldwide by sharing space situational awareness services and information with U.S. and international satellite owners/operators, academia and other entities."\cite{SpaceTrackHome}\par 
+	Information about objects in space may be found the website space-track.org. Space-track is the main source for orbital data, though some are also available from the website celestrak.com. Of the two space-track has far more information and better methods of access.  "Space-Track.org is managed, maintained and administered by JFSCC"\cite{SpaceTrackLegend}.   %\textcolor{red}{Put more information about the website here}.\par 
+	Space-track allows information to be downloaded manually from the TLE search \cite{SpaceTrackTLE} or the satellite catalog search \cite{SpaceTrackSATCAT}. While these are useful tools the code needs a way to automatically download data. Fortunately space-track also has an API that allows queries. 
 	\subsection{Space-Track Query}
-	\subsection{SatCat?}
+	An application programming interface or API is a set of methods that allow simple communication between different codes. 
+	The Space-Track API allows for programs to send requests for data on objects in space.
+	%\subsection{SatCat?}
 	
 	
 	

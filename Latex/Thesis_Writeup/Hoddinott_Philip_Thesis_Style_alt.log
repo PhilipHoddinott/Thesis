@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  23 OCT 2018 13:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  23 OCT 2018 13:38
 entering extended mode
 **./Hoddinott_Philip_Thesis_Style_alt.tex
 (Hoddinott_Philip_Thesis_Style_alt.tex
@@ -645,14 +645,14 @@ e 473.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [8] [9 <./tle_nasa.png>] [10] [11] [12] [13]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 669.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 673.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 669.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 673.
  [14] [15]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
@@ -670,15 +670,15 @@ Missing character: There is no ù in font cmr12!
 [17]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 752.
+               Default added (so using `!tbp') on input line 756.
 
 <rann_inc.jpg, id=106, 921.4425pt x 644.4075pt>
 File: rann_inc.jpg Graphic file (type jpg)
 <use rann_inc.jpg>
-Package pdftex.def Info: rann_inc.jpg  used on input line 754. on input line 75
-4.
+Package pdftex.def Info: rann_inc.jpg  used on input line 758. on input line 75
+8.
 Package pdftex.def Info: Requested size: 328.82707pt x 229.96095pt on input lin
-e 754.
+e 758.
 [18 <./rann_inc.jpg>] (Hoddinott_Philip_Thesis_Style_alt.bbl [19]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
@@ -4125,10 +4125,10 @@ See the caption package documentation for explanation.
 AED: lastpage setting LastPage
 [26] (Hoddinott_Philip_Thesis_Style_alt.aux) ) 
 Here is how much of TeX's memory you used:
- 7705 strings out of 493312
- 108496 string characters out of 3138896
- 415317 words of memory out of 3000000
- 11085 multiletter control sequences out of 15000+200000
+ 7706 strings out of 493312
+ 108512 string characters out of 3138896
+ 415321 words of memory out of 3000000
+ 11086 multiletter control sequences out of 15000+200000
  15172 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,12n,43p,623b,2081s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -4146,7 +4146,7 @@ ublic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.
 pfb>
-Output written on Hoddinott_Philip_Thesis_Style_alt.pdf (33 pages, 1166556 byte
+Output written on Hoddinott_Philip_Thesis_Style_alt.pdf (33 pages, 1166689 byte
 s).
 PDF statistics:
  180 PDF objects out of 1000 (max. 8388607)
