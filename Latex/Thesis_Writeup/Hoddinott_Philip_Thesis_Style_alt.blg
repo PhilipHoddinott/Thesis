@@ -2,33 +2,35 @@ This is BibTeX, Version 0.99dThe top-level auxiliary file: Hoddinott_Philip_Thes
 The style file: unsrt.bst
 Database file #1: ref.bib
 Warning--entry type for "ssncltrak" isn't style-file defined
---line 2 of file ref.bib
+--line 30 of file ref.bib
 Warning--entry type for "noradSC" isn't style-file defined
---line 10 of file ref.bib
+--line 38 of file ref.bib
 Warning--entry type for "nasaOE" isn't style-file defined
---line 17 of file ref.bib
+--line 45 of file ref.bib
 Warning--entry type for "endevHole" isn't style-file defined
---line 44 of file ref.bib
+--line 72 of file ref.bib
 Warning--entry type for "stscrack" isn't style-file defined
---line 51 of file ref.bib
+--line 79 of file ref.bib
 Warning--entry type for "nanosats_eu" isn't style-file defined
---line 59 of file ref.bib
+--line 87 of file ref.bib
 Warning--entry type for "sdor2014" isn't style-file defined
---line 66 of file ref.bib
+--line 94 of file ref.bib
 Warning--entry type for "usnrl_2008" isn't style-file defined
---line 70 of file ref.bib
+--line 98 of file ref.bib
 Warning--entry type for "NASATLE" isn't style-file defined
---line 80 of file ref.bib
+--line 108 of file ref.bib
 Warning--entry type for "SpaceTrackLegend" isn't style-file defined
---line 96 of file ref.bib
+--line 124 of file ref.bib
 Warning--entry type for "SpaceTrackTLE" isn't style-file defined
---line 106 of file ref.bib
+--line 134 of file ref.bib
 Warning--entry type for "SpaceTrackSATCAT" isn't style-file defined
---line 128 of file ref.bib
+--line 156 of file ref.bib
 Warning--entry type for "SpaceTrackHome" isn't style-file defined
---line 137 of file ref.bib
+--line 165 of file ref.bib
+Warning--entry type for "SpaceTrackAPI" isn't style-file defined
+--line 172 of file ref.bib
 Warning--entry type for "celestrak_TLE_FAQ" isn't style-file defined
---line 152 of file ref.bib
+--line 180 of file ref.bib
 Warning--entry type for "castor2_BSTAR" isn't style-file defined
---line 163 of file ref.bib
-(There were 15 warnings)
+--line 191 of file ref.bib
+(There were 16 warnings)

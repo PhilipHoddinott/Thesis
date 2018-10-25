@@ -11,15 +11,18 @@
 \contentsline {section}{\numberline {0.5}NORAD Space-Track}{13}
 \contentsline {subsection}{\numberline {0.5.1}Space-Track.org}{13}
 \contentsline {subsection}{\numberline {0.5.2}Space-Track Query}{14}
-\contentsline {section}{\numberline {0.6}Code Overview}{14}
-\contentsline {subsection}{\numberline {0.6.1}VarStore.m}{15}
-\contentsline {subsection}{\numberline {0.6.2}UserPass.m}{15}
-\contentsline {subsection}{\numberline {0.6.3}MASTER\_TLE.m}{15}
-\contentsline {subsection}{\numberline {0.6.4}get\_SATCAT.m}{16}
-\contentsline {subsection}{\numberline {0.6.5}get\_TLE\_from\_ID\_Manager.m}{16}
-\contentsline {subsection}{\numberline {0.6.6}get\_TLE\_from\_NorID.m}{17}
-\contentsline {section}{\numberline {0.7}Targeting}{18}
-\contentsline {section}{\numberline {0.8}Conclusion}{19}
-\contentsline {section}{Appendix}{22}
-\contentsline {subsection}{\numberline {0.8.1}Master\_TLE.m}{22}
-\contentsline {subsection}{\numberline {0.8.2}get\_SATCAT.m}{24}
+\contentsline {subsection}{\numberline {0.5.3}Code Queries}{17}
+\contentsline {section}{\numberline {0.6}Code Overview}{18}
+\contentsline {subsection}{\numberline {0.6.1}VarStore.m}{20}
+\contentsline {subsection}{\numberline {0.6.2}UserPass.m}{20}
+\contentsline {subsection}{\numberline {0.6.3}MASTER\_TLE.m}{20}
+\contentsline {subsection}{\numberline {0.6.4}get\_SATCAT.m}{20}
+\contentsline {subsection}{\numberline {0.6.5}get\_TLE\_from\_ID\_Manager.m}{21}
+\contentsline {subsection}{\numberline {0.6.6}get\_TLE\_from\_NorID.m}{21}
+\contentsline {section}{\numberline {0.7}Targeting}{23}
+\contentsline {section}{\numberline {0.8}Conclusion}{23}
+\contentsline {section}{Appendix}{26}
+\contentsline {subsection}{\numberline {0.8.1}Master\_TLE.m}{26}
+\contentsline {subsection}{\numberline {0.8.2}get\_SATCAT.m}{28}
+\contentsline {subsection}{\numberline {0.8.3}get\_TLE\_from\_ID\_Manager.m}{30}
+\contentsline {subsection}{\numberline {0.8.4}get\_TLE\_from\_NorID.m}{31}

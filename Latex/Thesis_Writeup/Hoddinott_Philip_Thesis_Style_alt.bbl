@@ -3,6 +3,10 @@
 \bibitem{nasaOE}
 NASA, 2012.
 
+\bibitem{SpaceTrackAPI}
+Space Track.
+\newblock Introduction to the space track api, 2013.
+
 \bibitem{stscrack}
 NASA.
 \newblock Space debris impact on space shuttle window.
@@ -75,5 +79,17 @@ Space Track.
 \bibitem{SpaceTrackSATCAT}
 Space Track.
 \newblock Space-track satellite catalog search, 2018.
+
+\bibitem{codeGETtle}
+Joao Encarnacao.
+\newblock matlab-sgp4.
+\newblock \url{https://github.com/jgte/matlab-sgp4}, 2015.
+
+\bibitem{codeParseTLE}
+Brett Pantalone.
+\newblock Read two-line element ephemeris files.
+\newblock
+  \url{https://www.mathworks.com/matlabcentral/fileexchange/56904-read-two-line-element-ephemeris-files},
+  2016.
 
 \end{thebibliography}

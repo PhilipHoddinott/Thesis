@@ -53,7 +53,7 @@
 \fancyhead[L]{Master's Thesis}
 %\fancyhead[C]{\thepage}
 %\fancyhead[R]{Module 5 Homework}
-\fancyhead[C]{\leftmark}
+\fancyhead[C]{\rightmark}
 \fancyhead[R]{Philip Hoddinott}
 \fancypagestyle{plain}{
 	\fancyfoot[C]{\thepage}}
@@ -285,15 +285,14 @@
 		\label{fig:vanguard1orbit}
 	\end{figure}
 
-	The debris that poses the greatest threat are the smaller pieces. Their size makes them harder to track and predict trajectories. And they are numerous. As of 2013 it is estimated that there are:
-	\newline
-	\singlespacing
-	29,000 Objects larger than 10 cm.\newline
+	The debris that poses the greatest threat are the smaller pieces. Their size makes them harder to track and predict trajectories. And they are numerous. As of 2013 it is estimated that there are:\par 
+
 	
-	670,000 Objects larger than 1 cm.\newline
-	
-	Over 170,000,000 Objects larger than 1 mm.\newline 
-	\doublespacing
+	\begin{itemize}\singlespacing
+		\item 	29,000 Objects larger than 10 cm.
+		\item 	670,000 Objects larger than 1 cm.
+		\item 	Over 170,000,000 Objects larger than 1 mm.
+	\end{itemize}	\doublespacing
 	
 	These objects can do grievous harm to people or objects in space. A 10 cm object can cause the destruction of a satellite, a 1 cm object could penetrate the ISS's shields putting lives at risk and a 1 mm object could destroy critical subsystems.\cite{sdor2014} The impact of one of these objects is shown in figure \ref{fig:sts7crack}.
 	
@@ -656,13 +655,116 @@ A second example is given below. This time with references to the position of va
 	Information about objects in space may be found the website space-track.org. Space-track is the main source for orbital data, though some are also available from the website celestrak.com. Of the two space-track has far more information and better methods of access.  "Space-Track.org is managed, maintained and administered by JFSCC"\cite{SpaceTrackLegend}.   %\textcolor{red}{Put more information about the website here}.\par 
 	Space-track allows information to be downloaded manually from the TLE search \cite{SpaceTrackTLE} or the satellite catalog search \cite{SpaceTrackSATCAT}. While these are useful tools the code needs a way to automatically download data. Fortunately space-track also has an API that allows queries. 
 	\subsection{Space-Track Query}
-	An application programming interface or API is a set of methods that allow simple communication between different codes. 
-	The Space-Track API allows for programs to send requests for data on objects in space.
+	An application programming interface or API is a set of methods that allow simple communication between different codes. The Space-Track API allows for programs to send requests for data on objects in space. It is limited to less than 20 requests per minute and less than 200 requests per hour. 
+	
+	
+	The API works by building an API similar to the following URL:
+	
+	https://www.space-track.org/basicspacedata/query/class/boxscore/ 
+	
+	Where: 
+
+	\begin{itemize}	\singlespacing
+		\item Base: URL: https://www.space-track.org/
+		
+		\item Request Controller: basicspacedata
+		\item Request Action: query
+		\item Predicate Value Pairs: class/boxscore/
+	\end{itemize}
+\doublespacing
+The only publicly available Request Controller is basicspacedata. The expandedspacedata controller requires SSA Sharing Agreements \cite{SpaceTrackAPI}. The first two sections of the URL will never change. What will changes is the query, the class, and the boxscore. The request classes that are of interest to this thesis are in table \ref{tab:reqClass}.\par
+
+\singlespacing
+\begin{table}[H]
+	\caption{Request Classes of Interest\cite{SpaceTrackAPI}}
+	\label{tab:reqClass}
+	\begin{tabular}{|l|p{13.5cm}|}
+		\hline
+		Class Name     & Class Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                \\ \hline
+		tle            & Historical record of orbital element sets (Two-Line Elements). Additional metadata columns are available so that users can filter their queries by these values, downloading only the data they need. Shown in html, csv, and xml formats, these additional columns include: object\_name, object\_type, semi-major axis, period, apogee, perigee, and file. NOTE: There are over 97 million TLEs in the database. The user is strongly advised to limit their API queries by OBJECT\_NUMBER / NORAD\_CAT\_ID AND an epoch range such as "$>$now-30" to avoid "Query range out of bounds" errors.\\ \hline
+
+		satcat         & Satellite Catalog Information. The "CURRENT" predicate indicates the most current catalog record with a 'Y'. All older records for that object will have an 'N'.\\ \hline      
+		
+		omm            & Orbit Mean-Elements Message (OMM)Keplerian element format that complies with CCSDS Recommended Standard 502.0-B-2 \\ \hline                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+	\end{tabular}
+\end{table}\doublespacing
+
+\textcolor{red}{Question for OGE/Professor Anderson: I am citing these tables word for word, what is the proper way to do that for a table?}
+
+The Orbit Mean-Elements Message was not used in this thesis because it could not handle large groups of requests. However because it directly returns the Keplerian elements, it may be useful if the API functionality is improved in the future. As a result the TLE and satcat classes are the only classes used in this code. The predicate values pairs may be specified by using REST Operators. The REST Operators that can be used are seen in table \ref{tab:restOP}
+
+\begin{table}[H]\singlespacing
+	\caption{REST Operators\cite{SpaceTrackAPI}}
+	\label{tab:restOP}
+	\begin{tabular}{|l|p{13.5cm}|}
+		\hline
+		Operator                  & Description                                                                                                                                                                                                                                                                         \\ \hline
+		\textgreater{}            & Greater Than (alternate is \%3E)                                                                                                                                                                                                                                                    \\ \hline
+		\textless{}               & Less Than (alternate is \%3C)                                                                                                                                                                                                                                                       \\ \hline
+		\textless{}\textgreater{} & Not Equal (alternate is \%3C\%3E)                                                                                                                                                                                                                                                   \\ \hline
+		,                         & Comma Delimited 'OR' (ex. 1,2,3)                                                                                                                                                                                                                                                    \\ \hline
+		--                        & Inclusive Range (ex. 1--100 returns 1 and 100 and everything in between)Date ranges are expressed as YYYY-MM-DD\%20HH:MM:SS--YYYY-MM-DD\%20HH:MM:SS or YYYY-MM-DD--YYYY-MM-DD                                                                                                       \\ \hline
+		null-val                  & Value for 'NULL', can only be used with Not Equal (\textless{}\textgreater{}) or by itself.                                                                                                                                                                                         \\ \hline
+		$\sim$$\sim$              & "Like" or Wildcard search. You may put the $\sim$$\sim$before or after the text; wildcard is evaluated regardless of location of $\sim$$\sim$in the URL.For example, $\sim$$\sim$OB will return 'OBJECT 1', 'GLOBALSTAR', 'PROBA 1', etc.                                           \\ \hline
+		\textasciicircum{}        & Wildcard after value with a minimum of two characters. (alternate is \%5E) The wildcard is evaluated after the text regardless of location of \textasciicircum in the URL. For example, \textasciicircum{}OB will return 'OBJECT 1', 'OBJECT 2', etc. but not 'GLOBALSTAR'           \\ \hline
+		now                       & Variable that contains the current system date and time. Add or subtract days (or fractions thereof) after 'now' to modify the date/time, e.g. now-7, now+14, now-6.5, now+2.3. Use \textless{},\textgreater{},and -- to get a range of dates; e.g. \textgreater{}now-7, now-14--now \\ \hline
+	\end{tabular}
+\end{table}\doublespacing
+
+The REST Predicates are seen in table \ref{tab:restP}
+
+
+\begin{table}[H]\singlespacing
+	\caption{REST Predicates\cite{SpaceTrackAPI}}
+	\label{tab:restP}
+	\begin{tabular}{|p{4cm}|p{11.5cm}|}
+		\hline
+		REST Predicates                & REST Description                                                                                                                                                                                                                                                           \\ \hline
+		class/classname                & Class of data message requested from the API. Required for all operations.                                                                                                                                                                                                 \\ \hline
+		predicates/p1, p2,...          & Comma-separated list of predicates to be returned as the result. Can also be set to 'all' or omitted entirely for default behavior of returning all predicates.                                                                                                            \\ \hline
+		metadata/true                  & Includes data about the request (total \# of records, request time, etc); ignored when used with tle, 3le, and csv formats.                                                                                                                                                \\ \hline
+		limit/x(,x?)                   & Specifies the number of records to return. Takes an integer for an argument, with an optional second argument to specify offset. For example, /limit/10/ will return the first 10 records; /limit/10,5/ will show 10 records starting after record \#5 (rows 6 through 15) \\ \hline
+		orderby/predicate (asc?|desc?) & Allows ordering by a predicate (column), either ascending or descending, with asc/desc separated from the predicate by a space. Multiple Orderings are supported, separating the pairs of predicate and asc/desc by commas (e.g. http://.../DECAY desc,APOGEE desc/...)    \\ \hline
+		distinct/true                  & Removes duplicate rows.                                                                                                                                                                                                                                                    \\ \hline
+		format/xxxx                    & Specifies return format, can be: json, xml, html, csv, tle, 3le, kvn, or stream. See below for additional information. If no format is specified, the default is JSON                                                                                                      \\ \hline
+		emptyresult/show               & Queries that return no data will show 'NO RESULTS RETURNED' instead of the default blank page                                                                                                                                                                              \\ \hline
+	\end{tabular}
+\end{table}\doublespacing
+
+
+Finally the data returned may be in the formats seen in table \ref{tab:dataFormat}
+
+\begin{table}[H]\singlespacing
+	\caption{Available Data Formats\cite{SpaceTrackAPI}}
+	\label{tab:dataFormat}
+	\begin{tabular}{|l|p{9cm}|}
+		\hline
+		Format                             & Request Rules                                                                                                                                                                                                                                                                                                                                                                                                                                                                             \\ \hline
+		eXtensible Markup Language (xml)  & No special request rules. For CDM request class, shows CCSDS-compliant format.                                                                                                                                                                                                                                                                                                                                                                                                            \\ \hline
+		JavaScript Object Notation (json) & Preferred format, no special request rules.                                                                                                                                                                                                                                                                                                                                                                                                                                               \\ \hline
+		HyperText Markup Language (html)  & Not recommended for machine parsing. No special request rules.                                                                                                                                                                                                                                                                                                                                                                                                                            \\ \hline
+		Comma-Separated Values (csv)      & Due to the limitations of the CSV specification, requesting CSV formatted data does not allow for transmission of metadata; metadata concerning the request will need to be gathered through one of the other formats prior to requesting CSV.                                                                                                                                                                                                                                            \\ \hline
+		Two-Line Element Set (tle)        & To get traditionally-formatted TLE data, request the 'tle', 'tle\_latest', or 'tle\_publish' class. We recommend that you omit predicates from URLs that use tle format. If you do include predicates, it must include line 1 \& 2 like this: "/predicates/TLE\_LINE1,TLE\_LINE2/". Like CSV, tle format ignores /metadata/true/ REST Predicate.                                                                                                                                          \\ \hline
+		Three-Line Element Set (3le)      & The format adds TLE\_LINE0 or the "Title line", a twenty-four character name, before the traditional Two Line Element format. The 3le format defaults to include a leading zero so that you can easily find the object name via scripts. If you do not want the leading zero, you should include this in your URL to show the OBJECT\_NAME instead of TLE\_LINE0: "/predicates/OBJECT\_NAME,TLE\_LINE1,TLE\_LINE2/". Like CSV and tle, 3le format ignores /metadata/true/ REST Predicate. \\ \hline
+		Key=Value Notation (kvn)          & Key=Value Notation format, currently for use exclusively with CDM Class. Incompatible with /metadata/true/.                                                                                                                                                                                                                                                                                                                                                                               \\ \hline
+		File Stream (stream)              & File Stream format, currently for use exclusively with download class.                                                                                                                                                                                                                                                                                                                                                                                                                    \\ \hline
+	\end{tabular}
+\end{table}\doublespacing
 	%\subsection{SatCat?}
 	
 	
+	\subsection{Code Queries}
+	Using the following rules, the code generates URLs that query space-track for the relevent information.	
+	
+	The first url that is generated is:
+	
+	https://www.space-track.org/basicspacedata/query/class/satcat/OBJECT\_TYPE/debris\newline /RCS\_SIZE/small/LAUNCH\_YEAR/$>$\textbf{launchYear}/orderby/DECAY asc/format/csv/metadata/false
+	
+	Where \textbf{launchYear} is replaced by the year the debris was launched in. This is the best way of controlling how much debris the user gets. Setting a launch year of 1960 will obviously included all small debris (debris that is less than 10 cm$^2$ cross section), while setting a launch year of 2018 would return very little debris. It is advisable to run test cases with small debris before performing operations on all available debris.\par 
+	This url will return the satcat Ids as seen by the ``class/satcat''. It will return them in a csv format as seen by the ``format/csv'' and it will only select small debris, as seen by the ``RCS\_SIZE/small''.
 	
 	
+	The second url is later used to return the TLEs from given satcat Ids.
 	\section{Code Overview}
 	The code obtains orbital data for space debris depending on what variables the user has inputted, such as the launch year of the debris or how recent the data should be.
 	First the code ascertains what data is already available. It checks to see if there is a .mat file for the SATCAT. This is simply a file that contains the catalog ids of the debris. If this file does not exist then the code has not been run for the current parameters, and the code will be run. \par 
@@ -697,7 +799,8 @@ A second example is given below. This time with references to the position of va
 		This file is the master file for the Two Line Element MATLAB files. Running it will run all of the associated MATLAB files. These MATLAB files take some time to run, so it may be convenient to alter the range of data operated on by MASTER\_TLE.m in VarStore.m
 		\subsection{get\_SATCAT.m}
 		Get\_SATCAT.m is the MATLAB file that gets the satellite catalog  numbers of all orbital debris launched after a given year and with the “RCS\_SIZE” value equal to “SMALL”. The Launch Year can be set by the values given by the user in VarStore.m The default launch year is set to 1990. Note that an earlier launch year will provide more data, and thus it will take more time to process. This may cause a time out error. Should this happen the timeOutVal in VarStore.m should be adjusted to be longer.\par 
-		Once the SATCAT csv file has been acquired the file then formats it. The quotation marks that are around every entry are removed. The debris that have already deorbited are also removed. Finally the debris is sorted by NORAD Catoluge Id, and saved as a .mat file.
+		Once the SATCAT csv file has been acquired the file then formats it. The quotation marks that are around every entry are removed. The debris that have already deorbited are also removed. Finally the debris is sorted by NORAD Catoluge Id, and saved as a .mat file. 
+		The post request in the get\_SATCAT.m file was originaly developed by Joao Encarnacao\cite{codeGETtle}
 		%\subsection{get\_Multiple\_TLE\_from\_Id.m}
 		%This file takes the Ids given in the .mat file and then obtains the Two Line Element files associated with the debris. It does this by saving the TLEs in .txt files. The number of TLEs grabbed at a time and saved in a .txt file is set by the user. It is not advised to go above 400, as that causes time out errors. \par 
 		%Withing MASTER\_TLE.m, this code is surrounded by a a loop and a try/catch error. The loop runs through all the different blocks of TLEs. In the case of a time out the the try/catch will attempt to download the TLEs a second time.\par 
@@ -708,9 +811,7 @@ A second example is given below. This time with references to the position of va
 		%\subsection{check\_TLE\_Edit\_TLE.m}
 		
 		\subsection{get\_TLE\_from\_ID\_Manager.m}
-		The purpose of get\_TLE\_from\_ID\_Manager.m is to act as a handler for function \newline get\_TLE\_from\_NorID.m. 
-		
-		The code first checks to see if there exists a folder to store the data in, if there is not a folder is created. Then the code begins to run through the list of NORAD Ids. It sends these Ids to get\_TLE\_from\_NorID.m, receives the orbital element data from those Ids. 
+		The purpose of get\_TLE\_from\_ID\_Manager.m is to act as a handler for function \newline get\_TLE\_from\_NorID.m. The code first checks to see if there exists a folder to store the data in, if there is not a folder is created. Then the code begins to run through the list of NORAD Ids. It sends these Ids to get\_TLE\_from\_NorID.m, receives the orbital element data from those Ids. 
 		
 		The code also contains an error handler. The most common problem with downloading large numbers of TLEs is a url timeout may occur. Timeouts are easy for a human to deal with, they may be fixed by simply refreshing the web page. However for MATLAB, it is more difficult. The code deals with a url timeout as follows:
 		
@@ -748,8 +849,7 @@ A second example is given below. This time with references to the position of va
 		r_\text{per}=\left(1-e\right)\times a\\
 		r_\text{ap}=\left(1+e\right)\times a
 		\end{align}
-		
-		
+		The code to parse the elements from the TLE was based off of Brett Pantalone's parse TLE code\cite{codeParseTLE}, modified to handle multiple TLEs.
 		
 		\section{Targeting}
 		Once the data has been collected, the next step is to target possible orbits. Since OSCAR has a delta V of \textcolor{red}{Find delta V} inclanation and plane changes are out of the question. What is desired is a number of debris in a plane with simialr inclanations.
@@ -802,9 +902,14 @@ A second example is given below. This time with references to the position of va
 		}
 		
 	\subsection{Master\_TLE.m}
-	\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/Master_TLE_v2.m}
+	\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/Master_TLE.m}
 	\subsection{get\_SATCAT.m}
 		\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/get_SATCAT.m}
+		\subsection{get\_TLE\_from\_ID\_Manager.m}
+	\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/get_TLE_from_ID_Manager.m}
+	
+	\subsection{get\_TLE\_from\_NorID.m}
+	\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/get_TLE_from_NorID.m}
 	%\lstinputlisting{get_SATCAT.m}
 	
 	%Thanks for Paul McKee who started this template. It seems to have good matlab code viwing

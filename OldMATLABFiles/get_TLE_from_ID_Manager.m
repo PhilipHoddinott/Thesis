@@ -1,7 +1,5 @@
-%% get_TLE_from_ID_Manager
-% By Philip Hoddinott
-% This code handles getMultiple_TLE_from_ID and deals with url read time outs. urlread is an older function, however it works best with post requets. 
-
+%% Handles getMultiple_TLE_from_ID
+% This function acts as the "handler for getMultiple_TLE_from_ID"
 
 load('UserPass.mat') % load in username and password
 if exist(tle_folder)~=7 % if the folder does not exist it will make it
@@ -27,7 +25,8 @@ while j_GMTFI~=jEnd % ensures that try catch keeps running untill it has gone al
             tle_current=tle_final;
             get_TLE_from_NorID
             tle_final=[tle_current;tle_final];
-            save(strNam,'tle_final'); % save the tle every loop through
+            save(strNam,'tle_final');
+            %get_Multiple_TLE_from_Id % returns 'outStr' String of TLE
         end
 
     catch ME      % time out catch
@@ -36,6 +35,9 @@ while j_GMTFI~=jEnd % ensures that try catch keeps running untill it has gone al
             case 'MATLAB:urlread:Timeout'
                warning('connection timed out at j = %d, trying again',j_GMTFI);
                jStart=j_GMTFI;
+               %for j_GMTFI = jStart:jEnd % rerun loop
+               %     get_Multiple_TLE_from_Id % creates text file of tles
+               %end
        end
     end
     

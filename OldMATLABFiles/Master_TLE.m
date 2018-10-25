@@ -1,7 +1,5 @@
 %% Master Program
 % By Philip Hoddinott
-% This is the Master program to aquire TLEs and turn them into usable
-% keplerian elements. 
 %% Setup
 close all; clear all; clc; % clear workspace
 %% get data
@@ -62,6 +60,7 @@ if get_SATCAT_tog==1 % if the satcat file is out of date, run this
     get_SATCAT % get SATCAT, comment out if already run
     fprintf('get_SATCAT.m has finished running\n'); % output SATCAT has run
 else % if the satcat file is recent then no nead to run get_SATCAT
+    
     load(strNam_SC,'all_TLE','decayEnd'); % load mat of SATCAT
     fprintf('get_SATCAT.m was not run\n'); % output SATCAT was not run
 end
@@ -73,11 +72,34 @@ relDeb=str2num(char(all_TLE(2:decayEnd,2))); % get NORAD CAT ID
 VarStore % run var store for stored variables, ugly but it works
 
 if get_Multiple_TLE_from_Id_tog==1
-   get_TLE_from_ID_Manager
+   get_TLE_from_Id
    fprintf('get_Multiple_TLE_from_Id.m has finished running\n');
 else
     fprintf('get_Multiple_TLE_from_Id.m was not run\n');
 end
+
+
+%% Func readTLE_txt
+% function to parse the txt files into a usable TLE, stored in a matrix
+if readTLE_txt_tog==1
+    readTLE_txt
+    fprintf('readTLE_txt.m has finished running\n');
+else
+    fprintf('readTLE_txt.m was not run\n');
+end
+
+%% Func check_TLE_edit_TLE
+% function to neatly sort TLEs, remove duplicates, and list TLEs that were
+% not given
+
+if check_TLE_Edit_TLE_tog==1
+    check_TLE_Edit_TLE
+    fprintf('check_TLE_Edit_TLE.m has finished running\n');
+else
+    fprintf('check_TLE_Edit_TLE.m was not run\n');
+end
+
+
 
 %close all; clear all; % clear out everything
 VarStore % run var store for stored variables, ugly but it works
