@@ -22,7 +22,7 @@ try % check the satcat tog;
         if cTime>(dateCreated+calweeks(1)) % file out of date, rerun not SATCAT
             fprintf('File is one week out of date, auto running program\n');
             tog_All=1;
-            tog_SC=0;
+            tog_SC=1;
         else % file recent, no need to run any
             fprintf('The file %s, was created within the last week\n',strNam);
             tog_All=0;

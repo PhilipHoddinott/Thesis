@@ -1,28 +1,29 @@
-\contentsline {section}{\numberline {0.1}Acknowledgments}{iii}
-\contentsline {section}{\numberline {0.2}Abstract}{iv}
-\contentsline {section}{\numberline {0.3}Introduction}{1}
-\contentsline {subsection}{\numberline {0.3.1}Space Debris}{1}
-\contentsline {subsection}{\numberline {0.3.2}Kessler Syndrome}{2}
-\contentsline {subsection}{\numberline {0.3.3}CubeSats}{4}
-\contentsline {subsection}{\numberline {0.3.4}OSCAR}{5}
-\contentsline {subsection}{\numberline {0.3.5}Orbital Elements}{5}
-\contentsline {section}{\numberline {0.4}Data Sources and Formats}{8}
-\contentsline {subsection}{\numberline {0.4.1}The Two Line Element Format}{8}
-\contentsline {section}{\numberline {0.5}NORAD Space-Track}{13}
-\contentsline {subsection}{\numberline {0.5.1}Space-Track.org}{13}
-\contentsline {subsection}{\numberline {0.5.2}Space-Track Query}{14}
-\contentsline {subsection}{\numberline {0.5.3}Code Queries}{17}
-\contentsline {section}{\numberline {0.6}Code Overview}{18}
-\contentsline {subsection}{\numberline {0.6.1}VarStore.m}{20}
-\contentsline {subsection}{\numberline {0.6.2}UserPass.m}{20}
-\contentsline {subsection}{\numberline {0.6.3}MASTER\_TLE.m}{20}
-\contentsline {subsection}{\numberline {0.6.4}get\_SATCAT.m}{20}
-\contentsline {subsection}{\numberline {0.6.5}get\_TLE\_from\_ID\_Manager.m}{21}
-\contentsline {subsection}{\numberline {0.6.6}get\_TLE\_from\_NorID.m}{21}
-\contentsline {section}{\numberline {0.7}Targeting}{23}
-\contentsline {section}{\numberline {0.8}Conclusion}{23}
-\contentsline {section}{Appendix}{26}
-\contentsline {subsection}{\numberline {0.8.1}Master\_TLE.m}{26}
-\contentsline {subsection}{\numberline {0.8.2}get\_SATCAT.m}{28}
-\contentsline {subsection}{\numberline {0.8.3}get\_TLE\_from\_ID\_Manager.m}{30}
-\contentsline {subsection}{\numberline {0.8.4}get\_TLE\_from\_NorID.m}{31}
+\contentsline {section}{\numberline {1}Acknowledgments}{iii}
+\contentsline {section}{\numberline {2}Abstract}{iv}
+\contentsline {section}{\numberline {3}Introduction}{1}
+\contentsline {subsection}{\numberline {3.1}Space Debris}{1}
+\contentsline {subsection}{\numberline {3.2}Kessler Syndrome}{2}
+\contentsline {subsection}{\numberline {3.3}CubeSats}{4}
+\contentsline {subsection}{\numberline {3.4}OSCAR}{5}
+\contentsline {subsection}{\numberline {3.5}Orbital Elements}{5}
+\contentsline {section}{\numberline {4}Data Sources and Formats}{8}
+\contentsline {subsection}{\numberline {4.1}The Two Line Element Format}{8}
+\contentsline {section}{\numberline {5}NORAD Space-Track}{13}
+\contentsline {subsection}{\numberline {5.1}Space-Track.org}{13}
+\contentsline {subsection}{\numberline {5.2}Space-Track Query}{14}
+\contentsline {subsection}{\numberline {5.3}Code Queries}{17}
+\contentsline {subsection}{\numberline {5.4}Post Requests}{19}
+\contentsline {section}{\numberline {6}Code Overview}{20}
+\contentsline {subsection}{\numberline {6.1}VarStore.m}{21}
+\contentsline {subsection}{\numberline {6.2}UserPass.m}{22}
+\contentsline {subsection}{\numberline {6.3}MASTER\_TLE.m}{22}
+\contentsline {subsection}{\numberline {6.4}get\_SATCAT.m}{22}
+\contentsline {subsection}{\numberline {6.5}get\_TLE\_from\_ID\_Manager.m}{22}
+\contentsline {subsection}{\numberline {6.6}get\_TLE\_from\_NorID.m}{23}
+\contentsline {section}{\numberline {7}Targeting}{24}
+\contentsline {section}{\numberline {8}Conclusion}{25}
+\contentsline {section}{Appendix}{28}
+\contentsline {subsection}{\numberline {8.1}Master\_TLE.m}{28}
+\contentsline {subsection}{\numberline {8.2}get\_SATCAT.m}{30}
+\contentsline {subsection}{\numberline {8.3}get\_TLE\_from\_ID\_Manager.m}{31}
+\contentsline {subsection}{\numberline {8.4}get\_TLE\_from\_NorID.m}{32}

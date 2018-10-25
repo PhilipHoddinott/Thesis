@@ -7,8 +7,10 @@
 % LaTeX Template: Project Titlepage Modified (v 0.1) by rcx
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt]{report}
+\documentclass[12pt]{article}
 \iffalse
+
+
 \usepackage[a4paper]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[myheadings]{fullpage}
@@ -70,6 +72,10 @@
 
 \fi
 
+
+\usepackage{blindtext}
+\usepackage[utf8]{inputenc}
+
 \usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
 \usepackage{sectsty}
 \usepackage{url, lipsum}
@@ -92,15 +98,12 @@
 \usepackage{graphicx}
 
 \pagestyle{fancy}
-%\fancyhf{Philip Hoddinott, Module 5 Questions}
 \fancyhf{}
-%\fancyhead[L]{Philip Hoddinott}
-%\fancyhead[C]{\thepage}
-%\fancyhead[R]{Module 5 Questions}
 \fancyhead[L]{Master's Thesis}
-%\fancyhead[C]{\thepage}
-%\fancyhead[R]{Module 5 Homework}
-\fancyhead[C]{\leftmark}
+%\fancyhead[C]{\rightmark}
+
+
+\fancyhead[C]{\nouppercase{\leftmark}}
 \fancyhead[R]{Philip Hoddinott}
 
 \rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
@@ -128,9 +131,9 @@
 \usepackage{float}
 \usepackage{listings}
 \usepackage{color} 
-%\linespread{1.5}
 \newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
 \usepackage{setspace}
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
 
 
 
@@ -176,8 +179,7 @@
 	\pagenumbering{roman}
 	\setcounter{page}{-1}
 	% --Table of Contents----------
-	\tableofcontents
-	\newpage
+
 	\newlength\longest
 	\clearpage
 	
@@ -191,14 +193,16 @@
 				\raggedright{\huge\itshape%
 					But, Captain, I cannot change the laws of physics\par\bigskip
 				}   
-				\raggedleft\Large{-Lt. Commander Scott (Scotty)}\par
+				\raggedleft\Large{-Lt. Commander Montgomery ``Scotty" Scott}\par
 				\raggedleft\Large{USS}\textit{ Enterprise}\par%
 				
 			}
 		\end{center}
 	\end{figure}
+
 	
 	\null\vfill
+	
 	%		\begin{figure}
 	%	\centering
 	%	\includegraphics[width=0.7\linewidth]{../../Bloom_County_2}
@@ -213,6 +217,9 @@
 		\label{fig:bloomcounty}
 	\end{figure}
 	
+	\newpage
+	%	\newpage
+	\tableofcontents
 	\newpage
 
 	%\thispagestyle{fancy}
@@ -665,7 +672,7 @@ A second example is given below. This time with references to the position of va
 	Where: 
 
 	\begin{itemize}	\singlespacing
-		\item Base: URL: https://www.space-track.org/
+		\item Base URL: https://www.space-track.org/
 		
 		\item Request Controller: basicspacedata
 		\item Request Action: query
@@ -744,8 +751,8 @@ Finally the data returned may be in the formats seen in table \ref{tab:dataForma
 		JavaScript Object Notation (json) & Preferred format, no special request rules.                                                                                                                                                                                                                                                                                                                                                                                                                                               \\ \hline
 		HyperText Markup Language (html)  & Not recommended for machine parsing. No special request rules.                                                                                                                                                                                                                                                                                                                                                                                                                            \\ \hline
 		Comma-Separated Values (csv)      & Due to the limitations of the CSV specification, requesting CSV formatted data does not allow for transmission of metadata; metadata concerning the request will need to be gathered through one of the other formats prior to requesting CSV.                                                                                                                                                                                                                                            \\ \hline
-		Two-Line Element Set (tle)        & To get traditionally-formatted TLE data, request the 'tle', 'tle\_latest', or 'tle\_publish' class. We recommend that you omit predicates from URLs that use tle format. If you do include predicates, it must include line 1 \& 2 like this: "/predicates/TLE\_LINE1,TLE\_LINE2/". Like CSV, tle format ignores /metadata/true/ REST Predicate.                                                                                                                                          \\ \hline
-		Three-Line Element Set (3le)      & The format adds TLE\_LINE0 or the "Title line", a twenty-four character name, before the traditional Two Line Element format. The 3le format defaults to include a leading zero so that you can easily find the object name via scripts. If you do not want the leading zero, you should include this in your URL to show the OBJECT\_NAME instead of TLE\_LINE0: "/predicates/OBJECT\_NAME,TLE\_LINE1,TLE\_LINE2/". Like CSV and tle, 3le format ignores /metadata/true/ REST Predicate. \\ \hline
+		Two-Line Element Set (tle)        & To get traditionally-formatted TLE data, request the 'tle', 'tle\_latest', or 'tle\_publish' class. We recommend that you omit predicates from URLs that use tle format. If you do include predicates, it must include line 1 \& 2 like this: ``/predicates/TLE\_LINE1,TLE\_LINE2/". Like CSV, tle format ignores /metadata/true/ REST Predicate.                                                                                                                                          \\ \hline
+		Three-Line Element Set (3le)      & The format adds TLE\_LINE0 or the ``Title line", a twenty-four character name, before the traditional Two Line Element format. The 3le format defaults to include a leading zero so that you can easily find the object name via scripts. If you do not want the leading zero, you should include this in your URL to show the OBJECT\_NAME instead of TLE\_LINE0: ``/predicates/OBJECT\_NAME,TLE\_LINE1,TLE\_LINE2/". Like CSV and tle, 3le format ignores /metadata/true/ REST Predicate. \\ \hline
 		Key=Value Notation (kvn)          & Key=Value Notation format, currently for use exclusively with CDM Class. Incompatible with /metadata/true/.                                                                                                                                                                                                                                                                                                                                                                               \\ \hline
 		File Stream (stream)              & File Stream format, currently for use exclusively with download class.                                                                                                                                                                                                                                                                                                                                                                                                                    \\ \hline
 	\end{tabular}
@@ -754,17 +761,114 @@ Finally the data returned may be in the formats seen in table \ref{tab:dataForma
 	
 	
 	\subsection{Code Queries}
-	Using the following rules, the code generates URLs that query space-track for the relevent information.	
+	Using the following rules, the code generates URLs that query space-track for the relevant information. The first URL is used to acquire the relevant satcat IDs for space debris. It is as follows:\par 
 	
-	The first url that is generated is:
-	
-	https://www.space-track.org/basicspacedata/query/class/satcat/OBJECT\_TYPE/debris\newline /RCS\_SIZE/small/LAUNCH\_YEAR/$>$\textbf{launchYear}/orderby/DECAY asc/format/csv/metadata/false
-	
-	Where \textbf{launchYear} is replaced by the year the debris was launched in. This is the best way of controlling how much debris the user gets. Setting a launch year of 1960 will obviously included all small debris (debris that is less than 10 cm$^2$ cross section), while setting a launch year of 2018 would return very little debris. It is advisable to run test cases with small debris before performing operations on all available debris.\par 
-	This url will return the satcat Ids as seen by the ``class/satcat''. It will return them in a csv format as seen by the ``format/csv'' and it will only select small debris, as seen by the ``RCS\_SIZE/small''.
+	\url{https://www.space-track.org/basicspacedata/query/class/satcat/OBJECT_TYPE/debris/RCS_SIZE/small/LAUNCH_YEAR/>1990/orderby/DECAY asc/format/csv/metadata/false}
 	
 	
-	The second url is later used to return the TLEs from given satcat Ids.
+	%\url{https://www.wikibooks.org}
+	%\href{https://www.wikibooks.org}{Wikibooks home}
+	
+	%\href{https://www.space-track.org/basicspacedata/query/class/satcat/OBJECT_TYPE/debris/RCS_SIZE/small/LAUNCH_YEAR/>1990/orderby/DECAY asc/format/csv/metadata/false}{https://www.space-track.org/basicspacedata/query/class/satcat/OBJECT\_TYPE/debris/RCS\_SIZE/small/LAUNCH\_YEAR/$>$1990/orderby/DECAY asc/format/csv/metadata/false}
+	
+	Where 1990 is the launch year, and should be replaced by the year the debris was launched in. This is the best way of controlling how much debris the user gets. Setting a launch year of 1960 will obviously included all small debris (debris that is less than 10 cm$^2$ cross section), while setting a launch year of 2018 would return very little debris. It is advisable to run test cases with small debris before performing operations on all available debris. A detailed walkthrough of the URL may be seen in table \ref{tab:url1}.\par 
+	%This url will return the satcat Ids as seen by the ``class/satcat''. It will return them in a csv format as seen by the ``format/csv'' and it will only select small debris, as seen by the ``RCS\_SIZE/small''.\par 
+	
+	%Unpacking this:
+	
+	\begin{table}[H]\singlespacing
+		\caption{Detailed Description of First URL}
+		\label{tab:url1}
+		\begin{tabular}{|p{6cm}|p{10cm}|}
+			\hline
+			Section of URL & Description \\ \hline
+			https://www.space-track.org/basicspacedata/query/ & This is the base URL. \\ \hline
+			class/satcat/ & The class of the data will be the satcat Ids. \\ \hline
+			OBJECT\_TYPE/debris/ & The type of object this URL is looking for is debris \\ \hline
+			/CS\_SIZE/small/ & The URL is looking for debris classified as small \\ \hline
+			LAUNCH\_YEAR/$>$\textbf{launchYear}/ & The debris is limited by the provided launch year. \\ \hline
+			orderby/DECAY asc/ & The debris are ordered by their decay. This order is not relevant, and only included because it is a necessary part of the query. The IDs are sorted small to large after the post request. \\ \hline
+			format/csv/metadata/false & Finally the format of the data returned is set to be a csv. The metadata of the request is not given. \\ \hline
+		\end{tabular}
+	\end{table}\doublespacing
+	
+	
+	The second URL is later used to return the TLEs from given satcat Ids. It follows the following format:\par 
+	
+	
+		\url{	https://www.space-track.org/basicspacedata/query/class/tle_latest/NORAD_CAT_ID/ 43543,43544,43555/orderby/ORDINAL%20asc/limit/3/format/tle/metadata/false
+		}
+	%https://www.space-track.org/basicspacedata/query/class/tle\_latest/NORAD\_CAT\_ID/\newline 43543,43544,43555/orderby/ORDINAL\%20asc/limit/\textbf{numTLE}/format/tle/metadata/false
+	
+	A detailed description of this URL may be seen in table \ref{tab:tle2url}
+	
+	\begin{table}[H]\singlespacing
+		\caption{Detailed Description of Second URL}
+		\label{tab:tle2url}
+		\begin{tabular}{|p{6cm}|p{10cm}|}
+			\hline
+			Section of URL                                    & Description                                                                                                                                                                                                                                     \\ \hline
+			
+			https://www.space-track.org/basicspacedata/query/ & This is the base URL, unchanged from the previous example.                                                                                                                                                                                      \\ \hline
+			class/tle\_latest/                                & The class of the data will be the latest TLEs.                                                                                                                                                                                                  \\ \hline
+			NORAD\_CAT\_ID/                                   & The data will come from the following NORAD CAT IDs.                                                                                                                                                                                            \\ \hline
+			43543,43544,43555/                                & The NORAD CAT IDs that have been requested. Normally the code will request many of them, to make this easy to read only three IDs have been requested in this example.                                                                          \\ \hline
+			orderby/ORDINAL\%20asc/                           & The TLEs will be in ascending order. Ascending or descending order does not matter as the order is changed by MATLAB soon after.                                                                                                                \\ \hline
+			limit/\textbf{numberOfTLEs}/            & This is the number of TLEs to be returned. The number of TLEs should be the same as the number of NORAD CAT IDs provided. This ensures that only one TLE per CAT ID is returned and only the most recent TLE for a piece of debris is returned. In this case it will be 3.\\ \hline
+			format/tle/metadata/false                         & Finally the format of the data returned is set to be TLEs. The metadata of the request is not given.                                                                                                                                            \\ \hline
+		\end{tabular}
+	\end{table}\doublespacing
+
+\subsection{Post Requests}
+Once the query URL has been created the next step is using the URL to obtain data. A human may simply type the query URL into a browser. For example typing the following URL into an Internet browser: 
+
+\url{https://www.space-track.org/basicspacedata/query/class/tle/format/tle/NORAD_CAT_ID/25544/orderby/EPOCH%20desc/limit/1}
+	
+	Provides the result seen in figure \ref{fig:isstle}. This is of course the most recent TLE for the ISS.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{ISS_tle}
+		\caption{TLE for ISS from query URL}
+		\label{fig:isstle}
+	\end{figure}
+
+However space-track requires a username and password. A browser that humans use saves this information. Typing this URL in without the username and password saved will redirect to the front page of space-track. For MATLAB to use these query URLs and provied a username and password a POST request is needed. \par 
+
+
+
+	
+	
+
+\singlespacing
+\begin{lstlisting}
+load('UserPass.mat') % load in username and password
+baseURL='https://www.space-track.org/';
+logURL=[baseURL,'ajaxauth/login'];
+querySatcatURL=[baseURL,'basicspacedata/query/class/satcat/', 'OBJECT_TYPE/debris/RCS_SIZE/small/LAUNCH_YEAR/>', num2str(launchYear), '/orderby/DECAY asc/format/csv/metadata/false'];
+post={... % Create Post Request
+'identity',username, 'password',password,... % include username and password
+'query',querySatcatURL}; % create query
+
+out=urlread(logURL,'Post',post,'Timeout',timeOutVal); % gets the output
+outStr=convertCharsToStrings(out); % coverts output to string
+
+\end{lstlisting}
+\doublespacing
+
+
+	%\begin{itemize}\singlespacing
+	%	\item 	https://www.space-track.org/basicspacedata/query/ : This is the base URL, unchanged from the previous example.
+	%	\item class/tle\_latest/ : The class of the data will be the latest TLEs
+	%	\item NORAD\_CAT\_ID/ : The data will come from the following NORAD CAT IDs
+		%\item 43543,43544,43555/ : The NORAD CAT IDs that have been requested. Normally the code will request many of them, to make this easy to read only three IDs have been requested in this example.
+	%	\item orderby/ORDINAL\%20asc/ : The TLEs will be in ascending order. Ascending or descending order does not matter as the order is changed by MATLAB soon after.
+	%	\item  limit/\textbf{numTLE} : This is the number of TLEs to be returned. The number of TLEs should be the same as the number of NORAD CAT IDs provided. This ensures that only one TLE per CAT ID is returned and only the most recent TLE for a peace of debris is returned.
+	%	\item format/tle/metadata/false : Finally the format of the data returned is set to be TLEs. The metadata of the request is not given. 
+	%\end{itemize}\doublespacing
+	%\begin{align}
+	%\underbrace{\text{space-track.org/basicspacedata/query/}}_\text{Base URL, unchanged}	\underbrace{\text{class/tle\_latest/NORAD\_CAT\_ID/}}_\text{The class of the data will be the latest TLE from the given NORAD CAT Ids}\nonumber
+	%\end{align}
 	\section{Code Overview}
 	The code obtains orbital data for space debris depending on what variables the user has inputted, such as the launch year of the debris or how recent the data should be.
 	First the code ascertains what data is already available. It checks to see if there is a .mat file for the SATCAT. This is simply a file that contains the catalog ids of the debris. If this file does not exist then the code has not been run for the current parameters, and the code will be run. \par 
@@ -798,8 +902,8 @@ Finally the data returned may be in the formats seen in table \ref{tab:dataForma
 		\subsection{MASTER\_TLE.m}
 		This file is the master file for the Two Line Element MATLAB files. Running it will run all of the associated MATLAB files. These MATLAB files take some time to run, so it may be convenient to alter the range of data operated on by MASTER\_TLE.m in VarStore.m
 		\subsection{get\_SATCAT.m}
-		Get\_SATCAT.m is the MATLAB file that gets the satellite catalog  numbers of all orbital debris launched after a given year and with the “RCS\_SIZE” value equal to “SMALL”. The Launch Year can be set by the values given by the user in VarStore.m The default launch year is set to 1990. Note that an earlier launch year will provide more data, and thus it will take more time to process. This may cause a time out error. Should this happen the timeOutVal in VarStore.m should be adjusted to be longer.\par 
-		Once the SATCAT csv file has been acquired the file then formats it. The quotation marks that are around every entry are removed. The debris that have already deorbited are also removed. Finally the debris is sorted by NORAD Catoluge Id, and saved as a .mat file. 
+		Get\_SATCAT.m is the MATLAB file that gets the satellite catalog  numbers of all orbital debris launched after a given year and with the “RCS\_SIZE” value equal to “SMALL”. The first URL described previously is used here. The Launch Year can be set by the values given by the user in VarStore.m The default launch year is set to 1990. Note that an earlier launch year will provide more data, and thus it will take more time to process. This may cause a time out error. Should this happen the timeOutVal in VarStore.m should be adjusted to be longer.\par 
+		Once the SATCAT csv file has been acquired the file then formats it. The quotation marks that are around every entry are removed. The debris that have already deorbited are also removed. Finally the debris is sorted by NORAD Catoluge Id, and saved as a .mat file.
 		The post request in the get\_SATCAT.m file was originaly developed by Joao Encarnacao\cite{codeGETtle}
 		%\subsection{get\_Multiple\_TLE\_from\_Id.m}
 		%This file takes the Ids given in the .mat file and then obtains the Two Line Element files associated with the debris. It does this by saving the TLEs in .txt files. The number of TLEs grabbed at a time and saved in a .txt file is set by the user. It is not advised to go above 400, as that causes time out errors. \par 

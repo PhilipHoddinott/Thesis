@@ -6,20 +6,13 @@
 load('UserPass.mat') % load in username and password
 baseURL='https://www.space-track.org/';
 logURL=[baseURL,'ajaxauth/login'];
-querySatcatURL=[baseURL,'basicspacedata/query/class/satcat/OBJECT_TYPE/debris/'];
-
-URL='https://www.space-track.org/ajaxauth/login'; % URL for login
-baseURL='https://www.space-track.org/basicspacedata/query/class/satcat/OBJECT_TYPE/debris/';
+querySatcatURL=[baseURL,'basicspacedata/query/class/satcat/OBJECT_TYPE/debris/RCS_SIZE/small/LAUNCH_YEAR/>',num2str(launchYear),'/orderby/DECAY asc/format/csv/metadata/false'];
 
 post={... % Create Post Request
-  'identity',username, 'password',password,...
-  'query',[...
-    'https://www.space-track.org/basicspacedata/query/class/satcat/OBJECT_TYPE/debris/',...
-    'RCS_SIZE/small/LAUNCH_YEAR/>',num2str(launchYear),'/'...
-    'orderby/DECAY asc/format/csv/metadata/false']...
-};
+  'identity',username, 'password',password,... % include username and password
+  'query',querySatcatURL}; % create query
 
-out=urlread(URL,'Post',post,'Timeout',timeOutVal); % gets the output
+out=urlread(logURL,'Post',post,'Timeout',timeOutVal); % gets the output
 outStr=convertCharsToStrings(out); % coverts output to string
 
 
