@@ -9,30 +9,23 @@ for i = tleA(j_GMTFI):tleA(j_GMTFI+1)-2
 end
 if tleA(j_GMTFI+1)==decayEnd
     strTLE=[strTLE, num2str(relDeb(tleA(j_GMTFI+1)-1)),num2str(relDeb(tleA(j_GMTFI))),'/'];
-    fnName = [tle_folder,'/tle_',num2str(j_GMTFI),'_',num2str(tleA(j_GMTFI)),'_',num2str(tleA(j_GMTFI+1)),'.txt'];
 else
     strTLE=[strTLE, num2str(relDeb(tleA(j_GMTFI+1)-1)),'/'];
-    fnName = [tle_folder,'/tle_',num2str(j_GMTFI),'_',num2str(tleA(j_GMTFI)),'_',num2str(tleA(j_GMTFI+1)-1),'.txt'];
 end
 fprintf('j = %d, tle %d to tle %d',j_GMTFI,tleA(j_GMTFI), tleA(j_GMTFI+1));
 c=clock;
 fprintf(' H = %d, Min = %d, Sec = %.1f\n',c(4),c(5),c(6));
 %fprintf(strTLE);fprintf('\n'); %uncomment if you need to see %NORAD_CAT_ID
-strTLE=[strTLE,'orderby/ORDINAL%20asc/limit/',num2str(tle_inc),'/format/tle/metadata/false'];  
-
-
+strTLE=[strTLE,'orderby/ORDINAL%20asc/limit/',num2str(tle_inc),...
+    '/format/tle/metadata/false'];  
+baseURL='https://www.space-track.org/basicspacedata';
+strTLE=[baseURL,'/query/class/tle_latest/NORAD_CAT_ID',strTLE];
 URL='https://www.space-track.org/ajaxauth/login';
 
-post={'identity',username,'password',password,...
-  'query',[...
-    'https://www.space-track.org/basicspacedata/query/class/tle_latest/NORAD_CAT_ID',...
-    strTLE
-  ]...
-};
+post={'identity',username,'password',password, 'query',strTLE};
 
 out3TLE=urlread(URL,'Post',post,'Timeout',timeOutVal); % gets the output
 outStr=convertCharsToStrings(out3TLE); % coverts output to string
-
 
 j=1;
 k=1;
@@ -63,7 +56,7 @@ while j<length(C)-1
     tle_stor(k,10)=a;
     tle_stor(k,11)=b;
 
-    j=j+2;
-    k=k+1;
+    j=j+2; % increment j
+    k=k+1; % increment k
 end
 tle_final=tle_stor;

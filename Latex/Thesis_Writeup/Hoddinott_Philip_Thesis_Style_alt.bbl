@@ -3,6 +3,10 @@
 \bibitem{nasaOE}
 NASA, 2012.
 
+\bibitem{SpaceTrackTLE}
+Space Track.
+\newblock Basic description of the two line element (tle) format, 2013.
+
 \bibitem{SpaceTrackAPI}
 Space Track.
 \newblock Introduction to the space track api, 2013.
@@ -50,10 +54,6 @@ By~Dr.~T.S. Kelso.
 Canadian~Satellite Tracking and Orbit~Research (CASTOR).
 \newblock B-star drag term, 2010.
 
-\bibitem{SpaceTrackTLE}
-Space Track.
-\newblock Basic description of the two line element (tle) format, 2013.
-
 \bibitem{noradSC}
 NORAD.
 \newblock Norad tracks santa.
@@ -68,6 +68,9 @@ David~A Vallado and Paul~J Cefola.
 \newblock In {\em 63rd International Astronautical Congress, Naples, Italy},
   2012.
 
+\bibitem{GEODSS}
+Ground-based electro-optical deep space surveillance, 2017.
+
 \bibitem{SpaceTrackHome}
 Space Track.
 \newblock Space-track.org, 2018.
@@ -79,6 +82,10 @@ Space Track.
 \bibitem{SpaceTrackSATCAT}
 Space Track.
 \newblock Space-track satellite catalog search, 2018.
+
+\bibitem{postRef}
+Julian F.~Reschke Roy T.~Fielding.
+\newblock Hypertext transfer protocol (http/1.1): Semantics and content.
 
 \bibitem{codeGETtle}
 Joao Encarnacao.

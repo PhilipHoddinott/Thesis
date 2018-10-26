@@ -1,36 +1,38 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Hoddinott_Philip_Thesis_Style_alt.aux
 The style file: unsrt.bst
 Database file #1: ref.bib
+Warning--entry type for "GEODSS" isn't style-file defined
+--line 1 of file ref.bib
 Warning--entry type for "ssncltrak" isn't style-file defined
---line 30 of file ref.bib
+--line 47 of file ref.bib
 Warning--entry type for "noradSC" isn't style-file defined
---line 38 of file ref.bib
+--line 55 of file ref.bib
 Warning--entry type for "nasaOE" isn't style-file defined
---line 45 of file ref.bib
+--line 62 of file ref.bib
 Warning--entry type for "endevHole" isn't style-file defined
---line 72 of file ref.bib
+--line 89 of file ref.bib
 Warning--entry type for "stscrack" isn't style-file defined
---line 79 of file ref.bib
+--line 96 of file ref.bib
 Warning--entry type for "nanosats_eu" isn't style-file defined
---line 87 of file ref.bib
+--line 104 of file ref.bib
 Warning--entry type for "sdor2014" isn't style-file defined
---line 94 of file ref.bib
+--line 111 of file ref.bib
 Warning--entry type for "usnrl_2008" isn't style-file defined
---line 98 of file ref.bib
+--line 115 of file ref.bib
 Warning--entry type for "NASATLE" isn't style-file defined
---line 108 of file ref.bib
+--line 125 of file ref.bib
 Warning--entry type for "SpaceTrackLegend" isn't style-file defined
---line 124 of file ref.bib
+--line 141 of file ref.bib
 Warning--entry type for "SpaceTrackTLE" isn't style-file defined
---line 134 of file ref.bib
+--line 151 of file ref.bib
 Warning--entry type for "SpaceTrackSATCAT" isn't style-file defined
---line 156 of file ref.bib
+--line 173 of file ref.bib
 Warning--entry type for "SpaceTrackHome" isn't style-file defined
---line 165 of file ref.bib
+--line 182 of file ref.bib
 Warning--entry type for "SpaceTrackAPI" isn't style-file defined
---line 172 of file ref.bib
+--line 189 of file ref.bib
 Warning--entry type for "celestrak_TLE_FAQ" isn't style-file defined
---line 180 of file ref.bib
+--line 197 of file ref.bib
 Warning--entry type for "castor2_BSTAR" isn't style-file defined
---line 191 of file ref.bib
-(There were 16 warnings)
+--line 208 of file ref.bib
+(There were 17 warnings)

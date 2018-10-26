@@ -2,20 +2,22 @@
 % By Philip Hoddinott
 % This code gets SATCAT from NORARD Query via post requests. 
 % This code was based off of the following code: https://github.com/jgte/matlab-sgp4/blob/master/get_tle.m
-VarStore
-load('UserPass.mat') % load in username and password
+%VarStore
+%load('UserPass.mat') % load in username and password
 %username = 'exampleUser';
 %password='examplePass';
 %timeOutVal=30;
-
+function postOutput = examplePostRequest(username,password,timeOutVal)
+VarStore
+load('UserPass.mat') % load in username and password
 baseURL='https://www.space-track.org/'; % base URL
 logURL=[baseURL,'ajaxauth/login']; % login URL
 querySatcatURL=[baseURL,'basicspacedata/query/class/tle/format/tle/', 'NORAD_CAT_ID/25544/orderby/EPOCH%20desc/limit/1']; % query URL
 
 post={'identity',username, 'password', password, 'query', querySatcatURL}; % create post request
 
-postOutput=urlread(logURL,'Post',post,'Timeout',timeOutVal) % runs and gets the output of the post request
-
+postOutput=urlread(logURL,'Post',post,'Timeout',timeOutVal); % runs and gets the output of the post request
+end 
 %{
 newStr = strsplit(outStr,["\n"]); % split string by line break
 for i=1:length(newStr) % split string by commas

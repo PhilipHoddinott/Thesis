@@ -471,23 +471,23 @@
 	\subsection{The Two Line Element Format}
 	
 	Orbital elements provide the means to determine a theoretical orbit. Since spacecraft are constantly experiencing forces such as atmospheric drag or solar wind their orbital elements are constantly changing. \par 
-	A Two Line Element (TLE) is a data format that encodes a list of orbital elements for an Earth-orbiting object for a given point in time [\textcolor{red}{Re do this}]\par
+	A Two Line Element set (TLE) is a data format that encodes a list of orbital elements for an object that orbits Earth at a given time. Using perturbation models TLEs can be used to compute the object's state at a specific time. The TLE format was originally designed for punch cards, now .txt files are used with two 70-column ASCII lines.  \par 
 	
-	An example shows how orbital information is derived from a Two Line Element \cite{NASATLE}.
-	\begin{figure}[h!]
+	The example from figure \ref{fig:tlenasa} shows how orbital information is derived from a Two Line Element \cite{NASATLE}.
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{tle_nasa}
 		\caption{TLE with descriptions}
 		\label{fig:tlenasa}
 	\end{figure}
 	
-	\begin{enumerate}
+	\begin{enumerate}\singlespacing
 		\item \textbf{Name of Satellite:} NOAA 6
 		
 		This is the name of the satellite. In this example it is NOAA 6.
 		\item 	\textbf{International Designator:} 84123 A
 		
-		This number shows the last two digets of the launch year and what number launch of that year it was. In this example it is 84 123 A. The satellite was launched in the year 1984 and it was the 124th launch of the year. The A means that it was the first object that came from the launch. \textcolor{red}{Check this is right}
+		This number shows the last two digets of the launch year and what number launch of that year it was. In this example it is 84 123 A. The satellite was launched in the year 1984 and it was the 124th launch of the year. The A means that it was the first object that came from the launch. %\textcolor{red}{Check this is right}
 		
 		\item \textbf{Epoch Date and Julian Date Fraction:} 86 50.28438588
 		
@@ -509,27 +509,32 @@
 		F_D = \frac{1}{2}\rho C_d A v^2
 		\end{equation}
 		Where $A$ is the area, $C_d$ is the drag coefficient, $v$ the velocity, and $\rho$ is the fluid density. From Newton's second law
+		%\begin{equation}
+		%F = m\times a
+		%\end{equation}
+		the acceleration due to the force of drag is 
 		\begin{equation}
-		F = m\times a
+		F = m\times a\rightarrow a_D=\frac{F_D}{m}=\frac{\rho C_d A v^2}{2m}=\frac{ C_d A}{m}\times\frac{\rho v^2}{2}
 		\end{equation}
-		the accleration due to the force of drag is 
+		The ballistic coefficient and starred ballistic coefficient are given by:
+		%\begin{equation}
+		%B=\frac{ C_d A}{m}
+		%\end{equation}
+		%The starred ballistic coefficient is then
 		\begin{equation}
-		a_D=\frac{F_D}{m}=\frac{\rho C_d A v^2}{2m}=\frac{ C_d A}{m}\times\frac{\rho v^2}{2}
-		\end{equation}
-		The ballistic coefficient is given by the following equation:
-		\begin{equation}
-		B=\frac{ C_d A}{m}
-		\end{equation}
-		The starred ballistic coefficient is then
-		\begin{equation}
-		B^{*} = \frac{\rho_0 B}{2}=\frac{\rho_0 C_d A}{2m}
+		B=\frac{ C_d A}{m}\rightarrow B^{*} = \frac{\rho_0 B}{2}=\frac{\rho_0 C_d A}{2m}
 		\end{equation}
 		This turns the equation for acceleration due to drag into \cite{celestrak_TLE_FAQ}\cite{castor2_BSTAR}
 		\begin{equation}
 		a_D=\frac{\rho}{\rho_0}B^{*} v^2
 		\end{equation}
-		\textcolor{red}{Possibly not needed maybe take out. }\par 
-		\item \textbf{Element Set Number and Check Sum}
+		%\textcolor{red}{Possibly not needed maybe take out. }\par 
+		\item \textbf{Element Set Number :} 529
+		The element set number represents how many TLEs have been generated for this object as of the current TLE.
+		
+		\item \textbf{Check Sum: } 3
+		
+		The checksum is a bit of data used to detect errors that occur during  transmission.
 		
 		\item \textbf{Satellite Number: } 11416U
 		
@@ -537,39 +542,45 @@
 		
 		\item \textbf{Inclination (degrees): }98.5105
 		
-		This is one of the orbital elements.
+		%This is one of the orbital elements.
 		\item \textbf{Right Ascension of the Ascending Node (degrees): }69.3305
 		
-		This is one of the orbital elements.
+		%This is one of the orbital elements.
 		
 		\item \textbf{Eccentricity: } 0012788
 		
-		This is one of the orbital elements.
+		%This is one of the orbital elements.
 		
 		\item \textbf{Argument of Perigee (degrees): }63.2828
 		
-		This is one of the orbital elements.
+		%This is one of the orbital elements.
 		
 		\item \textbf{Mean Anomaly (degrees): }296.9658
 		
-		This is one of the orbital elements.
+		These four terms are all orbital elements.
+		%Inclination, RAAN, Eccentricity, Argument of Perigee, and Mean Anomaly are all orbital elements.
 		
 		\item \textbf{Mean Motion: } 14.24899292
 		
-		This is the orbits per day the object completes. 
+		This is the orbits per day the object completes. There are always 8 digits after the decimal place. 
 		
-		\item \textbf{Revolution Number and Check Sum: } 346978
+		\item \textbf{Revolution Number: } 34697
+	
+		This is the number of revolutions the object has completed as of the TLE's generation.
+		
+		\item \textbf{Checksum: }8
+		
+		This is the checksum for the second line.
 		
 		
 		
-		
-	\end{enumerate}
+	\end{enumerate}\doublespacing
 
 \par 
 	
 \newpage	
 	\singlespacing
-A second example is given below. This time with references to the position of values, for extraction. The line under the dashes is the reference number line.
+A second example is given below, this time with references to the position of values, for extraction. The line under the dashes is the reference number line. The example TLE is described in table  \ref{tab:TLE_Desc}. This page is a useful compact summary of a TLE.
 	\begin{verbatim}
 	ISS (ZARYA)
 	1 25544U 98067A   04236.56031392  .00020137  00000-0  16538-3 0  9993
@@ -578,8 +589,8 @@ A second example is given below. This time with references to the position of va
 	1234567890123456789012345678901234567890123456789012345678901234567890   
 	1         2         3         4         5         6         7
 	
-	\end{verbatim}
-	Table \ref{tab:TLE_Desc} describes the second example TLE\cite{SpaceTrackTLE}. 
+	\end{verbatim}%
+%	Table describes the second example TLE. 
 	% Please add the following required packages to your document preamble:
 	% \usepackage{graphicx}
 	% \usepackage[table,xcdraw]{xcolor}
@@ -591,7 +602,7 @@ A second example is given below. This time with references to the position of va
 	% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 		\begin{table}[h!]
 		\centering
-		\caption{Description of TLE}
+		\caption{Description of  example TLE\cite{SpaceTrackTLE}}
 		\label{tab:TLE_Desc}
 		\resizebox{\textwidth}{!}{%
 			\begin{tabular}{|l|l|l|}
@@ -636,21 +647,13 @@ A second example is given below. This time with references to the position of va
 	
 	
 
-	\textcolor{red}{to do here, add more details on what the checksum and stuff like that is}
-	
-	\par 
 		\doublespacing
   
 	
 
 	\section{NORAD Space-Track}	
-	Now we understand the format of data that is avalible (the Two-Line Element) and the format we want the data to be in (the orbital elements), the next thing to do is get the data. We want a source of TLEs for objects in space. Fortunately, there is one.\par 
-	As well as tracking one S. Claus every December 24th\cite{noradSC} NORAD also tracks all objects currently in space. This is done through the Space Surveillance Network\cite{ssncltrak}. 
-	
-	\textcolor{red}{PUT IN THE STUFF YOU FOUND THIS MORNING}
-	
-	The process of TLE gathering and updating is somewhat shadowy. \cite{vallado2012two} What is known is that observations are collected multiple times per day at the Joint
-	Space Operations Center (JSPOC) which is operated by the US Air Force Space Command (AFSPC). Then the unclassified TLEs are passed on for public release via the website space-track.org. 
+	Now we understand the format of data that is available (the Two-Line Element set) and the format we want the data to be in (the orbital elements), the next thing to do is get the data. We want a source of TLEs for objects in space. Fortunately, there is one.\par 
+	As well as tracking one S. Claus every December 24th\cite{noradSC},  NORAD also tracks all objects currently in space. This is done through the Space Surveillance Network\cite{ssncltrak}. The process of TLE gathering and updating is somewhat shadowy. \cite{vallado2012two} What is known is that observations are collected multiple times per day at the Joint Space Operations Center (JSPOC) which is operated by the US Air Force Space Command (AFSPC). Then the unclassified TLEs are passed on for public release via the website space-track.org. Objects in space are tracked by radar systems (conventional and phased array) as well as the Ground-Based Electro-Optical Deep Space Surveillance system (GEODSS)\cite{GEODSS}.
 	
 
 	
@@ -658,7 +661,7 @@ A second example is given below. This time with references to the position of va
 	%desribe the SATCAT, then the TLE query
 	
 	\subsection{Space-Track.org}
-	In their own words, Space-Track.org  "promotes space flight safety, protection of the space environment and the peaceful use of space worldwide by sharing space situational awareness services and information with U.S. and international satellite owners/operators, academia and other entities."\cite{SpaceTrackHome}\par 
+	In their own words, Space-Track.org  ``promotes space flight safety, protection of the space environment and the peaceful use of space worldwide by sharing space situational awareness services and information with U.S. and international satellite owners/operators, academia and other entities."\cite{SpaceTrackHome}\par 
 	Information about objects in space may be found the website space-track.org. Space-track is the main source for orbital data, though some are also available from the website celestrak.com. Of the two space-track has far more information and better methods of access.  "Space-Track.org is managed, maintained and administered by JFSCC"\cite{SpaceTrackLegend}.   %\textcolor{red}{Put more information about the website here}.\par 
 	Space-track allows information to be downloaded manually from the TLE search \cite{SpaceTrackTLE} or the satellite catalog search \cite{SpaceTrackSATCAT}. While these are useful tools the code needs a way to automatically download data. Fortunately space-track also has an API that allows queries. 
 	\subsection{Space-Track Query}
@@ -667,7 +670,7 @@ A second example is given below. This time with references to the position of va
 	
 	The API works by building an API similar to the following URL:
 	
-	https://www.space-track.org/basicspacedata/query/class/boxscore/ 
+	\url{https://www.space-track.org/basicspacedata/query/class/boxscore/} 
 	
 	Where: 
 
@@ -835,27 +838,29 @@ Once the query URL has been created the next step is using the URL to obtain dat
 
 However space-track requires a username and password. A browser that humans use saves this information. Typing this URL in without the username and password saved will redirect to the front page of space-track. For MATLAB to use these query URLs and provied a username and password a POST request is needed. \par 
 
-
-
+A POST method is a way of requesting data by providing information that would be entered into HTML fields, such as a a username or password \cite{postRef}. In effect the POST request is able to to go to a website, fill out and fields needed (such as username and password fields) and retrive the desired data. In MATLAB a post request looks like this:	
 	
-	
-
 \singlespacing
 \begin{lstlisting}
-load('UserPass.mat') % load in username and password
-baseURL='https://www.space-track.org/';
-logURL=[baseURL,'ajaxauth/login'];
-querySatcatURL=[baseURL,'basicspacedata/query/class/satcat/', 'OBJECT_TYPE/debris/RCS_SIZE/small/LAUNCH_YEAR/>', num2str(launchYear), '/orderby/DECAY asc/format/csv/metadata/false'];
-post={... % Create Post Request
-'identity',username, 'password',password,... % include username and password
-'query',querySatcatURL}; % create query
-
-out=urlread(logURL,'Post',post,'Timeout',timeOutVal); % gets the output
-outStr=convertCharsToStrings(out); % coverts output to string
-
+function postOutput = examplePostRequest(username,password,timeOutVal)
+	baseURL='https://www.space-track.org/'; % base URL
+	logURL=[baseURL,'ajaxauth/login']; % login URL
+	querySatcatURL=[baseURL,'basicspacedata/query/class/tle/format/', 'tle/NORAD_CAT_ID/25544/orderby/EPOCH%20desc/limit/1']; % query URL
+	post={'identity',username, 'password', password, 'query', querySatcatURL}; % create post request
+	postOutput=urlread(logURL,'Post',post,'Timeout',timeOutVal); % runs and gets the output of the post request
+end 
 \end{lstlisting}
 \doublespacing
+The output of this post request is 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{ISS_tle_Post}
+	\caption{Output of examplePostRequest.m}
+	\label{fig:isstlepost}
+\end{figure}
+
+This POST request uses the MATLAB function urlread to send the username, password, query URL, and a timeout value. The time out value is the length of time in seconds the code will wait for a response from the server. It returns a char with a TLE for the ISS. This type of POST request is implemented in this thesis's code. 
 
 	%\begin{itemize}\singlespacing
 	%	\item 	https://www.space-track.org/basicspacedata/query/ : This is the base URL, unchanged from the previous example.
@@ -898,13 +903,13 @@ outStr=convertCharsToStrings(out); % coverts output to string
 		\subsection{VarStore.m}
 		This is a file where a few important variables are stored. It allows the user to only have to edit one file to change the code's operation.
 		\subsection{UserPass.m}
-		This file is where the username and password for space-track.org are stored. This is kept separate from the other code to ensure privacy of usermane and password. 
+		This file is where the username and password for space-track.org are stored. This is kept separate from the other code to ensure privacy of username and password. 
 		\subsection{MASTER\_TLE.m}
 		This file is the master file for the Two Line Element MATLAB files. Running it will run all of the associated MATLAB files. These MATLAB files take some time to run, so it may be convenient to alter the range of data operated on by MASTER\_TLE.m in VarStore.m
 		\subsection{get\_SATCAT.m}
 		Get\_SATCAT.m is the MATLAB file that gets the satellite catalog  numbers of all orbital debris launched after a given year and with the “RCS\_SIZE” value equal to “SMALL”. The first URL described previously is used here. The Launch Year can be set by the values given by the user in VarStore.m The default launch year is set to 1990. Note that an earlier launch year will provide more data, and thus it will take more time to process. This may cause a time out error. Should this happen the timeOutVal in VarStore.m should be adjusted to be longer.\par 
 		Once the SATCAT csv file has been acquired the file then formats it. The quotation marks that are around every entry are removed. The debris that have already deorbited are also removed. Finally the debris is sorted by NORAD Catoluge Id, and saved as a .mat file.
-		The post request in the get\_SATCAT.m file was originaly developed by Joao Encarnacao\cite{codeGETtle}
+		The post request in the get\_SATCAT.m file was originally developed by Joao Encarnacao\cite{codeGETtle}
 		%\subsection{get\_Multiple\_TLE\_from\_Id.m}
 		%This file takes the Ids given in the .mat file and then obtains the Two Line Element files associated with the debris. It does this by saving the TLEs in .txt files. The number of TLEs grabbed at a time and saved in a .txt file is set by the user. It is not advised to go above 400, as that causes time out errors. \par 
 		%Withing MASTER\_TLE.m, this code is surrounded by a a loop and a try/catch error. The loop runs through all the different blocks of TLEs. In the case of a time out the the try/catch will attempt to download the TLEs a second time.\par 
@@ -917,17 +922,17 @@ outStr=convertCharsToStrings(out); % coverts output to string
 		\subsection{get\_TLE\_from\_ID\_Manager.m}
 		The purpose of get\_TLE\_from\_ID\_Manager.m is to act as a handler for function \newline get\_TLE\_from\_NorID.m. The code first checks to see if there exists a folder to store the data in, if there is not a folder is created. Then the code begins to run through the list of NORAD Ids. It sends these Ids to get\_TLE\_from\_NorID.m, receives the orbital element data from those Ids. 
 		
-		The code also contains an error handler. The most common problem with downloading large numbers of TLEs is a url timeout may occur. Timeouts are easy for a human to deal with, they may be fixed by simply refreshing the web page. However for MATLAB, it is more difficult. The code deals with a url timeout as follows:
+		The code also contains an error handler. The most common problem with downloading large numbers of TLEs is a URL timeout may occur. Timeouts are easy for a human to deal with, they may be fixed by simply refreshing the web page. However for MATLAB, it is more difficult. The code deals with a URL timeout as follows:
 		
-		First the code detects the specific error thrown for url timeouts. This error is caught, so the code does not stop running. Then the code gets the current location in the Id array the time out occurred at, and restarts at that spot. The effect of this is the same as refreshing a webpage that is not loading. 
+		First the code detects the specific error thrown for URL timeouts. This error is caught, so the code does not stop running. Then the code gets the current location in the Id array the time out occurred at, and restarts at that spot. The effect of this is the same as refreshing a webpage that is not loading. 
 		
 		Once all the data has been collected for the given Ids, it is saved as a .mat file with the time that it was created.
 		\subsection{get\_TLE\_from\_NorID.m}
 		The purpose of get\_TLE\_from\_NorID.m is to download the TLEs from NORAD given Ids, and to save the TLEs as useful orbital elements. This function may be divided into two parts: the web interface for TLEs and the TLE to orbital element section. 
 		
-		The first part of the code creates a url from the current set of Ids. This url is then used to download the TLEs. The TLEs are saved as a string within MATLAB.  
+		The first part of the code creates a URL from the current set of Ids. This url is then used to download the TLEs. The TLEs are saved as a string within MATLAB.  
 		
-		In the next part of the code a loop goes through the TLE string. The information from these TLEs is saved as a matrix. Earlier vesrions of this projects code first downloaded all TLEs as .txt files and then parsed through the .txt files to get the orbital elements. However that was unnecessarily slow as MATLAB had to open each .txt file and read it's contents as opposed to reading the contents of a string already in the workspace. By constantly saving the results as a .mat file through out the operation of the code, there is no threat of data loss. 
+		In the next part of the code a loop goes through the TLE string. The information from these TLEs is saved as a matrix. Earlier versions of this projects code first downloaded all TLEs as .txt files and then parsed through the .txt files to get the orbital elements. However that was unnecessarily slow as MATLAB had to open each .txt file and read it's contents as opposed to reading the contents of a string already in the workspace. By constantly saving the results as a .mat file through out the operation of the code, there is no threat of data loss. 
 		
 			
 		
@@ -942,9 +947,7 @@ outStr=convertCharsToStrings(out); % coverts output to string
 		\begin{align}
 		a=\left(\left(\frac{T}{2\pi}\right)^2 \times \mu_\text{earth}\right)^{(1/3)}
 		\end{align}
-		where $\mu_\text{earth}$ is the standard gravitational parameter of earth: $3.986\times10^{14}$. 
-		
-		Semi-minor axis:
+		Where $\mu_\text{earth}$ is the standard gravitational parameter of earth: $3.986\times10^{14}$. Semi-minor axis:
 		\begin{align}
 		b=a\times\sqrt{1-e^2}
 		\end{align}
@@ -953,10 +956,11 @@ outStr=convertCharsToStrings(out); % coverts output to string
 		r_\text{per}=\left(1-e\right)\times a\\
 		r_\text{ap}=\left(1+e\right)\times a
 		\end{align}
-		The code to parse the elements from the TLE was based off of Brett Pantalone's parse TLE code\cite{codeParseTLE}, modified to handle multiple TLEs.
+		The code to parse the elements from the TLE was based off of Brett Pantalone's parse TLE code\cite{codeParseTLE}, modified to handle multiple TLEs from within the MATLAB workspace. 
 		
-		\section{Targeting}
-		Once the data has been collected, the next step is to target possible orbits. Since OSCAR has a delta V of \textcolor{red}{Find delta V} inclanation and plane changes are out of the question. What is desired is a number of debris in a plane with simialr inclanations.
+		\section{Results of Code}
+		When the code is run the result is a matrix of orbital elements 
+		Once the data has been collected, the next step is to target possible orbits. Since OSCAR has a delta V of \textcolor{red}{Find delta V} inclination and plane changes are out of the question. What is desired is a number of debris in a plane with simialr inclanations.
 		
 		\begin{figure}[!]
 			\centering

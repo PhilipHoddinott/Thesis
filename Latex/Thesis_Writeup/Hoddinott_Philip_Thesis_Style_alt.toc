@@ -8,22 +8,22 @@
 \contentsline {subsection}{\numberline {3.5}Orbital Elements}{5}
 \contentsline {section}{\numberline {4}Data Sources and Formats}{8}
 \contentsline {subsection}{\numberline {4.1}The Two Line Element Format}{8}
-\contentsline {section}{\numberline {5}NORAD Space-Track}{13}
-\contentsline {subsection}{\numberline {5.1}Space-Track.org}{13}
-\contentsline {subsection}{\numberline {5.2}Space-Track Query}{14}
-\contentsline {subsection}{\numberline {5.3}Code Queries}{17}
-\contentsline {subsection}{\numberline {5.4}Post Requests}{19}
+\contentsline {section}{\numberline {5}NORAD Space-Track}{12}
+\contentsline {subsection}{\numberline {5.1}Space-Track.org}{12}
+\contentsline {subsection}{\numberline {5.2}Space-Track Query}{13}
+\contentsline {subsection}{\numberline {5.3}Code Queries}{16}
+\contentsline {subsection}{\numberline {5.4}Post Requests}{18}
 \contentsline {section}{\numberline {6}Code Overview}{20}
 \contentsline {subsection}{\numberline {6.1}VarStore.m}{21}
-\contentsline {subsection}{\numberline {6.2}UserPass.m}{22}
-\contentsline {subsection}{\numberline {6.3}MASTER\_TLE.m}{22}
+\contentsline {subsection}{\numberline {6.2}UserPass.m}{21}
+\contentsline {subsection}{\numberline {6.3}MASTER\_TLE.m}{21}
 \contentsline {subsection}{\numberline {6.4}get\_SATCAT.m}{22}
 \contentsline {subsection}{\numberline {6.5}get\_TLE\_from\_ID\_Manager.m}{22}
 \contentsline {subsection}{\numberline {6.6}get\_TLE\_from\_NorID.m}{23}
 \contentsline {section}{\numberline {7}Targeting}{24}
-\contentsline {section}{\numberline {8}Conclusion}{25}
-\contentsline {section}{Appendix}{28}
-\contentsline {subsection}{\numberline {8.1}Master\_TLE.m}{28}
-\contentsline {subsection}{\numberline {8.2}get\_SATCAT.m}{30}
-\contentsline {subsection}{\numberline {8.3}get\_TLE\_from\_ID\_Manager.m}{31}
-\contentsline {subsection}{\numberline {8.4}get\_TLE\_from\_NorID.m}{32}
+\contentsline {section}{\numberline {8}Conclusion}{24}
+\contentsline {section}{Appendix}{27}
+\contentsline {subsection}{\numberline {8.1}Master\_TLE.m}{27}
+\contentsline {subsection}{\numberline {8.2}get\_SATCAT.m}{29}
+\contentsline {subsection}{\numberline {8.3}get\_TLE\_from\_ID\_Manager.m}{30}
+\contentsline {subsection}{\numberline {8.4}get\_TLE\_from\_NorID.m}{31}
