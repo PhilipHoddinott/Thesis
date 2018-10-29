@@ -74,9 +74,9 @@ VarStore % run var store for stored variables, ugly but it works
 
 if get_Multiple_TLE_from_Id_tog==1
    get_TLE_from_ID_Manager
-   fprintf('get_Multiple_TLE_from_Id.m has finished running\n');
+   fprintf('get_TLE_from_ID_Manager.m has finished running\n');
 else
-    fprintf('get_Multiple_TLE_from_Id.m was not run\n');
+    fprintf('get_TLE_from_ID_Manager.m was not run\n');
 end
 
 %close all; clear all; % clear out everything

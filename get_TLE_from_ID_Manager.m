@@ -8,7 +8,7 @@ if exist(tle_folder)~=7 % if the folder does not exist it will make it
     mkdir(tle_folder)% tle_text_files % note this will give a warning if folder already exists
 end
 tle_final=[];
-strNam = ['mat_files/New_TLE_',num2str(launchYear),'.mat']; % save the TLE as a .mat
+strNam = ['mat_files/TLE_',num2str(launchYear),'.mat']; % save the TLE as a .mat
 save(strNam,'tle_final');
 tleA = 1:tle_inc:decayEnd;
 tleA=[tleA,decayEnd];
@@ -44,4 +44,4 @@ load(strNam,'tle_final');
 [C,ia,ic]=unique(tle_final(:,1),'rows'); % sort by row by norard cat id
 tle_final_N = tle_final(ia,:);
 dateCreated=datetime;
-save(strNam,'tle_final_N','dateCreated');
+save(strNam,'tle_final','dateCreated');
