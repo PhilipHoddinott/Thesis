@@ -1,38 +1,106 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Hoddinott_Philip_Thesis_Style_alt.aux
-The style file: unsrt.bst
+The style file: ieeetr.bst
 Database file #1: ref.bib
 Warning--entry type for "GEODSS" isn't style-file defined
---line 1 of file ref.bib
-Warning--entry type for "ssncltrak" isn't style-file defined
---line 47 of file ref.bib
-Warning--entry type for "noradSC" isn't style-file defined
---line 55 of file ref.bib
-Warning--entry type for "nasaOE" isn't style-file defined
---line 62 of file ref.bib
-Warning--entry type for "endevHole" isn't style-file defined
---line 89 of file ref.bib
-Warning--entry type for "stscrack" isn't style-file defined
---line 96 of file ref.bib
-Warning--entry type for "nanosats_eu" isn't style-file defined
---line 104 of file ref.bib
-Warning--entry type for "sdor2014" isn't style-file defined
---line 111 of file ref.bib
-Warning--entry type for "usnrl_2008" isn't style-file defined
---line 115 of file ref.bib
-Warning--entry type for "NASATLE" isn't style-file defined
---line 125 of file ref.bib
-Warning--entry type for "SpaceTrackLegend" isn't style-file defined
---line 141 of file ref.bib
-Warning--entry type for "SpaceTrackTLE" isn't style-file defined
---line 151 of file ref.bib
+--line 3 of file ref.bib
+You're missing a field name---line 7 of file ref.bib
+ : 
+ : %urldate={10-26-2018},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 55 of file ref.bib
+ : 
+ : %urldate={10-23-2018},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 64 of file ref.bib
+ : 
+ : %urldate={10-23-2018},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 80 of file ref.bib
+ :  
+ :  %urldate = {2018-10-2331}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 101 of file ref.bib
+ :  
+ :  %urldate = {2018-10-19},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 109 of file ref.bib
+ :  
+ :  %urldate = {2018-10-19},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 117 of file ref.bib
+ : 
+ : %urldate = {2018-10-16},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 124 of file ref.bib
+ : 
+ : %urldate = {2018-10-16}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 137 of file ref.bib
+ : 
+ : %urldate = {2018-10-16}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 145 of file ref.bib
+ :  
+ :  %urldate = {2018-08-06}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 163 of file ref.bib
+ :  
+ :  %urldate = {2018-08-6}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 173 of file ref.bib
+ :  
+ :  %urldate = {2018-07-31}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 184 of file ref.bib
+ :  
+ :  %urldate = {2018-08-06}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--entry type for "SpaceTrackSATCAT" isn't style-file defined
---line 173 of file ref.bib
+--line 190 of file ref.bib
+I was expecting a `,' or a `}'---line 196 of file ref.bib
+ :  
+ :  %urldate = {2018-08-06}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--entry type for "SpaceTrackHome" isn't style-file defined
---line 182 of file ref.bib
+--line 200 of file ref.bib
+I was expecting a `,' or a `}'---line 206 of file ref.bib
+ :  
+ :  %urldate = {2018-10-23}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--entry type for "SpaceTrackAPI" isn't style-file defined
---line 189 of file ref.bib
-Warning--entry type for "celestrak_TLE_FAQ" isn't style-file defined
---line 197 of file ref.bib
-Warning--entry type for "castor2_BSTAR" isn't style-file defined
 --line 208 of file ref.bib
-(There were 17 warnings)
+You're missing a field name---line 213 of file ref.bib
+ :  
+ :  %urldate = {2018-07-31}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--entry type for "celestrak_TLE_FAQ" isn't style-file defined
+--line 217 of file ref.bib
+You're missing a field name---line 222 of file ref.bib
+ :  
+ :  %urldate = {2018-07-31}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--entry type for "castor2_BSTAR" isn't style-file defined
+--line 228 of file ref.bib
+You're missing a field name---line 234 of file ref.bib
+ :  
+ :  %urldate = {2018-07-31}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+(There were 18 error messages)

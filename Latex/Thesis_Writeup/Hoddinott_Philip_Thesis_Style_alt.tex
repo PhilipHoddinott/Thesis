@@ -134,6 +134,7 @@
 \newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
 \usepackage{setspace}
 \usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+\renewcommand{\captionfont}{\bfseries}
 
 
 
@@ -239,16 +240,10 @@
 	\section{Acknowledgments}
 	%\addcontentsline{toc}{section}{\uppercase{Acknowledgement}}
 	
-	This paper would never have been possible with out the help of so many people. 
-	I am indebted to my parents and my brother for their support. 
+
+	This paper would never have been possible with out the help of so many people. I am indebted to my parents and my brother for their support. My teachers and professors who have helped me along the way have my deepest gratitude. I am thankful towards Paul McKee for his assistance with Latex and to John Benke for his assistance with Github and PHP. I am incredibly thankful towards my Advisor, Professor Kurt Anderson for his support and his many phenomenal stories. \par 
 	
-	John Benke for his assitance with Github and PHP. I am thankfull to Paul McKee for his assistance with Latex. 
-	Thank lots of people here\par 
-	
-	Mom, dad, David,
-	P Anderson
-	John B for git and PHP
-	Paul McKee for latex 
+	Issac Newton said ``If I have seen further it is by standing on the shoulders of Giants"\cite{newtLettr}. Thank you all for being my giants.
 	
 	
 	
@@ -261,7 +256,7 @@
 	
 	\newpage
 	\section{Abstract}
-	The purpose of this project is to acquire information about earth orbiting debris, turn the information into a usable format, \textcolor{red}{and develop a targeting algorithm for a debris removal satellite}. The information is things such as orbital elements, debris size, \textcolor{red}{ and sping if i can find htis.} \par 
+	The purpose of this project is to develop software that will acquire information about earth orbiting debris, turn the information into a usable format for someone with basic orbital mechanics experience.  The code wil beable to handle \textcolor{red}{and develop a targeting algorithm for a debris removal satellite}. The information is things such as orbital elements, debris size, \textcolor{red}{ and sping if i can find htis.} \par 
 	 Should this be accomplished in a timely manner more work will be done on the orbital dynamics of OSCAR getting to said debris.
 	% ------------------------------------------------------------
 	% Introduction
@@ -274,12 +269,12 @@
 
 	\subsection{Space Debris}
 	
-	March 17th, 1958 the Vanguard 1 satellite was launched. It was the fourth man made satellite. Despite communication being lost in the 1960s, it is still in orbit to this day\cite{usnrl_2008}. \par 
+	March 17th, 1958 the Vanguard 1 satellite was launched. It was the fourth man made satellite. Despite communication being lost in the 1960s, it is still in orbit to this day. \par 
 	
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.7\linewidth]{Vanguard_1_composite}
-		\caption{Artist's rendition of Vanguard 1 in orbit.}
+		\caption{Artist's rendition of Vanguard 1 in orbit\cite{usnrl_2008}.}
 		\label{fig:vanguard1composite}
 	\end{figure}
 	
@@ -343,14 +338,12 @@
 	CubeSats are used for projects that are too risky for a larger more expensive satellite, often demonstrating new technologies. They can take on larger risks due to their low cost. As such CubeSats are common for experiential missions such as this one.
 	
 	\subsection{OSCAR}
-	There is a CubeSat currently being designed by Rensselaer Polytechnic Institute (RPI). This CubeSat's goal is deorbit space debris by use of a magnetic tether. \par 
+	There is a CubeSat currently being designed by Rensselaer Polytechnic Institute (RPI). This CubeSat's goal is to deorbit space debris by use of a magnetic tether. \par 
 	
 	
 	This CubeSat is called O.S.C.A.R, which is short for “Obsolete Satellite Capture and Recovery”. It should be noted that this name is only temporary and will likely change in the near future. However for the purposes of this report, the RPI CubeSat will be referred to as OSCAR.\par 
 	
-	OSCAR will be a three unit  $(10\times10\times30)$ CubeSat with a mass of four kilograms. It will be able to remove four pieces of space debris.\cite{paulT}
-	
-	For OSCAR to be able to deorbit space debris, it must know where the space debris is. 
+	OSCAR will be a three unit  $(10\times10\times30)$ CubeSat with a mass of four kilograms. It will be able to remove four pieces of space debris.\cite{paulT} For OSCAR to be able to deorbit space debris, it must know where the space debris is. 
 	
 	\subsection{Orbital Elements}
 	
@@ -979,8 +972,8 @@ This POST request uses the MATLAB function urlread to send the username, passwor
 		%--------------------------------------
 		% References
 		% -------------------------------------
-		
-		\bibliographystyle{unsrt}
+		  \bibliographystyle{ieeetr} % specify bibliography style
+		%\bibliographystyle{unsrt}
 		\bibliography{ref}
 
 		

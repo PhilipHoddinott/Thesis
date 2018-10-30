@@ -1,0 +1,11 @@
+\contentsline {chapter}{LIST OF TABLES}{iv}{chapter*.3}
+\contentsline {chapter}{LIST OF FIGURES}{v}{chapter*.5}
+\contentsline {chapter}{ACKNOWLEDGMENT}{vi}{section*.6}
+\contentsline {chapter}{ABSTRACT}{vii}{section*.8}
+\contentsline {chapter}{\numberline {1.}MY SUPER GREAT CHAPTER}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Conclusions}{1}{section.1.2}
+\contentsline {chapter}{REFERENCES}{3}{section*.11}
+\parindent 0pt\vskip 12pt APPENDICES
+\contentsline {chapter}{\numberline {A.}MY GREAT ADDITIONAL STUFF}{4}{appendix.A}
+\contentsline {section}{\numberline {A.1}More Stuff}{4}{section.A.1}
