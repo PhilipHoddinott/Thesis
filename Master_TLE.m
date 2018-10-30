@@ -102,5 +102,6 @@ save('Orbits_MOD_1/tle_INC.mat','tle_INC');
 tle_view=tle_final;
 tle_view_temp=["norad_cat_id","Epoch time","Inclination (deg)","RAAN (deg)","Eccentricity (deg)","Arg of perigee(deg)","Mean anomaly (deg)","Mean motion (rev/day)","Period of rev (s/rev)","Semi-major axis (meter)","Semi-minor axis (meter)"];
 
-tle_veiw = [tle_view_temp;tle_view]; % useful for looking at numbers
+tle_view_str = [tle_view_temp;tle_view]; % useful for looking at numbers
 
+save('master_output','tle_view_str')

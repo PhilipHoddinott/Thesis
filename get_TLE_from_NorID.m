@@ -33,11 +33,12 @@ C = splitlines(outStr);
 while j<length(C)-1
     LineOne=convertStringsToChars(C(j,1)); % get first line
     LineTwo=convertStringsToChars(C(j+1,1)); % get second line
+    
     satnum = str2num(LineOne(3:7)); % get sat num
-    Incl = str2num(LineTwo(9:16)); % get inc
-    Omega = str2num(LineTwo(18:25)); % get 
-    ecc = str2num(['.' LineTwo(27:33)]);
-    w = str2num(LineTwo(35:42));      
+    inc = str2num(LineTwo(9:16)); % get inc
+    Omega = str2num(LineTwo(18:25)); % get Omega
+    ecc = str2num(['.' LineTwo(27:33)]); % get ecc
+    w = str2num(LineTwo(35:42));       
     M = str2num(LineTwo(44:51));      
     n = str2num(LineTwo(53:63));      
     T = 86400/n;      
@@ -46,7 +47,7 @@ while j<length(C)-1
     % store in array
     tle_stor(k,1)=satnum;
     tle_stor(k,2)=str2num(LineOne(19:32));
-    tle_stor(k,3)=Incl;
+    tle_stor(k,3)=inc;
     tle_stor(k,4)=Omega;
     tle_stor(k,5)=ecc;
     tle_stor(k,6)=w;

@@ -1,0 +1,99 @@
+clear all; close all; 
+strLoc='C:\Users\Philip\Documents\GitHub\Thesis\mat_files\';
+
+meetTime = {'2018-10-30-15-35-00'};
+dateCurr = datetime(meetTime,'InputFormat','yyyy-MM-dd-HH-mm-ss');
+%th=hour(t)
+
+
+strNam=[strLoc,'TLE_1960.mat'];
+load(strNam,'dateCreated','tle_final')
+lenN=length(tle_final(:,1))
+%lenN=100;
+format long g
+%{
+%[RPI,R] = geotiffread('gMaps.tiff');
+
+figure(1)
+hold on
+mapshow(RPI,R);
+axis image off
+%geoshow('gMap.tiff','FaceColor',[0.5 1 0.5]);
+title('Satellite Ground Track')
+%}
+tle_final_viewTime=tle_final;
+for ik=1:length(tle_final)
+    year=(tle_final(ik,2)-mod(tle_final(ik,2),1000))/1000;
+    doy=mod(tle_final(ik,2),1000);
+    [yy mm dd HH MM] = datevec(datenum(year,1,doy));
+    tle_final_viewTime(ik,12)=yy;
+    tle_final_viewTime(ik,13)=mm;
+    tle_final_viewTime(ik,14)=dd;
+    tle_final_viewTime(ik,15)=HH;
+    %tle_final_viewTime(ik,16)=mm*31+dd*24+HH;
+    
+end
+
+
+tle_final_sorted= sortrows(tle_final_viewTime,2);
+for ik=1:length(tle_final_sorted)
+if tle_final_sorted(ik,12) ==18
+    yearL=ik;
+    break;
+end
+end
+tle_final_sorted=tle_final_sorted(1:yearL,:); % sort by year
+keyboard
+
+satLatLon=zeros(lenN,4);
+for ik=1:lenN
+    
+    tle=tle_final_sorted(ik,:);
+    a=tle(10);
+    e=tle(5);
+    i=tle(3);
+    Omega=tle(4);
+    omega=tle(6);
+    M0=tle(7);
+    Kepler=[a,e,i,Omega,omega,M0];
+    
+
+    year=(tle_final(ik,2)-mod(tle_final(ik,2),1000))/1000;
+    doy=mod(tle_final(ik,2),1000);
+    [yy mm dd HH MM] = datevec(datenum(year,1,doy));
+    timeArr=[yy, mm, dd, HH, MM];
+    [Lat, Lon, Alt] =get_LatLon_givenTime(Kepler,timeArr,dateCurr);
+    satLatLon(ik,1)=tle_final(ik,1);
+    satLatLon(ik,2)=Lon*180/pi;
+    satLatLon(ik,3)=Lat*180/pi;
+    satLatLon(ik,4)=Alt;
+    if mod(ik,100)==0
+        fprintf('ik = %d  of %d\n',ik, lenN);
+    end
+    %groundtrack_V2(Kepler,timeArr);
+end
+
+
+figure(1)
+plot(satLatLon(:,2),satLatLon(:,3))
+
+for ik=1:lenN
+    if -73.692060<satLatLon(ik,2) &&satLatLon(ik,2)< -73.659189
+        if 42.722137<satLatLon(ik,3) &&satLatLon(ik,3)<  42.738441
+            for ip=1:4
+                satRPI(ik,ip)=satLatLon(ik,ip);
+            end
+        end
+    end
+end
+fprintf('done\n');            
+%xlim([-75 -72])
+%ylim([41 44])
+%TL; 42.738950, -73.692060
+%TR 42.738441, -73.65988
+%BR 42.722137, -73.659189
+%xlim([-73.692060, -73.659189])
+%ylim([42.722137, 42.738441])
+
+%42.7321274,-73.6721397,13.94z
+%}

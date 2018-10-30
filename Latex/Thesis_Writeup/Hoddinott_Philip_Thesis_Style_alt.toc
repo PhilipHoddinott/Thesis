@@ -1,5 +1,5 @@
 \contentsline {section}{\numberline {1}Acknowledgments}{iii}
-\contentsline {section}{\numberline {2}Abstract}{iv}
+\contentsline {section}{\numberline {2}Abstract}{iii}
 \contentsline {section}{\numberline {3}Introduction}{1}
 \contentsline {subsection}{\numberline {3.1}Space Debris}{1}
 \contentsline {subsection}{\numberline {3.2}Kessler Syndrome}{2}
@@ -20,10 +20,11 @@
 \contentsline {subsection}{\numberline {6.4}get\_SATCAT.m}{22}
 \contentsline {subsection}{\numberline {6.5}get\_TLE\_from\_ID\_Manager.m}{22}
 \contentsline {subsection}{\numberline {6.6}get\_TLE\_from\_NorID.m}{23}
-\contentsline {section}{\numberline {7}Results of Code}{24}
-\contentsline {section}{\numberline {8}Conclusion}{24}
-\contentsline {section}{Appendix}{28}
-\contentsline {subsection}{\numberline {8.1}Master\_TLE.m}{28}
-\contentsline {subsection}{\numberline {8.2}get\_SATCAT.m}{30}
-\contentsline {subsection}{\numberline {8.3}get\_TLE\_from\_ID\_Manager.m}{31}
-\contentsline {subsection}{\numberline {8.4}get\_TLE\_from\_NorID.m}{32}
+\contentsline {section}{\numberline {7}Conclusion}{24}
+\contentsline {subsection}{\numberline {7.1}Results of Code}{24}
+\contentsline {subsection}{\numberline {7.2}Future Work}{25}
+\contentsline {section}{Appendix}{29}
+\contentsline {subsection}{\numberline {7.3}Master\_TLE.m}{29}
+\contentsline {subsection}{\numberline {7.4}get\_SATCAT.m}{31}
+\contentsline {subsection}{\numberline {7.5}get\_TLE\_from\_ID\_Manager.m}{32}
+\contentsline {subsection}{\numberline {7.6}get\_TLE\_from\_NorID.m}{33}

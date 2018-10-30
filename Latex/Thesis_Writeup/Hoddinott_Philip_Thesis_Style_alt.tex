@@ -241,9 +241,7 @@
 	%\addcontentsline{toc}{section}{\uppercase{Acknowledgement}}
 	
 
-	This paper would never have been possible with out the help of so many people. I am indebted to my parents and my brother for their support. My teachers and professors who have helped me along the way have my deepest gratitude. I am thankful towards Paul McKee for his assistance with Latex and to John Benke for his assistance with Github and PHP. I am incredibly thankful towards my Advisor, Professor Kurt Anderson for his support and his many phenomenal stories. \par 
-	
-	Issac Newton said ``If I have seen further it is by standing on the shoulders of Giants"\cite{newtLettr}. Thank you all for being my giants.
+	This paper would never have been possible with out the help of so many people. I am indebted to my parents and my brother for their support. My teachers and professors who have helped me along the way have my deepest gratitude. I am thankful towards Paul McKee for his assistance with Latex and to John Benke for his assistance with Github and PHP. I am incredibly thankful towards my Advisor Professor Kurt Anderson for his support and his many phenomenal stories. Issac Newton once said ``If I have seen further it is by standing on the shoulders of giants"\cite{newtLettr}. I would like to thank you all for being my giants.
 	
 	
 	
@@ -254,10 +252,13 @@
 	% Abstract 
 	% ------------------------------------------------------------
 	
-	\newpage
+	%\newpage
 	\section{Abstract}
-	The purpose of this project is to develop software that will acquire information about earth orbiting debris, turn the information into a usable format for someone with basic orbital mechanics experience.  The code wil beable to handle \textcolor{red}{and develop a targeting algorithm for a debris removal satellite}. The information is things such as orbital elements, debris size, \textcolor{red}{ and sping if i can find htis.} \par 
+	The purpose of this thesis is to develop software that will acquire information about earth orbiting debris, turn the information into a usable format for someone with basic orbital mechanics experience. The code will take in parameters about the orbital data from the user. Then it checks for existing files and communicates with NORAD servers. The data is downloaded from NORAD and converted from the Two Line Element set format to Keplerian Orbital Elements. From here the data may be sorted according to the user's desire. The code will be able to handle errors that occur during the process.
+	\iffalse
+	 \textcolor{red}{and develop a targeting algorithm for a debris removal satellite}. The information is things such as orbital elements, debris size, \textcolor{red}{ and sping if i can find htis.} \par 
 	 Should this be accomplished in a timely manner more work will be done on the orbital dynamics of OSCAR getting to said debris.
+	 \fi
 	% ------------------------------------------------------------
 	% Introduction
 	% ------------------------------------------------------------
@@ -410,6 +411,47 @@
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[]
 	\caption{Orbital Elements and their symbols\cite{nasaOE}}
+	\label{tab:NASA_Orbt_elem}
+	
+	\begin{tabular}{|p{3.75cm}|l|p{10.25cm}|}
+		\hline
+		Name & Symbol & Description               \\ \hline
+		Semi-major axis & a & Defines the size of the orbit. \\ \hline
+		Eccentricity & e & Defines the shape of the orbit. \\ \hline
+		Inclination & i & Defines the orientation of the orbit with respect to the Earth's equator. \\ \hline
+		Argument of Perigee & $\omega$  & Defines where the low point, perigee, of the orbit is with respect to the Earth's surface. \\ \hline
+		Right Ascension of the Ascending Node & $\Omega$  & Defines the location of the ascending and descending orbit locations with respect to the Earth's equatorial plane. \\ \hline
+		True/Mean Anomaly & $\nu$  & Defines where the satellite is within the orbit with respect to perigee. \\ \hline
+			
+		\iffalse
+		
+		{
+			>{\columncolor[HTML]{EEEEEE}}l 
+			>{\columncolor[HTML]{EEEEEE}}l 
+			>{\columncolor[HTML]{EEEEEE}}l }
+		\multicolumn{3}{c}{\cellcolor[HTML]{6699CC}{\color[HTML]{FFFFFF} \textbf{Orbital Elements:}}}
+		                                                                  \\
+		                                                                  	%\begin{tabular}{|p{4cm}|p{11.5cm}|}
+Name & Symbol & Description               \\ \hline
+		Semi-major axis                       & a & Defines the size of the orbit.                                                                                     \\
+		Eccentricity                          & e & Defines the shape of the orbit.                                                                                    \\
+		Inclination                           & i & \multicolumn{1}{m{8cm}}{\cellcolor[HTML]{EEEEEE}Defines the orientation of the orbit with respect to the Earth's equator.}                              \\
+		Argument of Perigee                   &$\omega$   & \multicolumn{1}{m{8cm}}{\cellcolor[HTML]{EEEEEE}Defines where the low point, perigee, of the orbit is with respect to the Earth's surface.}                         \\
+		Right Ascension of the Ascending Node &$\Omega$   & \multicolumn{1}{m{8cm}}{\cellcolor[HTML]{EEEEEE}Defines the location of the ascending and descending orbit locations with respect to the Earth's equatorial plane.} \\
+		True/Mean Anomaly                     & $\nu$  & \multicolumn{1}{m{8cm}}{\cellcolor[HTML]{EEEEEE}Defines where the satellite is within the orbit with respect to perigee.}     
+		\fi                                     
+	\end{tabular}
+\end{table}
+
+
+	
+\iffalse
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+	\caption{Orbital Elements and their symbols\cite{nasaOE}}
 	\label{my-label}
 	\begin{tabular}{
 			>{\columncolor[HTML]{EEEEEE}}l 
@@ -424,6 +466,8 @@
 		True/Mean Anomaly                     & $\nu$  & \multicolumn{1}{m{8cm}}{\cellcolor[HTML]{EEEEEE}Defines where the satellite is within the orbit with respect to perigee.}                                          
 	\end{tabular}
 \end{table}
+\fi
+	
 \iffalse
 	\begin{itemize}
 		\item eccentricity (e)
@@ -466,11 +510,11 @@
 	Orbital elements provide the means to determine a theoretical orbit. Since spacecraft are constantly experiencing forces such as atmospheric drag or solar wind their orbital elements are constantly changing. \par 
 	A Two Line Element set (TLE) is a data format that encodes a list of orbital elements for an object that orbits Earth at a given time. Using perturbation models TLEs can be used to compute the object's state at a specific time. The TLE format was originally designed for punch cards, now .txt files are used with two 70-column ASCII lines.  \par 
 	
-	The example from figure \ref{fig:tlenasa} shows how orbital information is derived from a Two Line Element \cite{NASATLE}.
+	The example from figure \ref{fig:tlenasa} shows how orbital information is derived from a Two Line Element.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{tle_nasa}
-		\caption{TLE with descriptions}
+		\caption{TLE with descriptions\cite{NASATLE}.}
 		\label{fig:tlenasa}
 	\end{figure}
 	
@@ -951,21 +995,43 @@ This POST request uses the MATLAB function urlread to send the username, passwor
 		\end{align}
 		The code to parse the elements from the TLE was based off of Brett Pantalone's parse TLE code\cite{codeParseTLE}, modified to handle multiple TLEs from within the MATLAB workspace. 
 		
-		\section{Results of Code}
-		When the code is run the result is a matrix of orbital elements 
-		Once the data has been collected, the next step is to target possible orbits. Since OSCAR has a delta V of \textcolor{red}{Find delta V} inclination and plane changes are out of the question. What is desired is a number of debris in a plane with simialr inclanations.
-		
-		\begin{figure}[!]
-			\centering
-			\includegraphics[width=0.7\linewidth]{rann_inc}
-			\caption{Debis loc}
-			\label{fig:ranninc}
-		\end{figure}
 		
 	
 	\section{Conclusion}
 	The goal of this thesis was to create a program that can download the latest orbital elements needed to calculate the real time locations of space debris, given user inputted parameters. The information would be usable to someone who has taken a basic spaceflight mechanics class. 
 	
+	\subsection{Results of Code}
+	When the code is run the result is a matrix of orbital elements, as seen in figure \ref{fig:matlaboutput}. 
+	
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{MATLAB_output}
+		\caption{MATLAB matrix resulting from code execution}
+		\label{fig:matlaboutput}
+	\end{figure}
+	Compared to the data in figure \ref{fig:isstle} this is far easier for a person with basic orbital mechanics experience to use. A number of parameter sets have been provided for users to experiment with. 
+
+%These results may be used to  may be used to catagorize data 
+	
+	%Once the data has been collected, the next step is to target possible orbits. Since OSCAR has a delta V of \textcolor{red}{Find delta V} inclination and plane changes are out of the question. What is desired is a number of debris in a plane with simialr inclanations.
+	
+
+
+\subsection{Future Work}
+
+Now that data can be obtained the next step is to look at possible orbits to place OSCAR. Due to OSCAR's limited delta V inclination and plane changes are out of the question. Thus OSCAR should be inserted into a orbit which shares a inclination and RAAN with the most debris. The number of debris sorted by inclination and RAAN are seen in figure \ref{fig:ranninc}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{rann_inc}
+	\caption{Number of debris by inclination and RAAN}
+	\label{fig:ranninc}
+\end{figure}
+
+
+The next step from this code would be to include propagation. The TLEs are for a given epoch, so to get the real time location prorogation from sgp4 is needed. Additionally the code should be developed to run autonomously on RPI computers, so there is a database of space debris that RPI controls.
+
 
 	
 		

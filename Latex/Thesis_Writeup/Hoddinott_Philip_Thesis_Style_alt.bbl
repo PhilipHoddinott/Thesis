@@ -6,27 +6,14 @@ W.~H. Tracy. \url{https://spaceflight.nasa.gov/realdata/elements/}, 2012.
 \newblock [Online; accessed 23-October-2018].
 
 \bibitem{SpaceTrackTLE}
-S.~Track, ``Basic description of the two line element (tle) format.''
+Space-Track, ``Basic description of the two line element (tle) format.''
   \url{https://www.space-track.org/documentation#/tle}, 2013.
+\newblock [Online; accessed 31-July-2018].
 
 \bibitem{SpaceTrackAPI}
 Space-Track, ``Introduction to the space track api.''
   \url{https://www.space-track.org/documentation#api-Overview}, 2013.
-
-\bibitem{stscrack}
-``Space debris impact on space shuttle window.''
-  \url{http://www.orbitaldebris.jsc.nasa.gov/photogallery/gallarypage/sts7crack.jpg}.
-\newblock [Online; accessed 19-October-2018].
-
-\bibitem{endevHole}
-``Image of the entry hole created on space shuttle endeavour's radiator panel
-  by the impact of unknown space debris..''
-  \url{http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20080010742_2008009999.pdf}.
-\newblock [Online; accessed 19-October-2018].
-
-\bibitem{curtis2013}
-H.~D. CURTIS, {\em ORBITAL MECHANICS FOR ENGINEERING STUDENTS}.
-\newblock Elsevier Butterworth Heinemann, 2013.
+\newblock [Online; accessed 31-July-2018].
 
 \bibitem{usnrl_2008}
 Usnrl, ``Vanguard i celebrates 50 years in space.''
@@ -34,39 +21,65 @@ Usnrl, ``Vanguard i celebrates 50 years in space.''
   2008.
 \newblock [Online; accessed 16-October-2018].
 
+\bibitem{stscrack}
+NASA, ``Space debris impact on space shuttle window.''
+  \url{http://www.orbitaldebris.jsc.nasa.gov/photogallery/gallarypage/sts7crack.jpg}.
+\newblock [Online; accessed 19-October-2018].
+
+\bibitem{endevHole}
+NASA, ``Image of the entry hole created on space shuttle endeavour's radiator
+  panel by the impact of unknown space debris..''
+  \url{http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20080010742_2008009999.pdf}.
+\newblock [Online; accessed 19-October-2018].
+
+\bibitem{curtis2013}
+H.~D. CURTIS, {\em ORBITAL MECHANICS FOR ENGINEERING STUDENTS}.
+\newblock Elsevier Butterworth Heinemann, 2013.
+
+\bibitem{NASATLE}
+A.~K. Kim~Dismukes, ``Definition of two-line element set coordinate system.''
+  \url{https://spaceflight.nasa.gov/realdata/sightings/SSapplications/Post/JavaSSOP/SSOP_Help/tle_def.html},
+  2011.
+\newblock [Online; accessed 6-August-2018].
+
+\bibitem{newtLettr}
+I.~Newton, ``Letter from sir isaac newton to robert hooke.''
+  \url{https://discover.hsp.org/Record/dc-9792/Description#tabnav}.
+\newblock [Online; accessed 30-October-2018].
+
 \bibitem{sdor2014}
 ``How many space debris objects are currently in orbit?.''
   \url{http://www.esa.int/Our_Activities/Space_Engineering_Technology/Clean_Space/How_many_space_debris_objects_are_currently_in_orbit},
   Jul 2014.
+\newblock [Online; accessed 16-October-2018].
 
 \bibitem{nanosats_eu}
-``Nanosatellite and cubesat database.'' \url{https://www.nanosats.eu}.
+E.~Kulu, ``Nanosatellite and cubesat database.'' \url{https://www.nanosats.eu}.
+\newblock [Online; accessed 16-October-2018].
 
 \bibitem{paulT}
 P.~McKee, ``Cubesat dynamics and attitude control: Kane’s method, lqr, and
   kalman filtering,'' Master's thesis, Rensselaer Polytechnic Institute, Troy,
   NY, 2018.
 
-\bibitem{NASATLE}
-A.~K. Kim~Dismukes, ``Definition of two-line element set coordinate system.''
-  \url{https://spaceflight.nasa.gov/realdata/sightings/SSapplications/Post/JavaSSOP/SSOP_Help/tle_def.html},
-  2011.
-
 \bibitem{celestrak_TLE_FAQ}
 B.~D.~T. Kelso, ``Frequently asked questions: Two-line element set format.''
   \url{http://celestrak.com/columns/v04n03/}, 1998.
+\newblock [Online; accessed 31-July-2018].
 
 \bibitem{castor2_BSTAR}
 C.~S. Tracking and O.~R. (CASTOR), ``B-star drag term.''
   \url{http://www.castor2.ca/03_Mechanics/03_TLE/B_Star.html}, 2010.
+\newblock [Online; accessed 31-July-2018].
 
 \bibitem{noradSC}
-``Norad tracks santa.''
+NORAD, ``Norad tracks santa.''
   \url{http://www.norad.mil/About-NORAD/NORAD-Tracks-Santa/}.
 \newblock [Online; accessed 23-October-2018].
 
 \bibitem{ssncltrak}
-\url{https://www.celestrak.com/columns/v04n01/}.
+D.~T. Kelso, ``Space surveillance.''
+  \url{https://www.celestrak.com/columns/v04n01/}, 1997.
 \newblock [Online; accessed 23-October-2018].
 
 \bibitem{vallado2012two}
@@ -74,8 +87,9 @@ D.~A. Vallado and P.~J. Cefola, ``Two-line element sets--practice and use,'' in
   {\em 63rd International Astronautical Congress, Naples, Italy}, 2012.
 
 \bibitem{GEODSS}
-U.~S.~A. Force.
-  \url{https://www.afspc.af.mil/About-Us/Fact-Sheets/Article/249016/ground-based-electro-optical-deep-space-surveillance/}.
+U.~S.~A. Force, ``Ground-based electro-optical deep space surveillance.''
+  \url{https://www.afspc.af.mil/About-Us/Fact-Sheets/Article/249016/ground-based-electro-optical-deep-space-surveillance/},
+  2017.
 \newblock [Online; accessed 26-October-2018].
 
 \bibitem{SpaceTrackHome}
@@ -83,7 +97,7 @@ Space-Track, ``Space-track.org.'' \url{https://www.space-track.org/}, 2018.
 \newblock [Online; accessed 23-October-2018].
 
 \bibitem{SpaceTrackLegend}
-S.~Track, ``Space track legend.''
+Space-Track, ``Space track legend.''
   \url{https://www.space-track.org/documentation#/legend}, 2018.
 \newblock [Online; accessed 6-August-2018].
 
