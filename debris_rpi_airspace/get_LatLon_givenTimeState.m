@@ -1,6 +1,6 @@
 %% From code by M. Mahooti
-% Will return the latLon at a given ti
-function get_LatLon_array(Kepler,timeArr)
+% Will return the latLon at a given time
+function [Lat, Lon, Alt] =get_LatLon_givenTime(Kepler,timeArr,dateCurr,norid,state)
 %clear all; close all; 
 %strLoc='C:\Users\Philip\Documents\GitHub\Thesis\mat_files\';
 
@@ -27,49 +27,111 @@ function get_LatLon_array(Kepler,timeArr)
     Omega=Kepler(4);
     omega=Kepler(5);
     M0=Kepler(6);
+    %Y = kep2cart(a,e,i,Omega,omega,M0,'mea');
     %JD=tle_final(i,2);
     %year=(tle_final(ik,2)-mod(tle_final(ik,2),1000))/1000;
     %doy=mod(tle_final(ik,2),1000)
     %[yy mm dd HH MM] = datevec(datenum(year,1,doy))
     %[yy mm dd HH MM] =timeArr;
     %(yy, mm, dd, HH, MM)=timeArr;
-    
+    meetTime = {'2018-10-30-15-00-00'};
+dateCurr = datetime(meetTime,'InputFormat','yyyy-MM-dd-HH-mm-ss');
+    meetTime = {'2018-10-30-15-30-00'};
+dateCurrE = datetime(meetTime,'InputFormat','yyyy-MM-dd-HH-mm-ss');
+
+     yy=year(dateCurr)-2000;
+    mm=month(dateCurr);
+    dd=day(dateCurr);
+    HH=hour(dateCurr)+5;
+    MM=minute(dateCurr);
+    ss=second(dateCurr);
+    %{
     yy=timeArr(1);
     mm=timeArr(2);
     dd=timeArr(3);
     HH=timeArr(4);
     MM=timeArr(5);
+    %}
+    
+    dcyy=year(dateCurrE)-2000;
+    dcmm=month(dateCurrE);
+    dcdd=day(dateCurrE);
+    dcHH=hour(dateCurrE)+5;
+    dcMM=minute(dateCurrE);
+    dcss=second(dateCurrE);
     
 %e = 0.0007;        % eccentricity
 %i = 69;            % inclination [deg]
 %Omega = 0;         % right ascension of ascending node [deg]
 %omega = 0;         % argument of perigee [deg]
 %M0 = 0;            % mean anomaly at t=0 [deg]
-to = juliandate(yy,mm,dd,HH,MM,0);
-tf = juliandate(yy,mm,dd,HH+1,MM,0);
+to = juliandate(yy,mm,dd,HH,MM,ss);
+%tf = juliandate(yy,mm,dd,HH+1,MM,0);
+tf = juliandate(dcyy,dcmm,dcdd,dcHH,dcMM,dcss);
 %tf = juliandate(2018,06,02,12,30,50);
-Y = kep2cart(a,e,i,Omega,omega,M0,'mea');
-step = 30;
+%Y = kep2cart(a,e,i,Omega,omega,M0,'mea');
+Y=state;
+step = 10;
+%whos
+%disp((tf-to)*86400)
+%disp((tf-to)*86400/step)
+
 span = 0:step:(tf-to)*86400;
-option = odeset('RelTol',1e-12,'AbsTol',1e-12,'NormControl','on');
-[~,r] = ode45(@Deriv,span,Y,option);
-n = length(span);
-ref = zeros(n,3);
-lamda = zeros(n,1);
-phi = zeros(n,1);
-height = zeros(n,1);
-for i=1:n
-    to = to+step/86400;
-    U = R_z(gmst(to-2400000.5));
-    ref(i,1:3) = U*r(i,1:3)';
-    [lamda(i),phi(i),height(i)] = Geodetic(ref(i,:));
+if length(span)>1
+    option = odeset('RelTol',1e-12,'AbsTol',1e-12,'NormControl','on');
+    %keyboard
+    try
+   [~,r] = ode45(@Deriv,span,Y,option);
+      n = length(span);
+    ref = zeros(n,3);
+    lamda = zeros(n,1);
+    phi = zeros(n,1);
+    height = zeros(n,1);
+    for i=1:n
+        to = to+step/86400;
+        U = R_z(gmst(to-2400000.5));
+        ref(i,1:3) = U*r(i,1:3)';
+        [lamda(i),phi(i),height(i)] = Geodetic(ref(i,:));
+    end
+    Lat=lamda(end,1);
+    Lon=phi(end,1);
+    Alt=height(end,1);
+
+catch %ME % if tle not found or no date run all
+       % switch ME.identifier
+        %    case 'MATLAB:load:couldNotReadFile'
+                warning('size error ');
+                    lamda=0;
+    phi=0;
+    height=0;
+    Lat=0;
+    Lon=0;
+    Alt=0;
+        %end
 end
+%Descrip
+    %[~,r] = ode45(@Deriv,span,Y,option);
+    %[~,r] = ode45(@Deriv,span,Y);
+ else
+    lamda=0;
+    phi=0;
+    height=0;
+    Lat=0;
+    Lon=0;
+    Alt=0;
+end
+strLoc='C:\Users\Philip\Documents\GitHub\Thesis\debris_rpi_airspace\mat_files_airspace\';
+strTit=[strLoc,'sat_',num2str(norid)];
+%whos
+%keyboard
+%save(strTit,'lamda','phi','height');
+
 %figure
 %geoshow('landareas.shp','FaceColor',[0.5 1 0.5]);
 %title('Satellite Ground Track')
-hold on
+%hold on
 %plot(lamda*(180/pi),phi*(180/pi),'.r')
-plot(lamda*(180/pi),phi*(180/pi))%,'.r')
+%plot(lamda*(180/pi),phi*(180/pi))%,'.r')
 % animation
 %{
 an = animatedline('Marker','*');

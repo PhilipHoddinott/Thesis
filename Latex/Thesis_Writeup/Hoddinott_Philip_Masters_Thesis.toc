@@ -1,0 +1,32 @@
+\contentsline {section}{\numberline {1}Acknowledgments}{iii}
+\contentsline {section}{\numberline {2}Abstract}{iv}
+\contentsline {section}{\numberline {3}Introduction}{1}
+\contentsline {subsection}{\numberline {3.1}Space Debris}{1}
+\contentsline {subsection}{\numberline {3.2}Kessler Syndrome}{2}
+\contentsline {subsection}{\numberline {3.3}CubeSats}{4}
+\contentsline {subsection}{\numberline {3.4}OSCAR}{5}
+\contentsline {subsection}{\numberline {3.5}Orbital Elements}{5}
+\contentsline {section}{\numberline {4}Data Sources and Formats}{8}
+\contentsline {subsection}{\numberline {4.1}The Two Line Element Format}{8}
+\contentsline {section}{\numberline {5}NORAD Space-Track}{11}
+\contentsline {subsection}{\numberline {5.1}Space-Track.org}{11}
+\contentsline {subsection}{\numberline {5.2}Space-Track Query}{12}
+\contentsline {subsection}{\numberline {5.3}Code Queries}{15}
+\contentsline {subsection}{\numberline {5.4}Post Requests}{17}
+\contentsline {section}{\numberline {6}Code Overview}{19}
+\contentsline {subsection}{\numberline {6.1}VarStore.m}{20}
+\contentsline {subsection}{\numberline {6.2}UserPass.m}{20}
+\contentsline {subsection}{\numberline {6.3}MASTER\_TLE.m}{20}
+\contentsline {subsection}{\numberline {6.4}get\_SATCAT.m}{21}
+\contentsline {subsection}{\numberline {6.5}get\_TLE\_from\_ID\_Manager.m}{21}
+\contentsline {subsection}{\numberline {6.6}get\_TLE\_from\_NorID.m}{22}
+\contentsline {section}{\numberline {7}Conclusion}{23}
+\contentsline {subsection}{\numberline {7.1}Results of Code}{23}
+\contentsline {subsection}{\numberline {7.2}Future Work}{24}
+\contentsline {section}{\numberline {8}Appendix}{28}
+\contentsline {subsection}{\numberline {8.1}MATLAB Code}{28}
+\contentsline {subsubsection}{\numberline {8.1.1}Master\_TLE.m}{28}
+\contentsline {subsubsection}{\numberline {8.1.2}get\_SATCAT.m}{30}
+\contentsline {subsubsection}{\numberline {8.1.3}get\_TLE\_from\_ID\_Manager.m}{31}
+\contentsline {subsubsection}{\numberline {8.1.4}get\_TLE\_from\_NorID.m}{32}
+\contentsline {subsection}{\numberline {8.2}TLE Reference Table}{34}

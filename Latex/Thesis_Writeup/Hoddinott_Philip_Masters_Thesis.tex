@@ -96,16 +96,26 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{graphicx}
+%\usepackage{blindtext}
+%\usepackage{titleps,kantlipsum}
+%\let\Sectionmark\sectionmark
+%\def\sectionmark#1{\def\Sectionname{#1}\Sectionmark{#1}}
+%\let\Subsectionmark\subsectionmark
+%\def\subsectionmark#1{\def\Subsectionname{#1}\Subsectionmark{#1}}
+%\let\Subsubsectionmark\subsubsectionmark
+%\def\subsubsectionmark#1{\def\Subsubsectionname{#1}\Subsubsectionmark{#1}}
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{Master's Thesis}
+%\fancyhead[L]{Master's Thesis}
 %\fancyhead[C]{\rightmark}
 
 
-\fancyhead[C]{\nouppercase{\leftmark}}
+%\fancyhead[C]{\nouppercase{\leftmark}}
+\fancyhead[L]{\nouppercase{\leftmark}}
 \fancyhead[R]{Philip Hoddinott}
-
+%\fancyhead[C]{\thesubsection.\ \Subsectionname}
+%\fancyhead[C]{\subsectiontitle}
 \rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
 
 \newcommand{\N}{\mathbb{N}}
@@ -252,7 +262,7 @@
 	% Abstract 
 	% ------------------------------------------------------------
 	
-	%\newpage
+	\newpage
 	\section{Abstract}
 	The purpose of this thesis is to develop software that will acquire information about earth orbiting debris, turn the information into a usable format for someone with basic orbital mechanics experience. The code will take in parameters about the orbital data from the user. Then it checks for existing files and communicates with NORAD servers. The data is downloaded from NORAD and converted from the Two Line Element set format to Keplerian Orbital Elements. From here the data may be sorted according to the user's desire. The code will be able to handle errors that occur during the process.
 	\iffalse
@@ -614,7 +624,8 @@ Name & Symbol & Description               \\ \hline
 	\end{enumerate}\doublespacing
 
 \par 
-	
+	A second example TLE is given in Appendix 2. The format in Appendix 2 is more compact and useful as a quick reference for TLEs. 
+	\iffalse
 \newpage	
 	\singlespacing
 A second example is given below, this time with references to the position of values, for extraction. The line under the dashes is the reference number line. The example TLE is described in table  \ref{tab:TLE_Desc}. This page is a useful compact summary of a TLE.
@@ -685,6 +696,7 @@ A second example is given below, this time with references to the position of va
 	
 
 		\doublespacing
+		\fi
   
 	
 
@@ -735,8 +747,6 @@ The only publicly available Request Controller is basicspacedata. The expandedsp
 		omm            & Orbit Mean-Elements Message (OMM)Keplerian element format that complies with CCSDS Recommended Standard 502.0-B-2 \\ \hline                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 	\end{tabular}
 \end{table}\doublespacing
-
-\textcolor{red}{Question for OGE/Professor Anderson: I am citing these tables word for word, what is the proper way to do that for a table?}
 
 The Orbit Mean-Elements Message was not used in this thesis because it could not handle large groups of requests. However because it directly returns the Keplerian elements, it may be useful if the API functionality is improved in the future. As a result the TLE and satcat classes are the only classes used in this code. The predicate values pairs may be specified by using REST Operators. The REST Operators that can be used are seen in table \ref{tab:restOP}
 
@@ -1048,8 +1058,9 @@ The next step from this code would be to include propagation. The TLEs are for a
 		%-----------------------------------------------------------
 		\newpage
 		\singlespacing
-		\section*{Appendix 1 - MATLAB code}
-		\addcontentsline{toc}{section}{Appendix}
+		\section{Appendix}
+		\subsection{MATLAB Code}
+		%\addcontentsline{toc}{section}{Appendix}
 		
 		\lstset{language=Matlab,%
 			%basicstyle=\color{red},
@@ -1068,15 +1079,88 @@ The next step from this code would be to include propagation. The TLEs are for a
 			%emph=[2]{word1,word2}, emphstyle=[2]{style},    
 		}
 		
-	\subsection{Master\_TLE.m}
-	\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/Master_TLE.m}
-	\subsection{get\_SATCAT.m}
+	\subsubsection{Master\_TLE.m}
+	\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/latex_mat_files/Master_TLE.m}
+	\subsubsection{get\_SATCAT.m}
 		\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/get_SATCAT.m}
-		\subsection{get\_TLE\_from\_ID\_Manager.m}
+		\subsubsection{get\_TLE\_from\_ID\_Manager.m}
 	\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/get_TLE_from_ID_Manager.m}
 	
-	\subsection{get\_TLE\_from\_NorID.m}
-	\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/get_TLE_from_NorID.m}
+	\subsubsection{get\_TLE\_from\_NorID.m}
+	\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/latex_mat_files/get_TLE_from_NorID.m}
+		\newpage
+	\subsection{TLE Reference Table}
+	
+	\singlespacing
+	An example TLE is given below with references to the position of values. The line under the dashes is the reference number line. The example TLE is then described in table  \ref{tab:TLE_Desc}. This page is a useful compact summary of a TLE.
+	\begin{verbatim}
+	ISS (ZARYA)
+	1 25544U 98067A   04236.56031392  .00020137  00000-0  16538-3 0  9993
+	2 25544  51.6335 344.7760 0007976 126.2523 325.9359 15.70406856328906
+	----------------------------------------------------------------------
+	1234567890123456789012345678901234567890123456789012345678901234567890   
+	1         2         3         4         5         6         7
+	
+	\end{verbatim}%
+	%	Table describes the second example TLE. 
+	% Please add the following required packages to your document preamble:
+	% \usepackage{graphicx}
+	% \usepackage[table,xcdraw]{xcolor}
+	% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+	
+	% Please add the following required packages to your document preamble:
+	% \usepackage{graphicx}
+	% \usepackage[table,xcdraw]{xcolor}
+	% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+	\begin{table}[h!]
+		\centering
+		\caption{Description of  example TLE\cite{SpaceTrackTLE}}
+		\label{tab:TLE_Desc}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{|l|l|l|}
+				\hline
+				\multicolumn{3}{|l|}{\textbf{Line 0}}                                                                                                                               \\ \hline
+				\rowcolor[HTML]{333333} 
+				{\color[HTML]{FFFFFF} \textbf{Columns}} & {\color[HTML]{FFFFFF} \textbf{Example}} & {\color[HTML]{FFFFFF} \textbf{Description}}                                     \\ \hline
+				1-24                                    & ISS (ZARYA)                             & The common name for the object based on information from the Satellite Catalog. \\ \hline
+				\multicolumn{3}{|l|}{\textbf{Line 1}}                                                                                                                               \\ \hline
+				\rowcolor[HTML]{333333} 
+				{\color[HTML]{FFFFFF} \textbf{Columns}} & {\color[HTML]{FFFFFF} \textbf{Example}} & {\color[HTML]{FFFFFF} \textbf{Description}}                                     \\ \hline
+				1                                       & 1                                       & Line Number                                                                     \\ \hline
+				3-7                                     & 25544                                   & Satellite Catalog Number                                                        \\ \hline
+				8                                       & U                                       & Elset Classification                                                            \\ \hline
+				10-11                                   & 98                                      & International Designator (Last two digits of launch year)                       \\ \hline
+				12-14                                   & 067                                     & International Designator (Launch number of the year)                            \\ \hline
+				15-17                                   & A                                       & International Designator (Piece of the launch)                                  \\ \hline
+				19-32                                   & 04                                      & Epoch Year (last two digits of year)                                            \\ \hline
+				21-32                                   & 236.56031392                            & Epoch (day of the year and fractional portion of the day)                       \\ \hline
+				34-43                                   & .00020137                               & 1st Derivative of the Mean Motion with respect to Time                          \\ \hline
+				45-52                                   & 00000-0                                 & 2nd Derivative of the Mean Motion with respect to Time (decimal point assumed)  \\ \hline
+				54-61                                   & 16538-3                                 & B* Drag Term                                                                    \\ \hline
+				63                                      & 0                                       & Element Set Type                                                                \\ \hline
+				65-68                                   & 999                                     & Element Number                                                                  \\ \hline
+				69                                      & 3                                       & Checksum                                                                        \\ \hline
+				\multicolumn{3}{|l|}{\textbf{Line 2}}                                                                                                                               \\ \hline
+				\rowcolor[HTML]{333333} 
+				{\color[HTML]{FFFFFF} \textbf{Columns}} & {\color[HTML]{FFFFFF} \textbf{Example}} & {\color[HTML]{FFFFFF} \textbf{Description}}                                     \\ \hline
+				1                                       & 2                                       & Line Number                                                                     \\ \hline
+				3-7                                     & 25544                                   & Satellite Catalog Number                                                        \\ \hline
+				9-16                                    & 51.6335                                 & Orbit Inclination (degrees)                                                     \\ \hline
+				18-25                                   & 344.7760                                & Right Ascension of Ascending Node (degrees)                                     \\ \hline
+				27-33                                   & 0007976                                 & Eccentricity (decimal point assumed)                                            \\ \hline
+				35-42                                   & 126.2523                                & Argument of Perigee (degrees)                                                   \\ \hline
+				44-51                                   & 325.9359                                & Mean Anomaly (degrees)                                                          \\ \hline
+				53-63                                   & 15.70406856                             & Mean Motion (revolutions/day)                                                   \\ \hline
+				64-68                                   & 32890                                   & Revolution Number at Epoch                                                      \\ \hline
+				69                                      & 6                                       & Checksum                                                                        \\ \hline
+			\end{tabular}%
+		}
+	\end{table}
+	
+	
+	
+	\doublespacing
+
 	%\lstinputlisting{get_SATCAT.m}
 	
 	%Thanks for Paul McKee who started this template. It seems to have good matlab code viwing
